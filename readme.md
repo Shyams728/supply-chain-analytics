@@ -94,6 +94,7 @@ Based on 5+ years of hands-on experience at **Larsen & Toubro** in construction 
 - ✅ **Seasonal Demand Analysis**: Seasonality patterns and trends
 - ✅ **Correlation Analysis**: Metric interdependency heatmaps
 - ✅ **Anomaly Detection**: Statistical outlier identification
+- ✅ **Trend Analysis**: Statistical trend analysis and change detection
 - ✅ **What-If Scenarios**: Impact analysis for demand/lead time changes
 
 ### **5. Interactive Dashboards**
@@ -124,6 +125,8 @@ supply-chain-analytics/
 │
 ├── src/
 │   ├── data_generator.py                # Synthetic data generation
+│   ├── init_db.py                       # Database initialization
+│   ├── load_data.py                     # Data loading script
 │   ├── maintenance_analytics.py         # Manufacturing module
 │   ├── supply_chain_analytics.py        # Inventory module
 │   ├── logistics_analytics.py           # Logistics module
@@ -196,7 +199,15 @@ python src/data_generator.py
 
 This creates ~500,000 records across 8 datasets simulating 3 years of operations.
 
-### **Step 5: (Optional) Load to Database**
+### **Step 5: Database Setup (SQLite)**
+Initialize the database and load the generated data:
+```bash
+python src/init_db.py
+python src/load_data.py
+```
+
+### **Step 6: (Optional) MySQL Deployment**
+If you prefer MySQL over SQLite:
 ```bash
 mysql -u root -p < sql/schema.sql
 # Import CSV files to MySQL
@@ -370,7 +381,7 @@ Cost per KM:           ₹185
 ### **Phase 2: Predictive Analytics**
 - [ ] Time series forecasting for spare parts demand (ARIMA, Prophet, LSTM)
 - [ ] Machine learning models for equipment failure prediction
-- [ ] Anomaly detection for unusual consumption patterns
+- [x] Anomaly detection for unusual consumption patterns
 
 ### **Phase 3: Advanced Optimization**
 - [ ] Multi-objective optimization for inventory levels
