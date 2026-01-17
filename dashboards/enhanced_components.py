@@ -9,6 +9,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 import numpy as np
+import textwrap
 
 # Color Palette
 COLORS = {
@@ -23,6 +24,7 @@ COLORS = {
     'gradient_end': '#3a7bd5'
 }
 
+
 def benchmark_card(title, value, benchmark_status, icon="📊", trend=None):
     """Display a KPI card with benchmark comparison"""
     status_color = benchmark_status.get('color', '#888')
@@ -35,23 +37,20 @@ def benchmark_card(title, value, benchmark_status, icon="📊", trend=None):
         trend_arrow = "↑" if trend > 0 else "↓"
         trend_html = f'<span style="color: {trend_color}; font-size: 0.85rem;">{trend_arrow} {abs(trend):.1f}%</span>'
     
-    st.markdown(f"""
-        <div style="background: linear-gradient(135deg, rgba(0,210,255,0.1) 0%, rgba(58,123,213,0.1) 100%);
-                    backdrop-filter: blur(10px); border-radius: 15px; padding: 1.2rem;
-                    border: 1px solid rgba(255,255,255,0.15); margin-bottom: 0.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="color: #a0a0c0; font-size: 0.85rem;">{title}</span>
-                <span style="font-size: 1.2rem;">{icon}</span>
-            </div>
-            <div style="font-size: 1.7rem; font-weight: 700; margin: 0.4rem 0; color: white;">{value}</div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span style="background: {status_color}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">
-                    {status_icon} {status_text}
-                </span>
-                {trend_html}
-            </div>
+    html_content = f"""
+    <div style="background: linear-gradient(135deg, rgba(0,210,255,0.1) 0%, rgba(58,123,213,0.1) 100%); backdrop-filter: blur(10px); border-radius: 15px; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.15); margin-bottom: 0.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #a0a0c0; font-size: 0.85rem;">{title}</span>
+            <span style="font-size: 1.2rem;">{icon}</span>
         </div>
-    """, unsafe_allow_html=True)
+        <div style="font-size: 1.7rem; font-weight: 700; margin: 0.4rem 0; color: white;">{value}</div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="background: {status_color}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem;">{status_icon} {status_text}</span>
+            {trend_html}
+        </div>
+    </div>
+    """
+    st.markdown(html_content, unsafe_allow_html=True)
 
 
 def create_gauge_chart(value, title, target=None, max_val=100):
@@ -235,13 +234,13 @@ def insight_box(text, insight_type="info", show_icon=True):
     icon = style["icon"] if show_icon else ""
     
     st.markdown(f"""
-        <div style="background: linear-gradient(135deg, {style['bg']} 0%, rgba(45,45,68,0.3) 100%);
-                    border-left: 4px solid {style['color']}; padding: 12px 16px; 
-                    border-radius: 8px; margin: 10px 0;">
-            <span style="font-size: 1.1rem;">{icon}</span>
-            <span style="color: #e0e0e0; font-size: 0.9rem; margin-left: 8px;">{text}</span>
-        </div>
-    """, unsafe_allow_html=True)
+<div style="background: linear-gradient(135deg, {style['bg']} 0%, rgba(45,45,68,0.3) 100%);
+            border-left: 4px solid {style['color']}; padding: 12px 16px; 
+            border-radius: 8px; margin: 10px 0;">
+    <span style="font-size: 1.1rem;">{icon}</span>
+    <span style="color: #e0e0e0; font-size: 0.9rem; margin-left: 8px;">{text}</span>
+</div>
+""", unsafe_allow_html=True)
 
 
 def metric_delta_card(title, current, previous, format_str="{:.1f}", suffix="", icon="📊"):
@@ -254,20 +253,20 @@ def metric_delta_card(title, current, previous, format_str="{:.1f}", suffix="", 
     delta_symbol = "▲" if is_positive else "▼"
     
     st.markdown(f"""
-        <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem;
-                    border: 1px solid rgba(255,255,255,0.1);">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-                <span style="font-size: 1.3rem;">{icon}</span>
-                <span style="color: #a0a0c0; font-size: 0.85rem;">{title}</span>
-            </div>
-            <div style="font-size: 1.8rem; font-weight: 700; color: white;">
-                {format_str.format(current)}{suffix}
-            </div>
-            <div style="color: {delta_color}; font-size: 0.85rem; margin-top: 0.3rem;">
-                {delta_symbol} {abs(delta_pct):.1f}% vs previous
-            </div>
-        </div>
-    """, unsafe_allow_html=True)
+<div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);">
+    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+        <span style="font-size: 1.3rem;">{icon}</span>
+        <span style="color: #a0a0c0; font-size: 0.85rem;">{title}</span>
+    </div>
+    <div style="font-size: 1.8rem; font-weight: 700; color: white;">
+        {format_str.format(current)}{suffix}
+    </div>
+    <div style="color: {delta_color}; font-size: 0.85rem; margin-top: 0.3rem;">
+        {delta_symbol} {abs(delta_pct):.1f}% vs previous
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
 def create_sparkline(data, title="", height=60, color=None):
@@ -310,12 +309,12 @@ def section_header(title, subtitle=None, icon="📊"):
     """Display a styled section header"""
     subtitle_html = f'<p style="color: #888; font-size: 0.9rem; margin: 0;">{subtitle}</p>' if subtitle else ""
     st.markdown(f"""
-        <div style="margin: 1.5rem 0 1rem 0;">
-            <h2 style="background: linear-gradient(to right, #00d2ff, #3a7bd5);
-                       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-                       font-weight: 700; font-size: 1.8rem; margin: 0;">
-                {icon} {title}
-            </h2>
-            {subtitle_html}
-        </div>
-    """, unsafe_allow_html=True)
+<div style="margin: 1.5rem 0 1rem 0;">
+    <h2 style="background: linear-gradient(to right, #00d2ff, #3a7bd5);
+               -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+               font-weight: 700; font-size: 1.8rem; margin: 0;">
+        {icon} {title}
+    </h2>
+    {subtitle_html}
+</div>
+""", unsafe_allow_html=True)

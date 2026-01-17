@@ -94,7 +94,7 @@ st.markdown("""
 
 # Sidebar
 with st.sidebar:
-    st.image("https://via.placeholder.com/150x50?text=Supply+Chain+Analytics", use_column_width=True)
+    # st.image("https://via.placeholder.com/150x50?text=Supply+Chain+Analytics", use_column_width=True)
     st.markdown("---")
     
     module = st.selectbox(
@@ -252,13 +252,13 @@ if "Overview" in module:
         benchmark_card("Inventory Health", f"{inv_health['overall_health_score']:.0f}/100",
                       {'status': inv_health['status'], 
                        'color': '#00d2ff' if inv_health['overall_health_score'] >= 70 else '#f0ad4e',
-                       'icon': '🏥'}, "🏥")
+                       'icon': '🏥'}, trend= -2.1)
     with col4:
         avg_oee = oee_data['oee_score'].mean()
         benchmark_card("Avg OEE", f"{avg_oee:.1f}%",
                       {'status': 'World-Class' if avg_oee >= 85 else 'Good' if avg_oee >= 65 else 'Needs Work',
                        'color': '#00d2ff' if avg_oee >= 85 else '#5cb85c' if avg_oee >= 65 else '#f0ad4e',
-                       'icon': '🎯'}, "⚙️", trend=2.3)
+                       'icon': '🎯'}, "⚙️", trend=+2.3)
 
     st.markdown("<br>", unsafe_allow_html=True)
     
@@ -749,7 +749,7 @@ elif "Advanced KPIs" in module:
         benchmark_card("Inventory Health", f"{inv_health['overall_health_score']}/100",
                       {'status': inv_health['status'], 
                        'color': '#00d2ff' if inv_health['overall_health_score'] >= 70 else '#f0ad4e', 
-                       'icon': '🏥'}, "🏥")
+                       'icon': '🏥'}, trend= -2.1)
     
     st.markdown("<br>", unsafe_allow_html=True)
     
