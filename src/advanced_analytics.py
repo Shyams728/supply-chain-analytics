@@ -56,7 +56,7 @@ class AdvancedSupplyChainMetrics:
         """
         if 'quantity_requested' not in self.inventory.columns:
             # Simulate based on available data
-            total_requested = self.inventory[self.inventory['transaction_type'] == 'consumption']['quantity'].abs().sum()
+            total_requested = self.inventory[self.inventory['transaction_type'].isin(['consumption', 'Issue'])]['quantity'].abs().sum()
             # Assume stock-outs are transactions where current stock went to 0
             fulfilled = total_requested * 0.92  # Estimate 92% fill rate
             return {
@@ -119,7 +119,7 @@ class AdvancedSupplyChainMetrics:
         Lower is generally better (less capital tied up)
         """
         # Calculate average daily consumption per part
-        consumption = self.inventory[self.inventory['transaction_type'] == 'consumption'].copy()
+        consumption = self.inventory[self.inventory['transaction_type'].isin(['consumption', 'Issue'])].copy()
         consumption['quantity'] = consumption['quantity'].abs()
         
         # Get date range
@@ -295,7 +295,7 @@ class AdvancedSupplyChainMetrics:
         }
 
         # 1. Filter for consumption data
-        consumption = self.inventory[self.inventory['transaction_type'] == 'consumption'].copy()
+        consumption = self.inventory[self.inventory['transaction_type'].isin(['consumption', 'Issue'])].copy()
         if consumption.empty:
             return empty_result
 
@@ -311,6 +311,10 @@ class AdvancedSupplyChainMetrics:
         # 4. Rigorous check for empty or invalid results after grouping
         if monthly_demand.empty or monthly_demand['quantity'].isnull().all() or (monthly_demand['quantity'] == 0).all():
             return empty_result
+
+        # Extra safety check for quantity being empty (though covered by .empty)
+        if len(monthly_demand['quantity']) == 0:
+             return empty_result
 
         # 5. Calculate average and handle potential division by zero
         avg_monthly = monthly_demand['quantity'].mean()
@@ -497,7 +501,7 @@ class AdvancedSupplyChainMetrics:
         metrics_df = self.spare_parts[['part_id', 'part_name', 'unit_cost', 'lead_time_days']].copy()
         
         # Add consumption data
-        consumption = self.inventory[self.inventory['transaction_type'] == 'consumption'].copy()
+        consumption = self.inventory[self.inventory['transaction_type'].isin(['consumption', 'Issue'])].copy()
         consumption['quantity'] = consumption['quantity'].abs()
         total_consumption = consumption.groupby('part_id')['quantity'].sum()
         metrics_df['total_consumption'] = metrics_df['part_id'].map(total_consumption).fillna(0)
@@ -519,7 +523,7 @@ class AdvancedSupplyChainMetrics:
         anomalies = {}
         
         # 1. Consumption anomalies (Z-score > 2)
-        consumption = self.inventory[self.inventory['transaction_type'] == 'consumption'].copy()
+        consumption = self.inventory[self.inventory['transaction_type'].isin(['consumption', 'Issue'])].copy()
         consumption['quantity'] = consumption['quantity'].abs()
         monthly_consumption = consumption.groupby(consumption['transaction_date'].dt.to_period('M'))['quantity'].sum()
         

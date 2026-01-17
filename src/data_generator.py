@@ -179,7 +179,7 @@ def generate_inventory_transactions(spare_parts_df):
             
             # 70% issues, 30% receipts
             if random.random() < 0.7:
-                transaction_type = 'Issue'
+                transaction_type = 'consumption'
                 quantity = random.randint(1, 5)
                 current_stock[part_id] = max(0, current_stock[part_id] - quantity)
             else:
