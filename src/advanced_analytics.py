@@ -288,6 +288,18 @@ class AdvancedSupplyChainMetrics:
         
         # Monthly demand
         monthly_demand = consumption.groupby(['month', 'month_name'])['quantity'].sum().reset_index()
+        if monthly_demand.empty:
+            return {
+                'monthly_data': pd.DataFrame(columns=['month', 'month_name', 'quantity', 'seasonality_index']),
+                'average_monthly_demand': 0,
+                'peak_month': 'N/A',
+                'peak_demand': 0,
+                'low_month': 'N/A',
+                'low_demand': 0,
+                'demand_variability_cv': 0,
+                'seasonality_strength': 'No Data'
+            }
+            
         avg_monthly = monthly_demand['quantity'].mean()
         
         # Seasonality index
