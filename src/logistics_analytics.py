@@ -6,7 +6,7 @@ Route Optimization, Delivery Performance, Cost Analysis
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from pulp import *
+# from pulp import *
 from datetime import datetime, timedelta
 
 class LogisticsAnalytics:

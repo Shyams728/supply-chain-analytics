@@ -199,9 +199,11 @@ class AdvancedSupplyChainMetrics:
         - Spend Concentration
         """
         suppliers = self.suppliers.copy()
+        # Clean column names to avoid whitespace issues
+        suppliers.columns = suppliers.columns.str.strip()
+        
         po = self.purchase_orders.copy()
         
-        # Handle column naming differences
         # Handle column naming differences
         if 'reliability_score' not in suppliers.columns:
             if 'rating' in suppliers.columns:
@@ -216,7 +218,7 @@ class AdvancedSupplyChainMetrics:
         # Calculate metrics per supplier
         supplier_metrics = po_merged.groupby('supplier_id').agg({
             'po_id': 'count',
-            'total_amount': 'sum',
+            'total_cost': 'sum',
             'supplier_name': 'first',
             'reliability_score': 'first'
         }).reset_index()
