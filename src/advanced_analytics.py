@@ -202,8 +202,12 @@ class AdvancedSupplyChainMetrics:
         po = self.purchase_orders.copy()
         
         # Handle column naming differences
-        if 'reliability_score' not in suppliers.columns and 'rating' in suppliers.columns:
-            suppliers['reliability_score'] = suppliers['rating'] * 20  # Convert 1-5 rating to 0-100 score
+        # Handle column naming differences
+        if 'reliability_score' not in suppliers.columns:
+            if 'rating' in suppliers.columns:
+                suppliers['reliability_score'] = suppliers['rating'] * 20  # Convert 1-5 rating to 0-100 score
+            else:
+                suppliers['reliability_score'] = 80.0 # Default value if missing
         
         # Merge for analysis
         po_merged = po.merge(suppliers[['supplier_id', 'supplier_name', 'reliability_score']], 

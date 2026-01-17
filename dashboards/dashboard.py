@@ -137,7 +137,7 @@ st.markdown("**Manufacturing → Supply Chain → Logistics → Analytics**")
 def initialize_analytics():
     """Initialize all analytics modules"""
     try:
-        # Load raw data
+        # Load raw data (Cache invalidated)
         eq = pd.read_csv('data/equipment.csv')
         dt = pd.read_csv('data/equipment_downtime.csv')
         sp = pd.read_csv('data/spare_parts.csv')
