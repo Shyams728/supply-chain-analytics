@@ -278,40 +278,73 @@ class AdvancedSupplyChainMetrics:
     
     def seasonal_demand_analysis(self) -> Dict:
         """
-        Analyze seasonal patterns in demand
-        Returns monthly demand trends and seasonality index
+        Analyze seasonal patterns in demand.
+        Returns monthly demand trends and seasonality index. This function is designed to be
+        robust against empty or invalid data.
         """
+        # Define a default structure for the return value in case of no data
+        empty_result = {
+            'monthly_data': pd.DataFrame(columns=['month', 'month_name', 'quantity', 'seasonality_index']),
+            'average_monthly_demand': 0,
+            'peak_month': 'N/A',
+            'peak_demand': 0,
+            'low_month': 'N/A',
+            'low_demand': 0,
+            'demand_variability_cv': 0,
+            'seasonality_strength': 'No Data'
+        }
+
+        # 1. Filter for consumption data
         consumption = self.inventory[self.inventory['transaction_type'] == 'consumption'].copy()
+        if consumption.empty:
+            return empty_result
+
+        # 2. Prepare data for grouping
         consumption['quantity'] = consumption['quantity'].abs()
+        consumption.dropna(subset=['transaction_date', 'quantity'], inplace=True)
         consumption['month'] = consumption['transaction_date'].dt.month
         consumption['month_name'] = consumption['transaction_date'].dt.month_name()
-        
-        # Monthly demand
+
+        # 3. Perform the grouping
         monthly_demand = consumption.groupby(['month', 'month_name'])['quantity'].sum().reset_index()
-        if monthly_demand.empty:
-            return {
-                'monthly_data': pd.DataFrame(columns=['month', 'month_name', 'quantity', 'seasonality_index']),
-                'average_monthly_demand': 0,
-                'peak_month': 'N/A',
-                'peak_demand': 0,
-                'low_month': 'N/A',
-                'low_demand': 0,
-                'demand_variability_cv': 0,
-                'seasonality_strength': 'No Data'
-            }
-            
+
+        # 4. Rigorous check for empty or invalid results after grouping
+        if monthly_demand.empty or monthly_demand['quantity'].isnull().all() or (monthly_demand['quantity'] == 0).all():
+            return empty_result
+
+        # 5. Calculate average and handle potential division by zero
         avg_monthly = monthly_demand['quantity'].mean()
-        
-        # Seasonality index
+        if pd.isna(avg_monthly) or avg_monthly == 0:
+            return empty_result # Cannot calculate seasonality if average is zero or NaN
+
+        # 6. Calculate seasonality index
         monthly_demand['seasonality_index'] = (monthly_demand['quantity'] / avg_monthly * 100).round(1)
-        
-        # Identify peak and low seasons
-        peak_month = monthly_demand.loc[monthly_demand['quantity'].idxmax()]
-        low_month = monthly_demand.loc[monthly_demand['quantity'].idxmin()]
-        
-        # Calculate demand variability
-        demand_cv = monthly_demand['quantity'].std() / monthly_demand['quantity'].mean() * 100
-        
+
+        # 7. Identify peak and low seasons safely
+        try:
+            peak_month_idx = monthly_demand['quantity'].idxmax()
+            low_month_idx = monthly_demand['quantity'].idxmin()
+            peak_month = monthly_demand.loc[peak_month_idx]
+            low_month = monthly_demand.loc[low_month_idx]
+        except ValueError:
+            # This is a fallback, though the earlier checks should prevent this.
+            return empty_result
+
+        # 8. Calculate demand variability safely
+        demand_std = monthly_demand['quantity'].std()
+        if pd.isna(demand_std) or avg_monthly == 0:
+            demand_cv = 0
+        else:
+            demand_cv = (demand_std / avg_monthly) * 100
+
+        # 9. Determine seasonality strength
+        if demand_cv > 30:
+            strength = 'High'
+        elif demand_cv > 15:
+            strength = 'Medium'
+        else:
+            strength = 'Low'
+
         return {
             'monthly_data': monthly_demand,
             'average_monthly_demand': round(avg_monthly, 0),
@@ -320,7 +353,7 @@ class AdvancedSupplyChainMetrics:
             'low_month': low_month['month_name'],
             'low_demand': low_month['quantity'],
             'demand_variability_cv': round(demand_cv, 1),
-            'seasonality_strength': 'High' if demand_cv > 30 else 'Medium' if demand_cv > 15 else 'Low'
+            'seasonality_strength': strength
         }
     
     def lead_time_analysis(self) -> Dict:
