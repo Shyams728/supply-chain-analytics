@@ -317,6 +317,50 @@ class SupplyChainAnalytics:
         turnover['movement_category'] = turnover['turnover_ratio'].apply(categorize_turnover)
         
         return turnover
+
+    def calculate_eoq_rop(self, service_level=0.95):
+        """
+        Calculate Economic Order Quantity and Reorder Point
+        """
+        from scipy.stats import norm
+        
+        # Costs (Assumptions if not in data)
+        ordering_cost = 500  # Fixed cost per order
+        holding_cost_rate = 0.20  # 20% of unit cost per year
+        
+        # Demand statistics
+        _, demand_stats = self.demand_pattern_analysis()
+        
+        # Supplier stats for lead time
+        sup_metrics = self.supplier_performance_analysis()
+        avg_lead_time = sup_metrics['avg_lead_time'].mean()
+        std_lead_time = sup_metrics['avg_lead_time'].std()
+        
+        eoq_data = pd.merge(demand_stats, self.spare_parts[['part_id', 'unit_cost']], on='part_id')
+        
+        # 1. EOQ Calculation
+        # EOQ = sqrt( (2 * Annual Demand * Ordering Cost) / (Unit Cost * Holding Rate) )
+        eoq_data['annual_demand'] = eoq_data['avg_monthly_demand'] * 12
+        eoq_data['eoq'] = np.sqrt(
+            (2 * eoq_data['annual_demand'] * ordering_cost) / 
+            (eoq_data['unit_cost'] * holding_cost_rate)
+        ).round(0)
+        
+        # 2. Safety Stock & ROP
+        # ROP = (Avg Demand * Avg Lead Time) + Z * sigma_demand_during_lt
+        z_score = norm.ppf(service_level)
+        
+        # Lead time in months for calculation
+        lt_months = avg_lead_time / 30
+        
+        # Sigma Demand during Lead Time = sqrt( (LT * sigma_demand^2) + (avg_demand^2 * sigma_lt^2) )
+        # Using simplified: sigma_d * sqrt(LT)
+        eoq_data['safety_stock'] = (z_score * eoq_data['demand_std'] * np.sqrt(lt_months)).round(0)
+        eoq_data['reorder_point_opt'] = (
+            (eoq_data['avg_monthly_demand'] * lt_months) + eoq_data['safety_stock']
+        ).round(0)
+        
+        return eoq_data[['part_id', 'annual_demand', 'eoq', 'safety_stock', 'reorder_point_opt']]
     
     def generate_procurement_recommendations(self):
         """

@@ -222,7 +222,7 @@ def generate_purchase_orders(spare_parts_df, suppliers_df):
                 supplier = suppliers_df[suppliers_df['supplier_id'] == part['supplier_id']].iloc[0]
                 
                 quantity = random.randint(10, 100)
-                expected_delivery = current_date + timedelta(days=part['lead_time_days'])
+                expected_delivery = current_date + timedelta(days=int(part['lead_time_days']))
                 
                 # 80% delivered on time, 20% delayed
                 if random.random() < 0.8:
@@ -350,28 +350,28 @@ def generate_all_data():
     
     # Generate all datasets
     equipment_df = generate_equipment_data()
-    print(f"✓ Equipment Master: {len(equipment_df)} records")
+    print(f"v Equipment Master: {len(equipment_df)} records")
     
     downtime_df = generate_downtime_data(equipment_df)
-    print(f"✓ Equipment Downtime: {len(downtime_df)} records")
+    print(f"v Equipment Downtime: {len(downtime_df)} records")
     
     spare_parts_df = generate_spare_parts_data()
-    print(f"✓ Spare Parts Master: {len(spare_parts_df)} records")
+    print(f"v Spare Parts Master: {len(spare_parts_df)} records")
     
     suppliers_df = generate_suppliers_data()
-    print(f"✓ Suppliers: {len(suppliers_df)} records")
+    print(f"v Suppliers: {len(suppliers_df)} records")
     
     inventory_df = generate_inventory_transactions(spare_parts_df)
-    print(f"✓ Inventory Transactions: {len(inventory_df)} records")
+    print(f"v Inventory Transactions: {len(inventory_df)} records")
     
     po_df = generate_purchase_orders(spare_parts_df, suppliers_df)
-    print(f"✓ Purchase Orders: {len(po_df)} records")
+    print(f"v Purchase Orders: {len(po_df)} records")
     
     warehouses_df = generate_warehouses_data()
-    print(f"✓ Warehouses: {len(warehouses_df)} records")
+    print(f"v Warehouses: {len(warehouses_df)} records")
     
     deliveries_df = generate_delivery_orders(spare_parts_df, warehouses_df)
-    print(f"✓ Delivery Orders: {len(deliveries_df)} records")
+    print(f"v Delivery Orders: {len(deliveries_df)} records")
     
     # Save to CSV
     print("\nSaving data to CSV files...")
@@ -384,7 +384,7 @@ def generate_all_data():
     warehouses_df.to_csv('data/warehouses.csv', index=False)
     deliveries_df.to_csv('data/delivery_orders.csv', index=False)
     
-    print("\n✓ All data generated successfully!")
+    print("\nv All data generated successfully!")
     print("=" * 50)
     
     return {

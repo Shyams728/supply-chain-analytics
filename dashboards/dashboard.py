@@ -20,11 +20,41 @@ import sys
 
 # Page configuration
 st.set_page_config(
-    page_title="Supply Chain Analytics Platform",
-    page_icon="📊",
+    page_title="Sophisticated Supply Chain Platform",
+    page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Inject Custom CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+try:
+    local_css("dashboards/style.css")
+except FileNotFoundError:
+    pass # Fallback if CSS not found during initial setup
+
+# Add src to path to import local modules
+import os
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+
+from maintenance_analytics import MaintenanceAnalytics
+from supply_chain_analytics import SupplyChainAnalytics
+from logistics_analytics import LogisticsAnalytics
+
+# Color palette matching style.css for use in Plotly/Python
+COLORS = {
+    '--primary-color': '#00d2ff',
+    '--secondary-color': '#3a7bd5',
+    '--glass-bg': 'rgba(255, 255, 255, 0.1)',
+    '--glass-border': 'rgba(255, 255, 255, 0.2)',
+}
+
+def var(name):
+    """Helper to simulate CSS variables in Python/Plotly"""
+    return COLORS.get(name, '#000000')
 
 # Custom CSS
 st.markdown("""
@@ -92,489 +122,329 @@ with st.sidebar:
 st.markdown('<p class="main-header">🏭 Supply Chain Analytics Platform</p>', unsafe_allow_html=True)
 st.markdown("**Manufacturing → Supply Chain → Logistics → Analytics**")
 
-# Load data (cached)
-@st.cache_data
-def load_data():
-    """Load all datasets"""
+@st.cache_resource
+def initialize_analytics():
+    """Initialize all analytics modules"""
     try:
-        data = {
-            'equipment': pd.read_csv('data/equipment.csv'),
-            'downtime': pd.read_csv('data/equipment_downtime.csv'),
-            'spare_parts': pd.read_csv('data/spare_parts.csv'),
-            'inventory': pd.read_csv('data/inventory_transactions.csv'),
-            'suppliers': pd.read_csv('data/suppliers.csv'),
-            'purchase_orders': pd.read_csv('data/purchase_orders.csv'),
-            'warehouses': pd.read_csv('data/warehouses.csv'),
-            'deliveries': pd.read_csv('data/delivery_orders.csv')
+        # Load raw data
+        eq = pd.read_csv('data/equipment.csv')
+        dt = pd.read_csv('data/equipment_downtime.csv')
+        sp = pd.read_csv('data/spare_parts.csv')
+        inv = pd.read_csv('data/inventory_transactions.csv')
+        sup = pd.read_csv('data/suppliers.csv')
+        po = pd.read_csv('data/purchase_orders.csv')
+        wh = pd.read_csv('data/warehouses.csv')
+        dl = pd.read_csv('data/delivery_orders.csv')
+        
+        # Initialize modules
+        maint = MaintenanceAnalytics(eq, dt)
+        sc = SupplyChainAnalytics(sp, inv, po, sup)
+        log = LogisticsAnalytics(dl, wh)
+        
+        return {
+            'maintenance': maint,
+            'supply_chain': sc,
+            'logistics': log,
+            'raw_data': {
+                'equipment': eq, 'downtime': dt, 'spare_parts': sp,
+                'inventory': inv, 'suppliers': sup, 'purchase_orders': po,
+                'warehouses': wh, 'deliveries': dl
+            }
         }
-        return data
     except Exception as e:
-        st.error(f"Error loading data: {str(e)}")
+        st.error(f"Error initializing analytics: {str(e)}")
         return None
 
-data = load_data()
+analytics = initialize_analytics()
 
-if data is None:
-    st.error("⚠️ Failed to load data. Please ensure all data files are in the 'data' folder.")
+if analytics is None:
+    st.error("⚠️ Failed to load data or initialize modules.")
     st.stop()
+
+# Helper for glass cards
+def glass_card(title, value, delta=None, icon="📈"):
+    delta_html = f'<span style="color: {"#00ff00" if "+" in str(delta) else "#ff4b4b"}; font-size: 0.8rem;">{delta}</span>' if delta else ""
+    st.markdown(f"""
+        <div class="glass-card metric-container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.9rem; color: #a0a0c0;">{title}</span>
+                <span>{icon}</span>
+            </div>
+            <div style="font-size: 1.8rem; font-weight: 700; margin: 0.5rem 0;">{value}</div>
+            {delta_html}
+        </div>
+    """, unsafe_allow_html=True)
 
 # ===========================================
 # OVERVIEW DASHBOARD
 # ===========================================
 
-if module == "🏠 Overview Dashboard":
-    st.markdown('<p class="section-header">Executive Overview</p>', unsafe_allow_html=True)
+if "Overview" in module:
+    st.markdown('<div class="premium-header">Executive Insights</div>', unsafe_allow_html=True)
     
-    # Key Metrics Row
+    # KPIs Row
     col1, col2, col3, col4 = st.columns(4)
     
+    # Calculate global metrics from modules
+    maint_metrics = analytics['maintenance'].calculate_reliability_metrics()
+    avg_avail = maint_metrics['availability_pct'].mean()
+    total_downtime = analytics['maintenance'].merged_data['downtime_hours'].sum()
+    
     with col1:
-        total_equipment = len(data['equipment'])
-        st.metric("Total Equipment", f"{total_equipment}", delta="Active")
-    
+        glass_card("Asset Availability", f"{avg_avail:.1f}%", "+2.4%", "🛠️")
     with col2:
-        total_downtime = data['downtime']['downtime_hours'].sum()
-        st.metric("Total Downtime", f"{total_downtime:,.0f} hrs", delta="-12%", delta_color="inverse")
-    
+        glass_card("Operational Downtime", f"{total_downtime:,.0f}h", "-15%", "📉")
     with col3:
-        inventory_value = (data['spare_parts']['unit_cost'].sum())
-        st.metric("Inventory Value", f"₹{inventory_value:,.0f}M", delta="+5%")
-    
+        _, sc_summary = analytics['supply_chain'].abc_analysis()
+        inv_val = sc_summary['total_value'].sum() / 1e6
+        glass_card("Inventory Value", f"₹{inv_val:.1f}M", "+5.2%", "📦")
     with col4:
-        deliveries_completed = len(data['deliveries'][data['deliveries']['delivery_status'] == 'Delivered'])
-        st.metric("Deliveries Completed", f"{deliveries_completed:,}", delta="+8%")
+        log_kpis, _, _ = analytics['logistics'].delivery_performance_analysis()
+        glass_card("On-Time Delivery", f"{log_kpis['on_time_percentage']}%", "+1.8%", "🚚")
+
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown("---")
-    
-    # Visualizations Row 1
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        # Equipment by Type
-        equip_by_type = data['equipment']['equipment_type'].value_counts().reset_index()
-        equip_by_type.columns = ['Equipment Type', 'Count']
-        
-        fig = px.bar(
-            equip_by_type,
-            x='Equipment Type',
-            y='Count',
-            title='Equipment Distribution by Type',
-            color='Count',
-            color_continuous_scale='Blues'
-        )
-        st.plotly_chart(fig, use_container_width=True)
-    
-    with col2:
-        # Monthly Downtime Trend
-        data['downtime']['failure_date'] = pd.to_datetime(data['downtime']['failure_date'])
-        monthly_downtime = data['downtime'].groupby(
-            data['downtime']['failure_date'].dt.to_period('M')
-        )['downtime_hours'].sum().reset_index()
-        monthly_downtime['failure_date'] = monthly_downtime['failure_date'].astype(str)
-        
-        fig = px.line(
-            monthly_downtime,
-            x='failure_date',
-            y='downtime_hours',
-            title='Monthly Downtime Trend',
-            markers=True
-        )
-        fig.update_xaxes(title='Month')
-        fig.update_yaxes(title='Downtime Hours')
-        st.plotly_chart(fig, use_container_width=True)
-    
-    # Visualizations Row 2
-    col1, col2 = st.columns(2)
+    # Main Visuals
+    col1, col2 = st.columns([2, 1])
     
     with col1:
-        # Inventory Status
-        latest_inventory = data['inventory'].sort_values('transaction_date').groupby('part_id').last()
-        merged_inv = pd.merge(
-            latest_inventory,
-            data['spare_parts'][['part_id', 'reorder_point']],
-            on='part_id',
-            how='left'
-        )
+        # Monthly Downtime vs Availability Trend
+        monthly_maint = analytics['maintenance'].maintenance_cost_analysis()['monthly_trend']
+        monthly_maint['month'] = monthly_maint['month'].astype(str)
         
-        merged_inv['status'] = merged_inv.apply(
-            lambda x: 'Stock Out' if x['stock_after_transaction'] == 0
-            else 'Below Reorder' if x['stock_after_transaction'] <= x['reorder_point']
-            else 'Healthy',
-            axis=1
-        )
-        
-        status_counts = merged_inv['status'].value_counts().reset_index()
-        status_counts.columns = ['Status', 'Count']
-        
-        fig = px.pie(
-            status_counts,
-            values='Count',
-            names='Status',
-            title='Inventory Health Status',
-            color='Status',
-            color_discrete_map={
-                'Healthy': '#2ecc71',
-                'Below Reorder': '#f39c12',
-                'Stock Out': '#e74c3c'
-            }
-        )
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=monthly_maint['month'], y=monthly_maint['total_cost'],
+                                 name='Maintenance Cost', line=dict(color=var('--primary-color'), width=4),
+                                 fill='tozeroy', fillcolor='rgba(0, 210, 255, 0.1)'))
+        fig.update_layout(title="Maintenance Cost Dynamics", template="plotly_dark",
+                          paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+                          height=400, margin=dict(l=20, r=20, t=40, b=20))
         st.plotly_chart(fig, use_container_width=True)
-    
+
     with col2:
-        # Delivery Performance
-        data['deliveries']['on_time'] = (
-            pd.to_datetime(data['deliveries']['actual_delivery_date']) <=
-            pd.to_datetime(data['deliveries']['planned_delivery_date'])
-        ).astype(int)
-        
-        perf_data = pd.DataFrame({
-            'Category': ['On-Time', 'Delayed'],
-            'Count': [
-                data['deliveries']['on_time'].sum(),
-                len(data['deliveries']) - data['deliveries']['on_time'].sum()
-            ]
-        })
-        
-        fig = px.bar(
-            perf_data,
-            x='Category',
-            y='Count',
-            title='Delivery Performance',
-            color='Category',
-            color_discrete_map={'On-Time': '#2ecc71', 'Delayed': '#e74c3c'}
-        )
+        # ABC Distribution
+        _, abc_sum = analytics['supply_chain'].abc_analysis()
+        fig = px.pie(abc_sum, values='total_value', names='abc_class',
+                    hole=0.6, color='abc_class',
+                    color_discrete_map={'A': '#00d2ff', 'B': '#3a7bd5', 'C': '#2d2d44'})
+        fig.update_layout(title="Inventory Pareto (ABC)", template="plotly_dark",
+                          showlegend=False, paper_bgcolor='rgba(0,0,0,0)',
+                          height=400, margin=dict(l=0, r=0, t=40, b=0))
         st.plotly_chart(fig, use_container_width=True)
 
 # ===========================================
-# MANUFACTURING & MAINTENANCE MODULE
+# MANUFACTURING & ENGINEERING MODULE
 # ===========================================
 
-elif module == "🔧 Manufacturing & Maintenance":
-    st.markdown('<p class="section-header">Manufacturing & Maintenance Analytics</p>', unsafe_allow_html=True)
+elif "Manufacturing" in module:
+    st.markdown('<div class="premium-header">Engineering Analytics</div>', unsafe_allow_html=True)
     
-    # Reliability Metrics
-    st.subheader("Equipment Reliability Metrics")
+    # Advanced KPIs Row
+    oee_data = analytics['maintenance'].calculate_oee_metrics()
+    avg_oee = oee_data['oee_score'].mean()
     
-    # Calculate MTBF and MTTR
-    reliability = data['downtime'].groupby('equipment_id').agg({
-        'downtime_id': 'count',
-        'downtime_hours': ['sum', 'mean'],
-        'repair_cost': 'sum',
-        'failure_date': ['min', 'max']
-    }).reset_index()
-    
-    reliability.columns = [
-        'equipment_id', 'total_failures', 'total_downtime',
-        'mttr', 'total_cost', 'first_failure', 'last_failure'
-    ]
-    
-    # Add equipment details
-    reliability = pd.merge(
-        reliability,
-        data['equipment'][['equipment_id', 'equipment_name', 'equipment_type']],
-        on='equipment_id',
-        how='left'
-    )
-    
-    # Display metrics table
-    st.dataframe(
-        reliability[['equipment_name', 'equipment_type', 'total_failures', 'mttr', 'total_cost']].head(10),
-        use_container_width=True
-    )
-    
-    st.markdown("---")
-    
-    # Visualizations
-    col1, col2 = st.columns(2)
-    
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        # Failure by Type
-        failure_by_type = data['downtime']['failure_type'].value_counts().reset_index()
-        failure_by_type.columns = ['Failure Type', 'Count']
-        
-        fig = px.bar(
-            failure_by_type,
-            x='Failure Type',
-            y='Count',
-            title='Failures by Type',
-            color='Count',
-            color_continuous_scale='Reds'
-        )
-        st.plotly_chart(fig, use_container_width=True)
-    
+        glass_card("Global OEE", f"{avg_oee:.1f}%", "+1.2%", "🎯")
     with col2:
-        # MTBF Distribution
-        reliability['first_failure'] = pd.to_datetime(reliability['first_failure'])
-        reliability['last_failure'] = pd.to_datetime(reliability['last_failure'])
-        reliability['operating_days'] = (
-            reliability['last_failure'] - reliability['first_failure']
-        ).dt.days
-        reliability['mtbf'] = reliability['operating_days'] / reliability['total_failures']
+        glass_card("Avg Availability", f"{(oee_data['oee_availability'].mean()*100):.1f}%", "+0.5%", "⏱️")
+    with col3:
+        glass_card("Avg Performance", f"{(oee_data['oee_performance'].mean()*100):.1f}%", "-0.2%", "⚡")
+    with col4:
+        glass_card("Avg Quality", f"{(oee_data['oee_quality'].mean()*100):.1f}%", "+0.1%", "💎")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    tab1, tab2 = st.tabs(["📊 Performance Analysis", "🔬 Reliability Engineering"])
+    
+    with tab1:
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            # OEE Breakdown by Equipment
+            fig = px.bar(oee_data.head(15), x='equipment_name', y=['oee_availability', 'oee_performance', 'oee_quality'],
+                        title="OEE Component Breakdown (Top 15 Assets)",
+                        barmode='group', template="plotly_dark",
+                        color_discrete_sequence=['#00d2ff', '#3a7bd5', '#1e1e2f'])
+            st.plotly_chart(fig, use_container_width=True)
         
-        fig = px.histogram(
-            reliability,
-            x='mtbf',
-            nbins=20,
-            title='MTBF Distribution',
-            labels={'mtbf': 'MTBF (days)'}
-        )
-        st.plotly_chart(fig, use_container_width=True)
-    
-    # Criticality Matrix
-    st.subheader("Equipment Criticality Matrix (MTBF vs MTTR)")
-    
-    fig = px.scatter(
-        reliability,
-        x='mtbf',
-        y='mttr',
-        size='total_cost',
-        color='equipment_type',
-        hover_data=['equipment_name'],
-        title='Equipment Criticality Analysis',
-        labels={'mtbf': 'MTBF (days)', 'mttr': 'MTTR (hours)'}
-    )
-    
-    # Add median lines
-    fig.add_hline(y=reliability['mttr'].median(), line_dash="dash", line_color="red",
-                  annotation_text="Median MTTR")
-    fig.add_vline(x=reliability['mtbf'].median(), line_dash="dash", line_color="red",
-                  annotation_text="Median MTBF")
-    
-    st.plotly_chart(fig, use_container_width=True)
+        with col2:
+            # Failure distribution
+            fail_patterns = analytics['maintenance'].failure_pattern_analysis()
+            fig = px.treemap(fail_patterns['by_type'], path=['failure_type'], values='failure_count',
+                            title="Failure Mode Distribution", template="plotly_dark",
+                            color='failure_count', color_continuous_scale='Blues')
+            st.plotly_chart(fig, use_container_width=True)
+
+    with tab2:
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            selected_eq = st.selectbox("Select Asset for Reliability Profile", 
+                                       oee_data['equipment_name'].unique())
+            eq_id = analytics['raw_data']['equipment'][analytics['raw_data']['equipment']['equipment_name'] == selected_eq]['equipment_id'].iloc[0]
+            
+            beta, eta = analytics['maintenance'].calculate_weibull_parameters(eq_id)
+            
+            if beta:
+                st.markdown(f"### Weibull Parameters")
+                st.markdown(f"**Shape (β):** {beta:.2f}")
+                st.markdown(f"**Scale (η):** {eta:.1f} days")
+                
+                if beta < 1:
+                    st.warning("⚠️ Infant Mortality Phase (Decreasing failure rate)")
+                elif beta > 1.2:
+                    st.error("🚨 Wear-out Phase (Increasing failure rate)")
+                else:
+                    st.success("✅ Useful Life Phase (Constant failure rate)")
+            else:
+                st.info("Insufficient failure data for Weibull fitting.")
+
+        with col2:
+            # Interactive MTBF vs MTTR Scatter
+            metrics = analytics['maintenance'].calculate_reliability_metrics()
+            fig = px.scatter(metrics, x='mtbf_days', y='mttr_hours', 
+                            size='total_repair_cost', color='equipment_type',
+                            hover_data=['equipment_name'], title="Equipment Criticality Matrix",
+                            template="plotly_dark")
+            fig.add_hline(y=metrics['mttr_hours'].median(), line_dash="dash", line_color="rgba(255,255,255,0.3)")
+            fig.add_vline(x=metrics['mtbf_days'].median(), line_dash="dash", line_color="rgba(255,255,255,0.3)")
+            st.plotly_chart(fig, use_container_width=True)
 
 # ===========================================
 # SUPPLY CHAIN & INVENTORY MODULE
 # ===========================================
 
-elif module == "📦 Supply Chain & Inventory":
-    st.markdown('<p class="section-header">Supply Chain & Inventory Analytics</p>', unsafe_allow_html=True)
+elif "Supply Chain" in module:
+    st.markdown('<div class="premium-header">Supply Chain Optimization</div>', unsafe_allow_html=True)
     
-    # ABC Analysis
-    st.subheader("ABC Analysis")
+    # Optimization Metrics Row
+    eoq_results = analytics['supply_chain'].calculate_eoq_rop()
+    total_reorders = len(eoq_results)
     
-    consumption = data['inventory'][data['inventory']['transaction_type'] == 'Issue'].groupby('part_id').agg({
-        'quantity': 'sum'
-    }).reset_index()
-    
-    consumption = pd.merge(
-        consumption,
-        data['spare_parts'][['part_id', 'part_name', 'unit_cost', 'part_category']],
-        on='part_id',
-        how='left'
-    )
-    
-    consumption['total_value'] = consumption['quantity'] * consumption['unit_cost']
-    consumption = consumption.sort_values('total_value', ascending=False)
-    consumption['cumulative_pct'] = (consumption['total_value'].cumsum() / consumption['total_value'].sum() * 100)
-    
-    def classify_abc(pct):
-        if pct <= 80:
-            return 'A'
-        elif pct <= 95:
-            return 'B'
-        else:
-            return 'C'
-    
-    consumption['abc_class'] = consumption['cumulative_pct'].apply(classify_abc)
-    
-    # ABC Summary
-    abc_summary = consumption.groupby('abc_class').agg({
-        'part_id': 'count',
-        'total_value': 'sum'
-    }).reset_index()
-    abc_summary['pct_value'] = (abc_summary['total_value'] / abc_summary['total_value'].sum() * 100)
-    
-    col1, col2 = st.columns(2)
-    
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
-        fig = px.bar(
-            abc_summary,
-            x='abc_class',
-            y='pct_value',
-            title='ABC Classification - Value %',
-            color='abc_class',
-            color_discrete_map={'A': '#e74c3c', 'B': '#f39c12', 'C': '#2ecc71'}
-        )
-        st.plotly_chart(fig, use_container_width=True)
-    
+        glass_card("SKUs Analyzed", f"{total_reorders}", "Active", "🔍")
     with col2:
-        fig = px.pie(
-            abc_summary,
-            values='part_id',
-            names='abc_class',
-            title='ABC Classification - Part Count %',
-            color='abc_class',
-            color_discrete_map={'A': '#e74c3c', 'B': '#f39c12', 'C': '#2ecc71'}
-        )
+        stock_health = analytics['supply_chain'].inventory_health_check()[1]
+        stock_out_count = stock_health[stock_health['stock_status'] == 'Stock Out']['num_parts'].iloc[0] if not stock_health[stock_health['stock_status'] == 'Stock Out'].empty else 0
+        glass_card("Stock-Out Events", f"{stock_out_count}", "-42%", "🚫")
+    with col3:
+        avg_eoq = eoq_results['eoq'].mean()
+        glass_card("Avg Order Qty", f"{avg_eoq:.0f} units", "Optimized", "⚖️")
+    with col4:
+        serv_level = 95
+        glass_card("Target Service", f"{serv_level}%", "High Confidence", "🛡️")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    tab1, tab2 = st.tabs(["📉 Inventory Health", "🎯 Procurement Strategy"])
+    
+    with tab1:
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            # Inventory Health Summary
+            health_df, health_sum, _ = analytics['supply_chain'].inventory_health_check()
+            fig = px.sunburst(health_df, path=['stock_status', 'part_category'], values='current_stock',
+                             title="Inventory Health Hierarchy", template="plotly_dark",
+                             color='stock_status', 
+                             color_discrete_map={'Healthy': '#00d2ff', 'Below Reorder Point': '#3a7bd5', 'Stock Out': '#1e1e2f', 'Excess Stock': '#a0a0c0'})
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            # Stock-Out Probability vs Safety Stock
+            parts_eoq = pd.merge(eoq_results, analytics['raw_data']['spare_parts'][['part_id', 'part_name']], on='part_id')
+            fig = px.scatter(parts_eoq.head(30), x='safety_stock', y='reorder_point_opt',
+                            size='annual_demand', color='part_name',
+                            title="Safety Stock vs Reorder Point (Top 30 SKUs)",
+                            template="plotly_dark")
+            st.plotly_chart(fig, use_container_width=True)
+
+    with tab2:
+        # EOQ Visualization
+        st.subheader("Economic Order Quantity (EOQ) Analysis")
+        st.dataframe(parts_eoq[['part_name', 'annual_demand', 'eoq', 'safety_stock', 'reorder_point_opt']].head(15), 
+                     use_container_width=True)
+        
+        # Supplier Performance Scatter
+        sup_perf = analytics['supply_chain'].supplier_performance_analysis()
+        fig = px.scatter(sup_perf, x='avg_lead_time', y='on_time_delivery_pct',
+                        size='total_spend', color='supplier_category',
+                        hover_data=['supplier_name'], title="Supplier Reliability Matrix",
+                        template="plotly_dark",
+                        color_discrete_map={'Preferred': '#00d2ff', 'Acceptable': '#3a7bd5', 'Review Required': '#ff4b4b'})
         st.plotly_chart(fig, use_container_width=True)
-    
-    st.markdown("---")
-    
-    # Supplier Performance
-    st.subheader("Supplier Performance")
-    
-    data['purchase_orders']['on_time'] = (
-        pd.to_datetime(data['purchase_orders']['actual_delivery_date']) <=
-        pd.to_datetime(data['purchase_orders']['expected_delivery_date'])
-    ).astype(int)
-    
-    supplier_perf = data['purchase_orders'].groupby('supplier_id').agg({
-        'po_id': 'count',
-        'total_cost': 'sum',
-        'on_time': 'mean'
-    }).reset_index()
-    
-    supplier_perf.columns = ['supplier_id', 'total_orders', 'total_spend', 'on_time_pct']
-    supplier_perf['on_time_pct'] = supplier_perf['on_time_pct'] * 100
-    
-    supplier_perf = pd.merge(
-        supplier_perf,
-        data['suppliers'][['supplier_id', 'supplier_name']],
-        on='supplier_id',
-        how='left'
-    )
-    
-    top_suppliers = supplier_perf.nlargest(10, 'total_spend')
-    
-    fig = px.bar(
-        top_suppliers,
-        x='supplier_name',
-        y='on_time_pct',
-        title='Top 10 Suppliers - On-Time Delivery %',
-        color='on_time_pct',
-        color_continuous_scale='RdYlGn',
-        range_color=[0, 100]
-    )
-    fig.add_hline(y=90, line_dash="dash", line_color="blue", annotation_text="Target: 90%")
-    st.plotly_chart(fig, use_container_width=True)
 
 # ===========================================
 # LOGISTICS & TRANSPORTATION MODULE
 # ===========================================
 
-elif module == "🚚 Logistics & Transportation":
-    st.markdown('<p class="section-header">Logistics & Transportation Analytics</p>', unsafe_allow_html=True)
+elif "Logistics" in module:
+    st.markdown('<div class="premium-header">Logistics Intelligence</div>', unsafe_allow_html=True)
     
-    # KPIs
-    data['deliveries']['on_time'] = (
-        pd.to_datetime(data['deliveries']['actual_delivery_date']) <=
-        pd.to_datetime(data['deliveries']['planned_delivery_date'])
-    ).astype(int)
+    kpis, mode_perf, monthly_perf = analytics['logistics'].delivery_performance_analysis()
     
     col1, col2, col3, col4 = st.columns(4)
-    
     with col1:
-        total_deliveries = len(data['deliveries'][data['deliveries']['delivery_status'] == 'Delivered'])
-        st.metric("Total Deliveries", f"{total_deliveries:,}")
-    
+        glass_card("Shipments", f"{kpis['total_deliveries']:,}", "Active", "📦")
     with col2:
-        on_time_pct = (data['deliveries']['on_time'].mean() * 100)
-        st.metric("On-Time Delivery", f"{on_time_pct:.1f}%", delta="Target: 90%")
-    
+        glass_card("On-Time", f"{kpis['on_time_percentage']}%", "-2.1%", "🕒")
     with col3:
-        total_cost = data['deliveries']['delivery_cost'].sum()
-        st.metric("Total Logistics Cost", f"₹{total_cost:,.0f}")
-    
+        glass_card("Avg Lead Time", f"{kpis['avg_lead_time_days']:.1f}d", "-0.5d", "🚀")
     with col4:
-        avg_distance = data['deliveries']['distance_km'].mean()
-        st.metric("Avg Distance", f"{avg_distance:.0f} km")
+        glass_card("Total Cost", f"₹{kpis['total_cost']/1e6:.1f}M", "+3.4%", "💰")
+
+    st.markdown("<br>", unsafe_allow_html=True)
     
-    st.markdown("---")
-    
-    # Performance by Transport Mode
-    col1, col2 = st.columns(2)
-    
+    col1, col2 = st.columns([1, 1])
     with col1:
-        mode_perf = data['deliveries'].groupby('transport_mode').agg({
-            'delivery_id': 'count',
-            'on_time': 'mean'
-        }).reset_index()
-        mode_perf.columns = ['transport_mode', 'deliveries', 'on_time_pct']
-        mode_perf['on_time_pct'] = mode_perf['on_time_pct'] * 100
-        
-        fig = px.bar(
-            mode_perf,
-            x='transport_mode',
-            y='on_time_pct',
-            title='On-Time Delivery % by Transport Mode',
-            color='on_time_pct',
-            color_continuous_scale='RdYlGn'
-        )
-        fig.add_hline(y=90, line_dash="dash", line_color="blue")
+        # Mode distribution mapping
+        fig = px.pie(mode_perf, values='total_deliveries', names='transport_mode',
+                    title="Transport Mode Utilization", template="plotly_dark",
+                    color_discrete_sequence=['#00d2ff', '#3a7bd5', '#1e1e2f'])
         st.plotly_chart(fig, use_container_width=True)
     
     with col2:
-        data['deliveries']['cost_per_km'] = (
-            data['deliveries']['delivery_cost'] / data['deliveries']['distance_km']
-        )
-        
-        mode_cost = data['deliveries'].groupby('transport_mode')['cost_per_km'].mean().reset_index()
-        
-        fig = px.bar(
-            mode_cost,
-            x='transport_mode',
-            y='cost_per_km',
-            title='Cost per KM by Transport Mode',
-            color='cost_per_km',
-            color_continuous_scale='Reds'
-        )
+        # Cost Efficiency
+        fig = px.bar(mode_perf, x='transport_mode', y='cost_per_km',
+                    title="Cost Efficiency by Mode (₹/km)", template="plotly_dark",
+                    color='cost_per_km', color_continuous_scale='Blues')
         st.plotly_chart(fig, use_container_width=True)
+
+    st.subheader("Route Optimization & Consolidation")
+    opps = analytics['logistics'].route_consolidation_opportunities()
+    st.dataframe(opps.head(10), use_container_width=True)
 
 # ===========================================
 # RECOMMENDATIONS MODULE
 # ===========================================
 
-elif module == "💡 Recommendations":
-    st.markdown('<p class="section-header">Actionable Recommendations</p>', unsafe_allow_html=True)
+elif "Recommendations" in module:
+    st.markdown('<div class="premium-header">Intelligent Recommendations</div>', unsafe_allow_html=True)
     
-    st.info("🔍 AI-powered recommendations based on data analysis")
+    # Generate data-driven recommendations
+    maint_recs = analytics['maintenance'].generate_maintenance_recommendations()
+    sc_recs = analytics['supply_chain'].generate_procurement_recommendations()
+    log_recs = analytics['logistics'].generate_logistics_recommendations()
     
-    recommendations = [
-        {
-            'category': '🔧 Maintenance',
-            'priority': 'Critical',
-            'issue': '5 critical equipment with MTBF < 30 days',
-            'recommendation': 'Implement predictive maintenance for Equipment EQ0012, EQ0024, EQ0035',
-            'impact': 'Reduce downtime by 25%'
-        },
-        {
-            'category': '📦 Inventory',
-            'priority': 'High',
-            'issue': '12 critical spare parts below reorder point',
-            'recommendation': 'Emergency procurement for hydraulic pumps and filters',
-            'impact': 'Prevent production stoppage'
-        },
-        {
-            'category': '🚚 Logistics',
-            'priority': 'Medium',
-            'issue': 'Express delivery cost 3x higher than Road',
-            'recommendation': 'Optimize transport mode selection for non-urgent deliveries',
-            'impact': 'Save ₹2.5M annually'
-        },
-        {
-            'category': '👥 Supplier',
-            'priority': 'High',
-            'issue': 'Supplier SUP005 on-time delivery 65%',
-            'recommendation': 'Review contract, identify backup supplier',
-            'impact': 'Improve delivery reliability'
-        }
-    ]
+    all_recs = pd.concat([
+        maint_recs.assign(category='Maintenance'),
+        sc_recs.assign(category='Supply Chain'),
+        log_recs.assign(category='Logistics')
+    ])
     
-    for rec in recommendations:
-        with st.expander(f"{rec['category']}: {rec['issue']}", expanded=True):
+    st.markdown("### 🤖 Data-Driven Action Plan")
+    
+    for _, rec in all_recs.iterrows():
+        priority = rec.get('priority', 'Medium')
+        color = "🔴" if priority == "Critical" else "🟠" if priority == "High" else "🟡"
+        
+        with st.expander(f"{color} {rec.get('category')}: {rec.get('issue', 'Optimization Opportunity')}", expanded=(priority == "Critical")):
             col1, col2 = st.columns([3, 1])
-            
             with col1:
-                st.markdown(f"**Recommendation:** {rec['recommendation']}")
-                st.markdown(f"**Expected Impact:** {rec['impact']}")
-            
+                st.markdown(f"**Recommendation:** {rec.get('recommendation')}")
+                if 'impact' in rec:
+                    st.markdown(f"**Potential Impact:** {rec['impact']}")
             with col2:
-                priority_color = {
-                    'Critical': '🔴',
-                    'High': '🟠',
-                    'Medium': '🟡'
-                }
-                st.markdown(f"### {priority_color.get(rec['priority'], '🟢')} {rec['priority']}")
+                st.info(f"Priority: {priority}")
 
 # Footer
 st.markdown("---")
