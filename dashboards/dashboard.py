@@ -44,6 +44,15 @@ sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
 from maintenance_analytics import MaintenanceAnalytics
 from supply_chain_analytics import SupplyChainAnalytics
 from logistics_analytics import LogisticsAnalytics
+from advanced_analytics import AdvancedSupplyChainMetrics, TrendAnalysis
+
+# Import enhanced components
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'dashboards')))
+from enhanced_components import (
+    benchmark_card, create_gauge_chart, create_radar_chart, 
+    create_heatmap, create_waterfall_chart, create_bullet_chart,
+    insight_box, metric_delta_card, create_sparkline, section_header
+)
 
 # Color palette matching style.css for use in Plotly/Python
 COLORS = {
@@ -95,6 +104,7 @@ with st.sidebar:
             "🔧 Manufacturing & Maintenance",
             "📦 Supply Chain & Inventory",
             "🚚 Logistics & Transportation",
+            "🎯 Advanced KPIs & Insights",
             "📈 Predictive Analytics",
             "💡 Recommendations"
         ]
@@ -142,10 +152,14 @@ def initialize_analytics():
         sc = SupplyChainAnalytics(sp, inv, po, sup)
         log = LogisticsAnalytics(dl, wh)
         
+        # Initialize advanced analytics
+        advanced = AdvancedSupplyChainMetrics(sp, inv, po, sup, dl)
+        
         return {
             'maintenance': maint,
             'supply_chain': sc,
             'logistics': log,
+            'advanced': advanced,
             'raw_data': {
                 'equipment': eq, 'downtime': dt, 'spare_parts': sp,
                 'inventory': inv, 'suppliers': sup, 'purchase_orders': po,
@@ -216,6 +230,35 @@ if "Overview" in module:
     with col4:
         log_kpis, _, _ = analytics['logistics'].delivery_performance_analysis()
         glass_card("On-Time Delivery", f"{log_kpis['on_time_percentage']}%", "+1.8%", "🚚")
+
+    # Second KPIs Row - Advanced Metrics
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    # Calculate advanced metrics for overview
+    fill_rate = analytics['advanced'].calculate_fill_rate()
+    por = analytics['advanced'].calculate_perfect_order_rate()
+    inv_health = analytics['advanced'].inventory_health_score()
+    oee_data = analytics['maintenance'].calculate_oee_metrics()
+    
+    with col1:
+        benchmark_card("Fill Rate", f"{fill_rate['fill_rate']}%", 
+                      fill_rate['benchmark'], "📦", trend=1.5)
+    with col2:
+        benchmark_card("Perfect Order Rate", f"{por['perfect_order_rate']}%",
+                      por['benchmark'], "✨", trend=0.8)
+    with col3:
+        benchmark_card("Inventory Health", f"{inv_health['overall_health_score']:.0f}/100",
+                      {'status': inv_health['status'], 
+                       'color': '#00d2ff' if inv_health['overall_health_score'] >= 70 else '#f0ad4e',
+                       'icon': '🏥'}, "🏥")
+    with col4:
+        avg_oee = oee_data['oee_score'].mean()
+        benchmark_card("Avg OEE", f"{avg_oee:.1f}%",
+                      {'status': 'World-Class' if avg_oee >= 85 else 'Good' if avg_oee >= 65 else 'Needs Work',
+                       'color': '#00d2ff' if avg_oee >= 85 else '#5cb85c' if avg_oee >= 65 else '#f0ad4e',
+                       'icon': '🎯'}, "⚙️", trend=2.3)
 
     st.markdown("<br>", unsafe_allow_html=True)
     
@@ -674,6 +717,242 @@ elif "Logistics" in module:
     opps = analytics['logistics'].route_consolidation_opportunities()
     st.dataframe(opps.head(10), use_container_width=True)
     insight_callout("Routes with multiple deliveries on same day to same destination can be consolidated to reduce trips and costs.", "action")
+
+# ===========================================
+# ADVANCED KPIs & INSIGHTS MODULE
+# ===========================================
+
+elif "Advanced KPIs" in module:
+    section_header("Advanced KPIs & Strategic Insights", "Industry-benchmarked metrics with deep analytics")
+    
+    # Advanced KPIs Row 1
+    col1, col2, col3, col4 = st.columns(4)
+    
+    # Calculate advanced metrics
+    fill_rate_data = analytics['advanced'].calculate_fill_rate()
+    por_data = analytics['advanced'].calculate_perfect_order_rate()
+    c2c_data = analytics['advanced'].calculate_cash_to_cash_cycle()
+    inv_health = analytics['advanced'].inventory_health_score()
+    
+    with col1:
+        benchmark_card("Fill Rate", f"{fill_rate_data['fill_rate']}%", 
+                      fill_rate_data['benchmark'], "📦", trend=2.1)
+    with col2:
+        benchmark_card("Perfect Order Rate", f"{por_data['perfect_order_rate']}%",
+                      por_data['benchmark'], "✨", trend=-0.5)
+    with col3:
+        benchmark_card("Cash-to-Cash Cycle", f"{c2c_data['cash_to_cash_days']} days",
+                      {'status': 'Good' if c2c_data['cash_to_cash_days'] < 30 else 'Review', 
+                       'color': '#5cb85c' if c2c_data['cash_to_cash_days'] < 30 else '#f0ad4e', 'icon': '📊'}, 
+                      "💰", trend=-3.2)
+    with col4:
+        benchmark_card("Inventory Health", f"{inv_health['overall_health_score']}/100",
+                      {'status': inv_health['status'], 
+                       'color': '#00d2ff' if inv_health['overall_health_score'] >= 70 else '#f0ad4e', 
+                       'icon': '🏥'}, "🏥")
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Tabs for different analyses
+    tab1, tab2, tab3, tab4 = st.tabs(["📊 Performance Radar", "🎯 Supplier Risk", "📅 Seasonality", "🔬 Deep Analysis"])
+    
+    with tab1:
+        col1, col2 = st.columns([1, 1])
+        
+        with col1:
+            # Performance Radar Chart
+            maint_metrics = analytics['maintenance'].calculate_reliability_metrics()
+            log_kpis, _, _ = analytics['logistics'].delivery_performance_analysis()
+            
+            categories = ['Fill Rate', 'Perfect Order', 'On-Time Delivery', 
+                         'Inventory Health', 'Equipment Availability']
+            values = [
+                fill_rate_data['fill_rate'],
+                por_data['perfect_order_rate'],
+                log_kpis['on_time_percentage'],
+                inv_health['overall_health_score'],
+                maint_metrics['availability_pct'].mean()
+            ]
+            
+            fig = create_radar_chart(categories, values, "Supply Chain Performance Radar")
+            st.plotly_chart(fig, use_container_width=True)
+            insight_box("The radar chart shows your performance across 5 key dimensions vs industry benchmark (dashed line at 85%). Areas inside the benchmark need improvement.", "info")
+        
+        with col2:
+            # Days of Supply Distribution
+            dos_df = analytics['advanced'].calculate_days_of_supply()
+            dos_status_counts = dos_df['dos_status'].value_counts().reset_index()
+            dos_status_counts.columns = ['Status', 'Count']
+            
+            fig = px.pie(dos_status_counts, values='Count', names='Status', 
+                        title="Days of Supply Distribution",
+                        color='Status',
+                        color_discrete_map={
+                            'Critical - Reorder Now': '#ff4b4b',
+                            'Low - Monitor Closely': '#f0ad4e',
+                            'Optimal': '#00d2ff',
+                            'High - Review Needed': '#3a7bd5',
+                            'Excess - Reduce': '#888'
+                        },
+                        hole=0.5,
+                        template="plotly_dark")
+            fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', height=350)
+            st.plotly_chart(fig, use_container_width=True)
+            
+            critical_count = len(dos_df[dos_df['dos_status'] == 'Critical - Reorder Now'])
+            excess_count = len(dos_df[dos_df['dos_status'] == 'Excess - Reduce'])
+            insight_box(f"**{critical_count}** items need immediate reorder. **{excess_count}** items have excess stock tying up working capital.", 
+                       "warning" if critical_count > 5 else "success")
+        
+        # Cash-to-Cash Waterfall
+        st.subheader("💰 Cash-to-Cash Cycle Breakdown")
+        waterfall_categories = ['Days Inventory', 'Days Sales', 'Days Payable', 'Net C2C Cycle']
+        waterfall_values = [c2c_data['days_inventory_outstanding'], 0, 
+                           -c2c_data['days_payable_outstanding'], c2c_data['cash_to_cash_days']]
+        fig = create_waterfall_chart(waterfall_categories, waterfall_values, "Working Capital Cycle Components")
+        st.plotly_chart(fig, use_container_width=True)
+        insight_box("Lower Cash-to-Cash cycle = less working capital tied up. Reduce by shortening inventory days or extending payment terms.", "trend")
+    
+    with tab2:
+        st.subheader("🎯 Supplier Risk Assessment")
+        
+        supplier_risk = analytics['advanced'].calculate_supplier_risk_score()
+        
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
+            # Supplier Risk Matrix
+            fig = px.scatter(supplier_risk, x='on_time_pct', y='lead_time_variability',
+                            size='total_spend', color='risk_category',
+                            hover_data=['supplier_name', 'total_orders'],
+                            title="Supplier Risk Matrix (OTD vs Lead Time Variability)",
+                            color_discrete_map={
+                                'Low Risk': '#5cb85c',
+                                'Medium Risk': '#f0ad4e',
+                                'High Risk': '#ff6b6b',
+                                'Critical Risk': '#ff4b4b'
+                            },
+                            template="plotly_dark")
+            fig.add_hline(y=supplier_risk['lead_time_variability'].median(), 
+                         line_dash="dash", line_color="rgba(255,255,255,0.3)")
+            fig.add_vline(x=90, line_dash="dash", line_color="rgba(255,255,255,0.3)",
+                         annotation_text="90% OTD Target")
+            fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', height=400)
+            st.plotly_chart(fig, use_container_width=True)
+            insight_box("Bottom-right = BEST (high OTD, low variability). Top-left = RISKY. Size = spend volume.", "info")
+        
+        with col2:
+            st.markdown("### Risk Distribution")
+            risk_counts = supplier_risk['risk_category'].value_counts()
+            for category in ['Low Risk', 'Medium Risk', 'High Risk', 'Critical Risk']:
+                count = risk_counts.get(category, 0)
+                color = {'Low Risk': '🟢', 'Medium Risk': '🟡', 'High Risk': '🟠', 'Critical Risk': '🔴'}[category]
+                st.markdown(f"{color} **{category}**: {count} suppliers")
+            
+            st.markdown("---")
+            st.markdown("### Top Risk Suppliers")
+            for _, sup in supplier_risk.head(3).iterrows():
+                st.markdown(f"⚠️ **{sup['supplier_name']}**: Risk Score {sup['risk_score']:.0f}")
+        
+        # Detailed Supplier Table
+        st.dataframe(
+            supplier_risk[['supplier_name', 'total_orders', 'total_spend', 'on_time_pct', 
+                          'lead_time_variability', 'risk_score', 'risk_category']]
+            .style.background_gradient(subset=['risk_score'], cmap='Reds'),
+            use_container_width=True
+        )
+    
+    with tab3:
+        st.subheader("📅 Seasonal Demand Analysis")
+        
+        seasonal_data = analytics['advanced'].seasonal_demand_analysis()
+        
+        col1, col2 = st.columns([2, 1])
+        
+        with col1:
+            # Monthly Seasonality Chart
+            monthly = seasonal_data['monthly_data']
+            fig = go.Figure()
+            fig.add_trace(go.Bar(x=monthly['month_name'], y=monthly['quantity'],
+                                marker_color='#3a7bd5', name='Demand'))
+            fig.add_trace(go.Scatter(x=monthly['month_name'], y=[seasonal_data['average_monthly_demand']]*len(monthly),
+                                    mode='lines', name='Average', 
+                                    line=dict(color='#f0ad4e', width=2, dash='dash')))
+            fig.add_trace(go.Scatter(x=monthly['month_name'], y=monthly['seasonality_index'],
+                                    mode='lines+markers', name='Seasonality Index', yaxis='y2',
+                                    line=dict(color='#00d2ff', width=3)))
+            fig.update_layout(
+                title="Monthly Demand Pattern & Seasonality Index",
+                template="plotly_dark",
+                paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+                yaxis2=dict(overlaying='y', side='right', title='Index (100=Avg)'),
+                legend=dict(orientation='h', y=1.1),
+                height=400
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            st.markdown("### Seasonality Insights")
+            st.metric("Peak Month", seasonal_data['peak_month'], f"{seasonal_data['peak_demand']:,.0f} units")
+            st.metric("Low Month", seasonal_data['low_month'], f"{seasonal_data['low_demand']:,.0f} units")
+            st.metric("Demand Variability", f"{seasonal_data['demand_variability_cv']:.1f}%", 
+                     seasonal_data['seasonality_strength'])
+            
+            insight_box(f"Demand variability is **{seasonal_data['seasonality_strength']}**. Plan inventory buffers for peak months and reduce stock before low periods.", "trend")
+    
+    with tab4:
+        st.subheader("🔬 Deep Analytics")
+        
+        col1, col2 = st.columns([1, 1])
+        
+        with col1:
+            # Correlation Heatmap
+            corr_matrix = analytics['advanced'].correlation_analysis()
+            fig = create_heatmap(corr_matrix, "Metric Correlation Matrix")
+            st.plotly_chart(fig, use_container_width=True)
+            insight_box("Strong correlations (close to 1 or -1) suggest linked metrics. Use this to predict one metric from another.", "info")
+        
+        with col2:
+            # Anomaly Detection
+            st.markdown("### 🚨 Anomaly Detection")
+            anomalies = analytics['advanced'].anomaly_detection()
+            
+            for anomaly_type, details in anomalies.items():
+                with st.expander(f"📊 {anomaly_type.replace('_', ' ').title()} Anomalies ({details['count']} found)"):
+                    st.markdown(f"**Interpretation:** {details['interpretation']}")
+                    if 'periods' in details and details['periods']:
+                        st.markdown(f"**Affected periods:** {', '.join(details['periods'][:5])}")
+                    if 'parts' in details and details['parts']:
+                        st.markdown(f"**Affected parts:** {', '.join(details['parts'][:5])}")
+        
+        # What-If Scenario Analysis
+        st.markdown("---")
+        st.subheader("🔮 What-If Scenario Analysis")
+        
+        scenario_col1, scenario_col2 = st.columns([1, 2])
+        
+        with scenario_col1:
+            scenario = st.selectbox("Select Scenario", 
+                                   ['demand_increase', 'lead_time_increase', 'cost_increase', 'supplier_failure'])
+            if scenario != 'supplier_failure':
+                change_pct = st.slider("Change %", 5, 50, 20)
+            else:
+                change_pct = 0
+        
+        with scenario_col2:
+            if scenario == 'supplier_failure':
+                result = analytics['advanced'].what_if_analysis(scenario)
+            else:
+                result = analytics['advanced'].what_if_analysis(scenario, change_pct)
+            
+            st.markdown(f"### 📋 Scenario: {result.get('scenario', scenario)}")
+            
+            for key, value in result.items():
+                if key not in ['scenario', 'recommendation']:
+                    st.markdown(f"**{key.replace('_', ' ').title()}:** {value}")
+            
+            if 'recommendation' in result:
+                insight_box(f"**Recommendation:** {result['recommendation']}", "action")
 
 # ===========================================
 # PREDICTIVE ANALYTICS MODULE  

@@ -2,6 +2,9 @@
 :root {
     --primary-color: #00d2ff;
     --secondary-color: #3a7bd5;
+    --success-color: #5cb85c;
+    --warning-color: #f0ad4e;
+    --danger-color: #ff4b4b;
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
     --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -23,6 +26,12 @@
     box-shadow: var(--card-shadow);
     margin-bottom: 1rem;
     color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 210, 255, 0.2);
 }
 
 /* Metric Animations */
@@ -38,8 +47,40 @@
     }
 }
 
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 .metric-container {
     animation: fadeInUp 0.5s ease-out;
+}
+
+/* Benchmark Badge Animation */
+.benchmark-badge {
+    animation: fadeInUp 0.3s ease-out;
+    transition: transform 0.2s ease;
+}
+
+.benchmark-badge:hover {
+    transform: scale(1.05);
 }
 
 /* Custom Header */
@@ -70,8 +111,69 @@
     background-color: var(--glass-bg) !important;
     border-radius: 10px 10px 0 0 !important;
     color: white !important;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: rgba(0, 210, 255, 0.2) !important;
 }
 
 .stTabs [aria-selected="true"] {
     background-color: var(--secondary-color) !important;
+}
+
+/* Enhanced Expander */
+.streamlit-expanderHeader {
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.1) 0%, rgba(58, 123, 213, 0.1) 100%);
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+}
+
+/* DataFrames */
+.stDataFrame {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Better Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Loading Shimmer Effect */
+.loading-shimmer {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Insight Callout */
+.insight-callout {
+    backdrop-filter: blur(5px);
+    transition: border-left-width 0.3s ease;
+}
+
+.insight-callout:hover {
+    border-left-width: 6px;
 }

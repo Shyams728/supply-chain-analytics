@@ -85,10 +85,24 @@ Based on 5+ years of hands-on experience at **Larsen & Toubro** in construction 
 - ✅ Warehouse performance benchmarking
 - ✅ Consolidation opportunity identification
 
-### **4. Interactive Dashboards**
-- ✅ Executive-level KPI overview
+### **4. Advanced KPIs & Strategic Analytics** *(NEW)*
+- ✅ **Fill Rate**: Order fulfillment from stock with benchmarking
+- ✅ **Perfect Order Rate**: On-time, in-full, error-free deliveries
+- ✅ **Days of Supply**: Inventory coverage analysis with risk classification
+- ✅ **Cash-to-Cash Cycle**: Working capital optimization metrics
+- ✅ **Supplier Risk Score**: Multi-factor supplier risk assessment
+- ✅ **Seasonal Demand Analysis**: Seasonality patterns and trends
+- ✅ **Correlation Analysis**: Metric interdependency heatmaps
+- ✅ **Anomaly Detection**: Statistical outlier identification
+- ✅ **What-If Scenarios**: Impact analysis for demand/lead time changes
+
+### **5. Interactive Dashboards**
+- ✅ Executive-level KPI overview with benchmark cards
+- ✅ Performance radar charts comparing 5 key dimensions
 - ✅ Drill-down analytics by equipment, supplier, warehouse
 - ✅ Real-time filtering and data exploration
+- ✅ Waterfall charts for cost breakdowns
+- ✅ Glassmorphism design with animations
 - ✅ Export capabilities for reports
 
 ---
@@ -112,13 +126,16 @@ supply-chain-analytics/
 │   ├── data_generator.py                # Synthetic data generation
 │   ├── maintenance_analytics.py         # Manufacturing module
 │   ├── supply_chain_analytics.py        # Inventory module
-│   └── logistics_analytics.py           # Logistics module
+│   ├── logistics_analytics.py           # Logistics module
+│   └── advanced_analytics.py            # Advanced KPIs (NEW)
 │
 ├── dashboards/
-│   └── streamlit_app.py                 # Interactive dashboard
+│   ├── dashboard.py                     # Main Streamlit dashboard
+│   ├── enhanced_components.py           # Reusable chart components (NEW)
+│   └── style.css                        # Glassmorphism styling
 │
 ├── sql/
-│   └── schema.sql                       # Database schema
+│   └── sqlite_schema.sql                # Database schema
 │
 ├── outputs/
 │   ├── reliability_dashboard.png
