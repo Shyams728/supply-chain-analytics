@@ -1,9 +1,9 @@
-     pandas==2.1.4
-     numpy==1.24.4
-     matplotlib==3.7.2
-     seaborn==0.12.2
-     plotly==5.15.0
-     streamlit==1.28.0
-     scikit-learn==1.5.2
-     pulp==2.7.0
+     pandas
+     numpy
+     matplotlib
+     seaborn
+     plotly
+     streamlit
+     scikit-learn
+     pulp
      
