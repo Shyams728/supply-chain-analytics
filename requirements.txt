@@ -1,10 +1,11 @@
-     pandas
-     numpy
-     matplotlib
-     seaborn
-     plotly
-     streamlit
-     scikit-learn
-     pulp
-     
-     
+# Supply Chain Analytics - Compatible versions
+streamlit==1.28.1
+pandas==2.1.4
+numpy==1.24.4
+plotly==5.18.0
+matplotlib==3.7.5
+seaborn==0.13.2
+scikit-learn==1.3.2
+scipy==1.11.4
+pulp==2.7.0
+altair==5.3.0  # Changed from 6.0.0 to 5.3.0
