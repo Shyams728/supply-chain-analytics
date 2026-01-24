@@ -5,6 +5,11 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.25%2B-FF4B4B)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=streamlit)](https://shyams-supply-chain-analytics.streamlit.app/)
+
+> **Live Demo:** [Check out the interactive dashboard here!](https://shyams-supply-chain-analytics.streamlit.app/)
+
+![Dashboard Preview](outputs/image.png)![alt text](image.png)
 
 A comprehensive analytics platform integrating **manufacturing operations**, **supply chain management**, **logistics optimization**, and **predictive analytics** to drive operational excellence in heavy equipment and construction industries.
 
@@ -172,7 +177,7 @@ supply-chain-analytics/
 
 ### **Step 1: Clone Repository**
 ```bash
-git clone https://github.com/yourusername/supply-chain-analytics.git
+git clone https://github.com/Shyams728/supply-chain-analytics.git
 cd supply-chain-analytics
 ```
 
@@ -457,4 +462,4 @@ Interested in:
 
 ---
 
-*Last Updated: January 2026*
+*Last Updated: January 24, 2026*
