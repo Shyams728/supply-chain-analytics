@@ -318,3 +318,158 @@ def section_header(title, subtitle=None, icon="📊"):
     {subtitle_html}
 </div>
 """, unsafe_allow_html=True)
+
+def create_spc_chart(data, metric_name):
+    """
+    Create dual-axis X-bar and R chart for Statistical Process Control
+    """
+    # Create subplots
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, 
+                        vertical_spacing=0.1, subplot_titles=(f"X-bar Chart: {metric_name}", "R Chart (Range)"))
+    
+    # X-bar Chart
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['xbar_value'], mode='lines+markers', name='X-bar',
+                            line=dict(color='#00d2ff')), row=1, col=1)
+    
+    # Center Line (CL)
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['xbar_cl'], mode='lines', name='CL',
+                            line=dict(color='green', dash='solid')), row=1, col=1)
+    
+    # Upper/Lower Control Limits
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['xbar_ucl'], mode='lines', name='UCL',
+                            line=dict(color='red', dash='dash')), row=1, col=1)
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['xbar_lcl'], mode='lines', name='LCL',
+                            line=dict(color='red', dash='dash')), row=1, col=1)
+    
+    # Highlight Violations
+    violations = data[data['xbar_violation']]
+    if not violations.empty:
+        fig.add_trace(go.Scatter(x=violations['inspection_date'], y=violations['xbar_value'], 
+                                mode='markers', name='Violation',
+                                marker=dict(color='yellow', size=10, symbol='x')), row=1, col=1)
+    
+    # R Chart
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['r_value'], mode='lines+markers', name='R-value',
+                            line=dict(color='#3a7bd5')), row=2, col=1)
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['r_cl'], mode='lines', name='CL',
+                            line=dict(color='green', dash='solid')), row=2, col=1)
+    fig.add_trace(go.Scatter(x=data['inspection_date'], y=data['r_ucl'], mode='lines', name='UCL',
+                            line=dict(color='red', dash='dash')), row=2, col=1)
+                            
+    fig.update_layout(height=600, template="plotly_dark", showlegend=False,
+                      paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    return fig
+
+def create_sankey_diagram(source, target, value, label_list, title="Material Flow"):
+    """
+    Create Sankey diagram for flow visualization
+    """
+    fig = go.Figure(data=[go.Sankey(
+        node=dict(
+            pad=15,
+            thickness=20,
+            line=dict(color="black", width=0.5),
+            label=label_list,
+            color='#3a7bd5'
+        ),
+        link=dict(
+            source=source,
+            target=target,
+            value=value,
+            color='rgba(0, 210, 255, 0.4)'
+        )
+    )])
+    
+    fig.update_layout(title_text=title, font_size=10, height=500, template="plotly_dark",
+                      paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    return fig
+
+def create_gantt_chart(tasks_df, title="Maintenance Schedule"):
+    """
+    Create Gantt chart for scheduling
+    Expects df with: Task, Start, Finish, Resource
+    """
+    fig = px.timeline(tasks_df, x_start="start_date", x_end="end_date", y="equipment_name",
+                     color="assigned_technician", hover_data=["task_name", "status"],
+                     title=title, template="plotly_dark")
+    
+    fig.update_yaxes(autorange="reversed") # Latest on top
+    fig.update_layout(height=400, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    return fig
+
+def create_fishbone_diagram(data):
+    """
+    Visualize Fishbone (Ishikawa) Diagram using network graph structure
+    Input: Dict with keys as Major Categories (Man, Machine, etc) and values as list of causes
+    """
+    # Nodes and Edges
+    labels = ["Problem"] + list(data.keys())
+    parents = [""] + ["Problem"] * 6
+    values = [10] + [5] * 6 # Size
+    
+    # Add leaves
+    for cat, items in data.items():
+        for item in items:
+            labels.append(item['name'])
+            parents.append(cat)
+            values.append(item['value'])
+            
+    # Visualize as Sunburst or Treemap (better for web than static fishbone)
+    # Using Suburst as modern interactive alternative
+    fig = go.Figure(go.Sunburst(
+        labels=labels,
+        parents=parents,
+        values=values,
+        branchvalues="total",
+        marker=dict(colorscale='Blues')
+    ))
+    
+    fig.update_layout(title="Root Cause Analysis (Fishbone Structure)", height=500, template="plotly_dark",
+                      paper_bgcolor='rgba(0,0,0,0)')
+    return fig
+
+def render_a3_template():
+    """Render an A3 Problem Solving Template in Streamlit"""
+    html_code = """
+    <div style="background-color: white; color: black; padding: 20px; border-radius: 5px;">
+        <h2 style="text-align: center; color: #2c3e50;">A3 Problem Solving Report</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>1. Background</h4>
+                <p><i>Context of the problem...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>5. Countermeasures</h4>
+                <p><i>Proposed solutions...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>2. Current Condition</h4>
+                <p><i>Problem statement & data...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>6. Implementation Plan</h4>
+                <p><i>Who, When, What...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>3. Goal / Target State</h4>
+                <p><i>Specific metric targets...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px;">
+                <h4>7. Follow Up</h4>
+                <p><i>Check results & standard work...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+            <div style="border: 1px solid #ccc; padding: 10px; grid-column: span 2;">
+                <h4>4. Root Cause Analysis</h4>
+                <p><i>5 Whys / Fishbone...</i></p>
+                <div style="height: 100px; background: #f9f9f9;"></div>
+            </div>
+        </div>
+    </div>
+    """
+    st.markdown(html_code, unsafe_allow_html=True)

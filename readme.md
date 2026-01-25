@@ -90,26 +90,44 @@ Based on 5+ years of hands-on experience at **Larsen & Toubro** in construction 
 - ✅ Warehouse performance benchmarking
 - ✅ Consolidation opportunity identification
 
-### **4. Advanced KPIs & Strategic Analytics** *(NEW)*
+### **4. Six Sigma & Quality Control** *(NEW)*
+- ✅ **SPC Charts**: Statistical Process Control (X-bar & R-charts) with out-of-control limit detection
+- ✅ **Pareto Analysis**: 80/20 defect classification for quality prioritization
+- ✅ **Six Sigma Metrics**: DPMO, Sigma Level (σ), and Process Yield calculations
+- ✅ **A3 Problem Solving**: Standardized root cause analysis templates
+- ✅ **Ishikawa Dynamics**: Interactive root cause distributions (Fishbone)
+
+### **5. Financial Performance & ROI** *(NEW)*
+- ✅ **Inventory Valuation**: FIFO, LIFO, and Weighted Average Cost comparisons
+- ✅ **Budget Variance**: Actual vs. Budget tracking with cost category drill-downs
+- ✅ **Investment ROI**: Return on Investment and Payback analysis for maintenance projects
+- ✅ **Working Capital**: Cash-to-Cash cycle optimization
+
+### **6. Strategic Benchmarking** *(NEW)*
+- ✅ **Industry Benchmarking**: KPI comparison vs World-Class standards (CAT, Komatsu avg)
+- ✅ **Peer Equipment Comparison**: Composite performance ranking within internal fleet
+- ✅ **Gap Analysis**: Identified improvement potential to Best-in-Class targets
+
+### **7. Maintenance Optimization (RCM)** *(NEW)*
+- ✅ **RCM Analysis**: Risk Priority Number (RPN) based failure mode prioritization
+- ✅ **Maintenance Scheduler**: Gantt-chart based PM scheduling with technician workload balancing
+- ✅ **IO Condition Monitoring**: Live sensor-driven alert simulation for predictive triggers
+
+### **8. Advanced KPIs & Strategic Analytics**
 - ✅ **Fill Rate**: Order fulfillment from stock with benchmarking
 - ✅ **Perfect Order Rate**: On-time, in-full, error-free deliveries
 - ✅ **Days of Supply**: Inventory coverage analysis with risk classification
-- ✅ **Cash-to-Cash Cycle**: Working capital optimization metrics
 - ✅ **Supplier Risk Score**: Multi-factor supplier risk assessment
 - ✅ **Seasonal Demand Analysis**: Seasonality patterns and trends
 - ✅ **Correlation Analysis**: Metric interdependency heatmaps
 - ✅ **Anomaly Detection**: Statistical outlier identification
-- ✅ **Trend Analysis**: Statistical trend analysis and change detection
-- ✅ **What-If Scenarios**: Impact analysis for demand/lead time changes
 
-### **5. Interactive Dashboards**
+### **9. Interactive Dashboards**
 - ✅ Executive-level KPI overview with benchmark cards
-- ✅ Performance radar charts comparing 5 key dimensions
+- ✅ Performance radar charts comparing multi-dimensional performance
 - ✅ Drill-down analytics by equipment, supplier, warehouse
-- ✅ Real-time filtering and data exploration
-- ✅ Waterfall charts for cost breakdowns
-- ✅ Glassmorphism design with animations
-- ✅ Export capabilities for reports
+- ✅ Glassmorphism design with premium animations
+- ✅ A3 template geneators for quality reporting
 
 ---
 

@@ -261,6 +261,121 @@ class MaintenanceAnalytics:
         
         return high_risk
     
+    def rcm_failure_mode_prioritization(self):
+        """
+        Reliability Centered Maintenance (RCM) Analysis
+        Calculate Risk Priority Number (RPN) for failure modes
+        RPN = Severity x Occurrence x Detection (simulated here)
+        """
+        # Group by failure type (Failure Mode)
+        rcm = self.merged_data.groupby('failure_type').agg({
+            'downtime_id': 'count', # Occurrence proxy
+            'downtime_hours': 'mean', # Severity proxy (longer downtime = more severe)
+            'repair_cost': 'mean' # Cost severity
+        }).reset_index()
+        
+        # Normalize and score (1-10 scale)
+        rcm['occurrence_score'] = pd.qcut(rcm['downtime_id'], q=5, labels=False, duplicates='drop') * 2 + 2
+        
+        # Severity based on downtime + cost
+        rcm['downtime_norm'] = (rcm['downtime_hours'] / rcm['downtime_hours'].max())
+        rcm['cost_norm'] = (rcm['repair_cost'] / rcm['repair_cost'].max())
+        rcm['severity_raw'] = (rcm['downtime_norm'] + rcm['cost_norm']) / 2
+        rcm['severity_score'] = pd.qcut(rcm['severity_raw'], q=5, labels=False, duplicates='drop') * 2 + 2
+        
+        # Detection: Synthetic (Some failures are harder to detect)
+        np.random.seed(42)  # For consistent demo results
+        rcm['detection_score'] = np.random.randint(2, 9, size=len(rcm))
+        
+        # Calculate RPN
+        rcm['rpn'] = rcm['severity_score'] * rcm['occurrence_score'] * rcm['detection_score']
+        
+        # Assign Action
+        def assign_action(rpn):
+            if rpn >= 200: return 'Redesign / Process Change'
+            elif rpn >= 100: return 'Predictive Maintenance'
+            elif rpn >= 50: return 'Preventive Maintenance'
+            else: return 'Run-to-Failure'
+            
+        rcm['recommended_strategy'] = rcm['rpn'].apply(assign_action)
+        
+        return rcm.sort_values('rpn', ascending=False)
+        
+    def optimize_pm_schedule(self, schedule_df):
+        """
+        Analyze and optimize maintenance schedule
+        Checks for resource conflicts and workload balancing
+        """
+        df = schedule_df.copy()
+        df['start_date'] = pd.to_datetime(df['start_date'])
+        
+        # Check for technician conflicts (same tech, same day)
+        conflicts = df[df.duplicated(subset=['assigned_technician', 'start_date'], keep=False)]
+        
+        # Workload balance (Tasks per technician)
+        workload = df['assigned_technician'].value_counts().reset_index()
+        workload.columns = ['Technician', 'Tasks']
+        
+        return {
+            'schedule_df': df,
+            'conflicts': conflicts,
+            'workload': workload
+        }
+        
+    def condition_based_monitoring(self):
+        """
+        Simulate condition monitoring triggers based on equipment age/usage
+        """
+        # Get latest status
+        status = self.equipment.copy()
+        
+        # Simulate current sensor readings
+        np.random.seed(100)
+        status['vibration_mm_s'] = np.random.normal(2.5, 1.0, size=len(status))
+        status['temperature_c'] = np.random.normal(75, 15, size=len(status))
+        status['oil_quality_pct'] = np.random.normal(80, 10, size=len(status))
+        
+        # Define thresholds
+        thresholds = {
+            'vibration_mm_s': 5.0, # High vibration > 5 mm/s
+            'temperature_c': 95.0, # Overheating > 95 C
+            'oil_quality_pct': 40.0 # Bad oil < 40%
+        }
+        
+        triggers = []
+        for _, row in status.iterrows():
+            if row['vibration_mm_s'] > thresholds['vibration_mm_s']:
+                triggers.append({
+                    'equipment_id': row['equipment_id'],
+                    'equipment_name': row['equipment_name'],
+                    'parameter': 'Vibration',
+                    'value': f"{row['vibration_mm_s']:.2f} mm/s",
+                    'threshold': f">{thresholds['vibration_mm_s']}",
+                    'severity': 'High'
+                })
+            
+            if row['temperature_c'] > thresholds['temperature_c']:
+                triggers.append({
+                    'equipment_id': row['equipment_id'],
+                    'equipment_name': row['equipment_name'],
+                    'parameter': 'Temperature',
+                    'value': f"{row['temperature_c']:.1f} C",
+                    'threshold': f">{thresholds['temperature_c']}",
+                    'severity': 'Critical'
+                })
+                
+            if row['oil_quality_pct'] < thresholds['oil_quality_pct']:
+                triggers.append({
+                    'equipment_id': row['equipment_id'],
+                    'equipment_name': row['equipment_name'],
+                    'parameter': 'Oil Quality',
+                    'value': f"{row['oil_quality_pct']:.0f}%",
+                    'threshold': f"<{thresholds['oil_quality_pct']}",
+                    'severity': 'Medium'
+                })
+                
+        return pd.DataFrame(triggers)
+
     def generate_maintenance_recommendations(self):
         """
         Generate actionable maintenance recommendations

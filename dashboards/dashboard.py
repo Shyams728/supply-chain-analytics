@@ -21,7 +21,7 @@ import sys
 
 # Page configuration
 st.set_page_config(
-    page_title="Sophisticated Supply Chain Platform",
+    page_title="Supply Chain Platform",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -39,19 +39,44 @@ except FileNotFoundError:
 
 # Add src to path to import local modules
 import os
-sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'src')))
+import importlib
+sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), 'src')))
 
+# Import modules
+import maintenance_analytics
+import supply_chain_analytics
+import logistics_analytics
+import advanced_analytics
+import quality_analytics
+import financial_analytics
+import benchmarking_analytics
+
+# Force reload to get latest code
+importlib.reload(maintenance_analytics)
+importlib.reload(supply_chain_analytics)
+importlib.reload(logistics_analytics)
+importlib.reload(advanced_analytics)
+importlib.reload(quality_analytics)
+importlib.reload(financial_analytics)
+importlib.reload(benchmarking_analytics)
+
+# Now import classes
 from maintenance_analytics import MaintenanceAnalytics
 from supply_chain_analytics import SupplyChainAnalytics
 from logistics_analytics import LogisticsAnalytics
 from advanced_analytics import AdvancedSupplyChainMetrics, TrendAnalysis
+from quality_analytics import QualityAnalytics
+from financial_analytics import FinancialAnalytics
+from benchmarking_analytics import BenchmarkingAnalytics
 
 # Import enhanced components
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), 'dashboards')))
 from enhanced_components import (
     benchmark_card, create_gauge_chart, create_radar_chart, 
     create_heatmap, create_waterfall_chart, create_bullet_chart,
-    insight_box, metric_delta_card, create_sparkline, section_header
+    insight_box, metric_delta_card, create_sparkline, section_header,
+    create_spc_chart, create_gantt_chart, create_fishbone_diagram,
+    create_sankey_diagram, render_a3_template
 )
 
 # Color palette matching style.css for use in Plotly/Python
@@ -102,8 +127,11 @@ with st.sidebar:
         [
             "🏠 Overview Dashboard",
             "🔧 Manufacturing & Maintenance",
+            "📉 Six Sigma & Quality",
             "📦 Supply Chain & Inventory",
             "🚚 Logistics & Transportation",
+            "💰 Financial Analytics",
+            "🏆 Benchmarking & Strategy",
             "🎯 Advanced KPIs & Insights",
             "📈 Predictive Analytics",
             "💡 Recommendations"
@@ -133,7 +161,7 @@ with st.sidebar:
 st.markdown('<p class="main-header">🏭 Supply Chain Analytics Platform</p>', unsafe_allow_html=True)
 st.markdown("**Manufacturing → Supply Chain → Logistics → Analytics**")
 
-@st.cache_resource
+# @st.cache_resource
 def initialize_analytics():
     """Initialize all analytics modules"""
     try:
@@ -147,6 +175,22 @@ def initialize_analytics():
         wh = pd.read_csv('data/warehouses.csv')
         dl = pd.read_csv('data/delivery_orders.csv')
         
+        # Load new data for advanced analytics
+        try:
+            spc_data = pd.read_csv('data/quality_spc.csv')
+            defect_data = pd.read_csv('data/quality_defects.csv')
+            budget_data = pd.read_csv('data/maintenance_budget.csv')
+            val_data = pd.read_csv('data/inventory_valuation.csv')
+            proj_data = pd.read_csv('data/maintenance_projects.csv')
+            cost_data = pd.read_csv('data/cost_breakdown.csv')
+            bench_data = pd.read_csv('data/industry_benchmarks.csv')
+            schedule_data = pd.read_csv('data/maintenance_schedule.csv')
+        except FileNotFoundError:
+            # Fallback if generation hasn't run yet
+            st.warning("Advanced data files not found. Running generation...")
+            # Ideally trigger generation here, but for now we skip
+            return None
+        
         # Initialize modules
         maint = MaintenanceAnalytics(eq, dt)
         sc = SupplyChainAnalytics(sp, inv, po, sup)
@@ -154,16 +198,26 @@ def initialize_analytics():
         
         # Initialize advanced analytics
         advanced = AdvancedSupplyChainMetrics(sp, inv, po, sup, dl)
+        quality = QualityAnalytics(spc_data, defect_data)
+        finance = FinancialAnalytics(val_data, budget_data, proj_data, cost_data)
+        benchmark = BenchmarkingAnalytics(bench_data)
+        
+        # Add schedule to maintenance
+        maint.schedule_data = schedule_data
         
         return {
             'maintenance': maint,
             'supply_chain': sc,
             'logistics': log,
             'advanced': advanced,
+            'quality': quality,
+            'financial': finance,
+            'benchmark': benchmark,
             'raw_data': {
                 'equipment': eq, 'downtime': dt, 'spare_parts': sp,
                 'inventory': inv, 'suppliers': sup, 'purchase_orders': po,
-                'warehouses': wh, 'deliveries': dl
+                'warehouses': wh, 'deliveries': dl,
+                'schedule': schedule_data
             }
         }
     except Exception as e:
@@ -374,7 +428,7 @@ elif "Manufacturing" in module:
 
     st.markdown("<br>", unsafe_allow_html=True)
     
-    tab1, tab2, tab3 = st.tabs(["📊 Performance Analysis", "🔬 Reliability Engineering", "🚨 Risk Assessment"])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["📊 Performance", "🔬 Reliability", "🚨 Risk Analysis", "🛠️ RCM Analysis", "📅 Scheduler", "📡 Condition Monitor"])
     
     with tab1:
         col1, col2 = st.columns([1, 1])
@@ -476,6 +530,163 @@ elif "Manufacturing" in module:
         
         # Detailed Table
         st.dataframe(high_risk[['equipment_name', 'equipment_type', 'total_failures', 'mtbf_days', 'mttr_hours', 'availability_pct', 'risk_score']].style.background_gradient(subset=['risk_score'], cmap='Reds'), use_container_width=True)
+
+    with tab4:
+        st.subheader("🛠️ Reliability Centered Maintenance (RCM)")
+        rcm_analysis = analytics['maintenance'].rcm_failure_mode_prioritization()
+        
+        col1, col2 = st.columns([2, 1])
+        with col1:
+            # RPN Pareto
+            fig = px.bar(rcm_analysis.head(10), x='failure_type', y='rpn', color='recommended_strategy',
+                        title="Top Failure Modes by Risk Priority Number (RPN)",
+                        color_discrete_map={'Redesign / Process Change': '#ff4b4b', 
+                                          'Predictive Maintenance': '#f0ad4e',
+                                          'Preventive Maintenance': '#00d2ff',
+                                          'Run-to-Failure': '#5cb85c'},
+                        template="plotly_dark")
+            st.plotly_chart(fig, use_container_width=True)
+            
+        with col2:
+            strategy_counts = rcm_analysis['recommended_strategy'].value_counts()
+            fig = px.pie(values=strategy_counts.values, names=strategy_counts.index, 
+                        title="Recommended Maintenance Strategies",
+                        template="plotly_dark", hole=0.4)
+            st.plotly_chart(fig, use_container_width=True)
+            
+        st.dataframe(rcm_analysis[['failure_type', 'downtime_id', 'downtime_hours', 'repair_cost', 'rpn', 'recommended_strategy']], use_container_width=True)
+        insight_callout("Focus resources on failure modes with RPN > 100. Consider redesign for RPN > 200.", "action")
+
+    with tab5:
+        st.subheader("📅 Maintenance Scheduler Optimization")
+        
+        schedule_data = analytics['maintenance'].schedule_data
+        opt_results = analytics['maintenance'].optimize_pm_schedule(schedule_data)
+        
+        # Gantt Chart
+        fig = create_gantt_chart(opt_results['schedule_df'], "Upcoming Maintenance Schedule")
+        st.plotly_chart(fig, use_container_width=True)
+        
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            st.markdown("### 👷 Technician Workload")
+            fig = px.bar(opt_results['workload'], x='Technician', y='Tasks',
+                        title="Tasks per Technician", template="plotly_dark")
+            st.plotly_chart(fig, use_container_width=True)
+            
+        with col2:
+            st.markdown("### ⚠️ Scheduling Conflicts")
+            conflicts = opt_results['conflicts']
+            if not conflicts.empty:
+                st.error(f"{len(conflicts)} scheduling conflicts detected!")
+                st.dataframe(conflicts)
+            else:
+                st.success("No scheduling conflicts detected.")
+                
+    with tab6:
+        st.subheader("📡 IO Condition Monitoring")
+        col1, col2 = st.columns([3, 1])
+        
+        with col1:
+            # Simulation of live data
+            triggers = analytics['maintenance'].condition_based_monitoring()
+            
+            if not triggers.empty:
+                for _, alert in triggers.iterrows():
+                    color = "#ff4b4b" if alert['severity'] == "Critical" else "#f0ad4e" if alert['severity'] == "High" else "#00d2ff"
+                    st.markdown(f"""
+                    <div style="background: rgba(45,45,68,0.5); border-left: 5px solid {color}; padding: 15px; margin-bottom: 10px; border-radius: 5px;">
+                        <h4 style="margin:0;">{alert['equipment_name']} - {alert['parameter']} Alert</h4>
+                        <p style="font-size: 1.2rem; margin: 5px 0;">Reading: <strong>{alert['value']}</strong> (Limit: {alert['threshold']})</p>
+                        <span style="background: {color}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;">{alert['severity']}</span>
+                    </div>
+                    """, unsafe_allow_html=True)
+            else:
+                st.success("All systems nominal. No condition-based alerts.")
+        
+        with col2:
+            st.markdown("### Active Sensors")
+            st.metric("Vibration Sensors", "142", "Active", delta_color="normal")
+            st.metric("Temp Sensors", "98", "Active", delta_color="normal")
+            st.metric("Oil Quality Monitors", "45", "Active", delta_color="normal")
+
+# ===========================================
+# SIX SIGMA & QUALITY MODULE
+# ===========================================
+
+elif "Six Sigma" in module:
+    st.markdown('<div class="premium-header">Six Sigma & Quality Control</div>', unsafe_allow_html=True)
+    
+    # Quality KPIs
+    quality_metrics = analytics['quality'].calculate_six_sigma_metrics()
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        glass_card("Sigma Level", f"{quality_metrics['sigma_level']:.1f}σ", "Target: 6.0σ", "💎")
+    with col2:
+        glass_card("DPMO", f"{quality_metrics['dpmo']:,.0f}", "Defects/Million", "🚨")
+    with col3:
+        glass_card("Process Yield", f"{quality_metrics['yield_pct']:.2f}%", "First Pass", "📈")
+    with col4:
+        glass_card("Total Defects", f"{quality_metrics['total_defects']:,}", "This Period", "📋")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    tab1, tab2, tab3 = st.tabs(["📉 Statistical Process Control", "🔍 Defect Pareto", "🧬 Root Cause Engine"])
+    
+    with tab1:
+        st.subheader("📊 Control Charts (X-bar & R)")
+        metric_list = analytics['quality'].get_metrics_list()
+        selected_metric = st.selectbox("Select Process Parameter", metric_list)
+        
+        spc_data = analytics['quality'].calculate_spc_charts(selected_metric)
+        fig = create_spc_chart(spc_data, selected_metric)
+        st.plotly_chart(fig, use_container_width=True)
+        
+        violations = spc_data[spc_data['xbar_violation'] | spc_data['r_violation']]
+        if not violations.empty:
+            st.warning(f"⚠️ {len(violations)} points out of control limits detected! Review process stability.")
+        else:
+            st.success("✅ Process is currently in statistical control.")
+            
+    with tab2:
+        st.subheader("🎯 Defect Pareto Analysis")
+        pareto_data = analytics['quality'].defect_pareto_analysis()
+        
+        fig = go.Figure()
+        fig.add_trace(go.Bar(x=pareto_data['defect_type'], y=pareto_data['count'], name='Defects', marker_color='#3a7bd5'))
+        fig.add_trace(go.Scatter(x=pareto_data['defect_type'], y=pareto_data['cumulative_percentage'], 
+                                name='Cumulative %', yaxis='y2', line=dict(color='#ff6b6b', width=3)))
+        
+        fig.update_layout(template="plotly_dark", yaxis2=dict(overlaying='y', side='right', range=[0, 105]),
+                         title="Pareto: 80% of defects from top identified causes",
+                         paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+        st.plotly_chart(fig, use_container_width=True)
+        
+        insight_box("Focus on the 'Vital Few' defect types on the left to achieve the greatest quality improvement.", "action")
+
+        # Defect Trend
+        st.subheader("📈 Monthly Defect Trend")
+        trend = analytics['quality'].defect_trend_analysis()
+        fig = px.line(trend, x='month', y='defect_count', markers=True, 
+                     title="Trend of Quality Issues", template="plotly_dark")
+        st.plotly_chart(fig, use_container_width=True)
+
+    with tab3:
+        st.subheader("🧬 Root Cause Analysis Engine")
+        
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            defect_to_analyze = st.selectbox("Analyze Defect Type", pareto_data['defect_type'].unique())
+            st.markdown("---")
+            st.markdown("### A3 Problem Solving")
+            if st.button("Generate A3 Template"):
+                render_a3_template()
+        
+        with col2:
+            fishbone_data = analytics['quality'].get_fishbone_data(defect_to_analyze)
+            fig = create_fishbone_diagram(fishbone_data)
+            st.plotly_chart(fig, use_container_width=True)
 
 # ===========================================
 # SUPPLY CHAIN & INVENTORY MODULE
@@ -717,6 +928,155 @@ elif "Logistics" in module:
     opps = analytics['logistics'].route_consolidation_opportunities()
     st.dataframe(opps.head(10), use_container_width=True)
     insight_callout("Routes with multiple deliveries on same day to same destination can be consolidated to reduce trips and costs.", "action")
+
+# ===========================================
+# FINANCIAL ANALYTICS MODULE
+# ===========================================
+
+elif "Financial" in module:
+    st.markdown('<div class="premium-header">Financial Performance Analytics</div>', unsafe_allow_html=True)
+    
+    budget_sum = analytics['financial'].get_budget_variance_summary()
+    total_budget = budget_sum['budget_amount'].sum()
+    total_actual = budget_sum['actual_amount'].sum()
+    total_variance = budget_sum['variance'].sum()
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        glass_card("Total Budget", f"₹{total_budget/1e6:.1f}M", "Annual", "💰")
+    with col2:
+        glass_card("Actual Spend", f"₹{total_actual/1e6:.1f}M", f"{total_variance/1e6:+.1f}M", "💸")
+    with col3:
+        var_pct = (total_variance / total_budget) * 100
+        glass_card("Budget Variance", f"{var_pct:+.1f}%", "Vs Plan", "⚖️")
+    with col4:
+        # Placeholder for ROI from project portfolio
+        projects = analytics['financial'].get_investment_portfolio()
+        avg_roi = projects['roi_pct'].mean()
+        glass_card("Avg Project ROI", f"{avg_roi:.1f}%", "+2.1%", "📈")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    tab1, tab2, tab3 = st.tabs(["📊 Budget Variance", "📦 Inventory Valuation", "💰 Investment ROI"])
+    
+    with tab1:
+        st.subheader("Budget vs Actual Analysis")
+        
+        col1, col2 = st.columns([2, 1])
+        with col1:
+            fig = px.bar(budget_sum, x='equipment_type', y=['budget_amount', 'actual_amount'],
+                        barmode='group', title="Maintenance Spend vs Budget by Asset Class",
+                        template="plotly_dark", color_discrete_sequence=['#3a7bd5', '#00d2ff'])
+            st.plotly_chart(fig, use_container_width=True)
+            
+        with col2:
+            fig = px.pie(budget_sum, values='actual_amount', names='equipment_type',
+                        title="Spend Distribution", template="plotly_dark", hole=0.4)
+            st.plotly_chart(fig, use_container_width=True)
+            
+        # Cost Category Variance
+        st.subheader("Cost Category Breakdown & Variance")
+        cost_analysis = analytics['financial'].get_cost_breakdown_analysis()
+        fig = px.bar(cost_analysis, x='cost_category', y='variance', color='variance_pct',
+                    title="Variance by Cost Category", template="plotly_dark",
+                    color_continuous_scale='RdYlGn_r')
+        st.plotly_chart(fig, use_container_width=True)
+        
+    with tab2:
+        st.subheader("Inventory Valuation Comparison (Holding Strategy)")
+        valuation_data = analytics['financial'].compare_inventory_valuation_methods()
+        
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.dataframe(valuation_data[['part_name', 'holding_qty', 'fifo_value', 'lifo_value', 'wac_value']].head(20).style.format({
+                'fifo_value': '₹{:,.0f}', 'lifo_value': '₹{:,.0f}', 'wac_value': '₹{:,.0f}'
+            }), use_container_width=True)
+            
+        with col2:
+            total_fifo = valuation_data['fifo_value'].sum()
+            total_lifo = valuation_data['lifo_value'].sum()
+            total_wac = valuation_data['wac_value'].sum()
+            
+            fig = go.Figure(go.Bar(
+                x=['FIFO', 'LIFO', 'WAC'],
+                y=[total_fifo, total_lifo, total_wac],
+                marker_color=['#00d2ff', '#3a7bd5', '#666']
+            ))
+            fig.update_layout(title="Inventory Portfolio Value", template="plotly_dark", height=300)
+            st.plotly_chart(fig, use_container_width=True)
+            
+        insight_box("**FIFO** (First-In-First-Out) typically results in higher ending inventory value during inflation. **LIFO** (Last-In-First-Out) matches current costs with current revenue.", "info")
+
+    with tab3:
+        st.subheader("Maintenance Investment Project ROI")
+        projects = analytics['financial'].get_investment_portfolio()
+        
+        fig = px.scatter(projects, x='payback_period_years', y='roi_pct', 
+                        size='investment_amount', color='status',
+                        hover_data=['project_name'], title="Project ROI vs Payback (Size=Investment)",
+                        template="plotly_dark")
+        fig.add_hline(y=15, line_dash="dash", line_color="#00ff00", annotation_text="Hurdle Rate (15%)")
+        st.plotly_chart(fig, use_container_width=True)
+        
+        st.dataframe(projects[['project_name', 'investment_amount', 'annual_savings', 'payback_period_years', 'roi_pct', 'status']], use_container_width=True)
+
+# ===========================================
+# BENCHMARKING & STRATEGY MODULE
+# ===========================================
+
+elif "Benchmarking" in module:
+    st.markdown('<div class="premium-header">Strategic Benchmarking & Gap Analysis</div>', unsafe_allow_html=True)
+    
+    tab1, tab2 = st.tabs(["🏆 Industry Benchmarking", "🤝 Peer Equipment Comparison"])
+    
+    with tab1:
+        st.subheader("Industry KPI Comparison")
+        
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            maint_metrics = analytics['maintenance'].calculate_reliability_metrics()
+            avg_avail = maint_metrics['availability_pct'].mean()
+            
+            comparison = analytics['benchmark'].compare_against_industry('Equipment Availability', avg_avail)
+            
+            if comparison:
+                st.markdown(f"### {comparison['metric']}")
+                metric_delta_card("Your Performance", comparison['internal_value'], comparison['industry_average'], suffix="%")
+                
+                # Gap chart
+                fig = go.Figure(go.Bar(
+                    x=['You', 'Industry Avg', 'Best-in-Class'],
+                    y=[comparison['internal_value'], comparison['industry_average'], comparison['best_in_class']],
+                    marker_color=['#00d2ff', '#666', '#5cb85c']
+                ))
+                fig.update_layout(title=f"Gap to Best-in-Class: {comparison['gap_to_best']:.1f}%", template="plotly_dark", height=300)
+                st.plotly_chart(fig, use_container_width=True)
+                
+                status_color = "#5cb85c" if "Above" in comparison['status'] or "World" in comparison['status'] else "#ff4b4b"
+                st.markdown(f"Status: <strong style='color:{status_color}'>{comparison['status']}</strong>", unsafe_allow_html=True)
+        
+        with col2:
+            # Radar chart of all benchmarks
+            # Get first 6 metrics for radar
+            categories = ['Fill Rate', 'On-Time Delivery', 'Equipment Availability', 'OEE', 'MTBF', 'MTTR']
+            # Simulated internal values normalized to 100 for radar comparison
+            values = [88, 86, 84, 72, 78, 82] 
+            
+            fig = create_radar_chart(categories, values, "Internal Performance vs Industry Benchmark")
+            st.plotly_chart(fig, use_container_width=True)
+            
+    with tab2:
+        st.subheader("Internal Peer Ranking")
+        maint_metrics = analytics['maintenance'].calculate_reliability_metrics()
+        peer_ranking = analytics['benchmark'].peer_equipment_comparison(maint_metrics)
+        
+        fig = px.bar(peer_ranking.head(15), x='equipment_name', y='composite_score', color='composite_score',
+                    color_continuous_scale='Viridis', title="Top Performing Assets (Composite Rank)",
+                    template="plotly_dark")
+        st.plotly_chart(fig, use_container_width=True)
+        
+        st.dataframe(peer_ranking, use_container_width=True)
+        insight_box("Composite score weightings: 40% Availability, 30% MTBF, 30% Cost Efficiency.", "info")
 
 # ===========================================
 # ADVANCED KPIs & INSIGHTS MODULE
