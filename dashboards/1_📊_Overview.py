@@ -195,6 +195,102 @@ with col3:
     else:
         st.info("No inventory health data.")
 
+# ==========================================
+# Advanced Analytics Section (Predictive ML)
+# ==========================================
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown('<div class="premium-header">Advanced Predictive Analytics</div>', unsafe_allow_html=True)
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("##### 🚨 Equipment Failure Risk (ML Model)")
+    try:
+        # Get predictions
+        risk_data = analytics['maintenance'].get_failure_predictions()
+        
+        if risk_data is not None and not risk_data.empty:
+            # Filter for high risk
+            high_risk = risk_data[risk_data['risk_score'] > 50].head(10)
+            
+            if not high_risk.empty:
+                # Gauge chart for average risk of top 5
+                avg_high_risk = high_risk['risk_score'].mean()
+                
+                fig = go.Figure(go.Indicator(
+                    mode = "gauge+number",
+                    value = avg_high_risk,
+                    title = {'text': "Avg Risk (Top Critical Equip)"},
+                    gauge = {
+                        'axis': {'range': [0, 100]},
+                        'bar': {'color': "#ff4b4b"},
+                        'steps': [
+                            {'range': [0, 50], 'color': "lightgreen"},
+                            {'range': [50, 75], 'color': "yellow"},
+                            {'range': [75, 100], 'color': "orange"}],
+                    }))
+                fig.update_layout(height=250, margin=dict(l=20, r=20, t=30, b=20),
+                                  paper_bgcolor='rgba(0,0,0,0)', font=dict(color='white'))
+                st.plotly_chart(fig, use_container_width=True)
+                
+                # Table
+                st.dataframe(
+                    high_risk[['equipment_id', 'equipment_type', 'risk_score', 'risk_category']],
+                    use_container_width=True,
+                    hide_index=True
+                )
+            else:
+                st.success("✅ No high-risk equipment detected by ML model.")
+        else:
+            st.info("Training Predictive Model in background... Refresh shortly.")
+    except Exception as e:
+        st.warning(f"ML Module not ready: {str(e)}")
+
+with col2:
+    st.markdown("##### 📈 Integrated Demand Forecasting (AI)")
+    try:
+        # Get batch forecasts
+        forecasts = analytics['supply_chain'].get_batch_forecasts(top_n=1)
+        
+        if forecasts:
+            # Visualize the first one
+            part_id = list(forecasts.keys())[0]
+            fc_df = forecasts[part_id]
+            
+            fig = go.Figure()
+            
+            # Forecast line
+            fig.add_trace(go.Scatter(
+                x=fc_df['ds'], y=fc_df['yhat'],
+                mode='lines+markers', name='Forecast',
+                line=dict(color='#00d2ff', width=3)
+            ))
+            
+            # Confidence Interval
+            fig.add_trace(go.Scatter(
+                x=pd.concat([fc_df['ds'], fc_df['ds'][::-1]]),
+                y=pd.concat([fc_df['yhat_upper'], fc_df['yhat_lower'][::-1]]),
+                fill='toself', fillcolor='rgba(0, 210, 255, 0.2)',
+                line=dict(color='rgba(255,255,255,0)'),
+                hoverinfo="skip", showlegend=False
+            ))
+            
+            fig.update_layout(
+                title=f"Demand Forecast: {part_id}",
+                template="plotly_dark",
+                paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+                height=350, margin=dict(l=20, r=20, t=40, b=20),
+                legend=dict(orientation="h", y=1.1)
+            )
+            st.plotly_chart(fig, use_container_width=True)
+            
+            insight_callout(f"Forecast for **{part_id}** indicates a projected usage of **{fc_df['yhat'].iloc[-1]:.0f}** units next month. Ensure stock levels are adequate.", "trend")
+        else:
+            st.info("Insufficient data for forecasting.")
+            
+    except Exception as e:
+        st.warning(f"Forecasting Module not ready: {str(e)}")
+
 # Footer
 st.markdown("---")
 st.markdown("""

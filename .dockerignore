@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+.env
+venv/
+env/
+.idea/
+.vscode/
+outputs/
+tests/
+models/

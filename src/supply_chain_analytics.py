@@ -8,6 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
+import sys
+import os
+
+# Add src to path if needed
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.forecasting import DemandForecaster
 
 class SupplyChainAnalytics:
     """
@@ -405,6 +412,20 @@ class SupplyChainAnalytics:
             })
         
         return pd.DataFrame(recommendations)
+
+    def get_demand_forecast(self, part_id):
+        """
+        Get demand forecast for a specific part
+        """
+        forecaster = DemandForecaster(self.inventory)
+        return forecaster.forecast_demand(part_id)
+
+    def get_batch_forecasts(self, top_n=10):
+        """
+        Get forecasts for top moving parts
+        """
+        forecaster = DemandForecaster(self.inventory)
+        return forecaster.generate_all_forecasts(top_n=top_n)
 
 
 # ========================================

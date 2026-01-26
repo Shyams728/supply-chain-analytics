@@ -8,6 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
+import sys
+import os
+
+# Add src to path if needed for direct execution
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from src.ml_models import FailurePredictor
 
 class MaintenanceAnalytics:
     """
@@ -422,6 +429,27 @@ class MaintenanceAnalytics:
             })
         
         return pd.DataFrame(recommendations)
+
+    def train_prediction_model(self):
+        """
+        Train the predictive maintenance model using current data
+        """
+        predictor = FailurePredictor()
+        predictor.train(self.equipment, self.downtime)
+        return "Model trained successfully"
+
+    def get_failure_predictions(self):
+        """
+        Get failure probabilities for all equipment
+        """
+        predictor = FailurePredictor()
+        # Check if model exists, if not, train it
+        if not os.path.exists(predictor.model_path):
+            print("Model not found, training new model...")
+            self.train_prediction_model()
+            
+        predictions = predictor.predict_risk(self.equipment, self.downtime)
+        return predictions
 
 
 # ========================================
