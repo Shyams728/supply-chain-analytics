@@ -237,6 +237,100 @@ class QualityDataGenerator:
             'yield_pct': round((1 - total_defects/total_opportunities) * 100, 2)
         }
 
+    def generate_a3_report(self, defect_type):
+        """
+        Generate A3 Problem Solving Report data for a specific defect type
+        """
+        
+        # Default report structure
+        report = {
+            'background': "Background analysis pending...",
+            'current_condition': "Data collection in progress...",
+            'goal': "Target not defined...",
+            'root_cause': "Root cause analysis required...",
+            'countermeasures': "Countermeasures to be identified...",
+            'implementation': "Plan pending approval...",
+            'follow_up': "Follow-up schedule tbd..."
+        }
+        
+        if defect_type == 'Weld Defect' or defect_type == 'Weld Porosity':
+            report = {
+                'background': """<b>Context of the problem:</b><br>
+Weld defects have increased by 15% in the last quarter, specifically porosity and lack of fusion in the hydraulic cylinder assembly line.<br>
+This has resulted in increased rework costs ($12,000/month) and production delays (Avg 4 hours/week).""",
+                
+                'current_condition': f"""<b>Problem Statement:</b><br>
+Current First Pass Yield for welding process is {random.uniform(88, 92):.1f}% (Target: 98%).<br>
+Defect Rate: {random.randint(1200, 1500)} PPM.<br>
+Primary Location: Station 4 (Robotic Welding Arm B).""",
+                
+                'goal': """<b>Specific metric targets:</b><br>
+1. Reduce Weld Porosity defects by 50% within 3 months.<br>
+2. Improve First Pass Yield to >96%.<br>
+3. Reduce rework costs to <$5,000/month.""",
+                
+                'root_cause': """<b>5 Whys Analysis:</b><br>
+1. Why? Porosity in weld bead. -> Gas coverage insufficient.<br>
+2. Why? Gas flow interrupted. -> Nozzle clogged with spatter.<br>
+3. Why? Auto-clean cycle not effective. -> Reamer blade worn out.<br>
+4. Why? Preventive maintenance schedule missed. -> New operator not trained on PM.<br>
+5. Why? Training matrix not updated. -> <b>Root Cause: Gap in Training Process & PM Standard Work.</b>""",
+                
+                'countermeasures': """<b>Proposed solutions:</b><br>
+1. <b>Immediate:</b> Replace reamer blades and deep clean nozzle (Owner: Maintenance).<br>
+2. <b>Systemic:</b> Implement auto-lockout if PM check is not logged (Owner: Engineering).<br>
+3. <b>Process:</b> Update Standard Work for Operator PM training (Owner: Quality).""",
+                
+                'implementation': f"""<b>Who, When, What:</b><br>
+- Maintenance Lead: Replace blades ({datetime.now().strftime('%Y-%m-%d')}) - <b>DONE</b><br>
+- Shift Supervisor: Training Refresher (Due: {(datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d')})<br>
+- Controls Eng: Update PLC logic for PM lockout (Due: {(datetime.now() + timedelta(days=14)).strftime('%Y-%m-%d')})""",
+                
+                'follow_up': f"""<b>Check results & standard work:</b><br>
+- Audit weld quality daily for 30 days.<br>
+- Review effective PM compliance weekly.<br>
+- Target Date for Project Closure: {(datetime.now() + timedelta(days=45)).strftime('%Y-%m-%d')}"""
+            }
+        else:
+            # Generic template for other defects
+             report = {
+                'background': f"""<b>Context of the problem:</b><br>
+Increase in {defect_type} observed during final inspection.<br>
+Impact: Customer complaints and increased warranty claims.""",
+                
+                'current_condition': f"""<b>Problem Statement:</b><br>
+Defect rate for {defect_type} is currently above threshold.<br>
+Observed frequency: {random.choice(['High', 'Medium', 'Increasing'])}.<br>
+Affected Models: Series X, Series Y.""",
+                
+                'goal': f"""<b>Specific metric targets:</b><br>
+1. Eliminate {defect_type} overflow to customer.<br>
+2. Reduce internal occurrence by 40%.""",
+                
+                'root_cause': """<b>Potential Causes (Fishbone):</b><br>
+- Man: Training / Standard Work<br>
+- Machine: Calibration / Wear<br>
+- Material: Supplier Variance<br>
+- Method: Process Definition<br>
+<i>Requires cross-functional investigation.</i>""",
+                
+                'countermeasures': """<b>Proposed solutions:</b><br>
+1. Containment action to protect customer.<br>
+2. Root cause verification trials.<br>
+3. Permanent corrective action implementation.""",
+                
+                'implementation': """<b>Plan:</b><br>
+- Phase 1: Investigation & Containment<br>
+- Phase 2: Solution Implementation<br>
+- Phase 3: Validation""",
+                
+                'follow_up': """<b>Validation:</b><br>
+- Monitor quality metrics for 3 production runs.<br>
+- Update FMEA and Control Plan."""
+            }
+            
+        return report
+
 def main():
     """Generate and save quality data"""
     

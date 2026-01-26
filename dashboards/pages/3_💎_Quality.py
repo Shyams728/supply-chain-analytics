@@ -2,6 +2,7 @@
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+from quality_data_generator import QualityDataGenerator
 from app_utils import setup_page, load_raw_data, render_sidebar, filter_data, get_analytics, glass_card, insight_callout, insight_box, create_spc_chart, create_fishbone_diagram, render_a3_template
 
 # Page Setup
@@ -101,7 +102,17 @@ with tab3:
             st.markdown("---")
             st.markdown("### A3 Problem Solving")
             if st.button("Generate A3 Template"):
-                render_a3_template()
+                # Initialize generator (we can pass empty df as we only need the report method for now, 
+                # or better yet, pass the actual data if we wanted to be more precise, but for this method it uses internal logic)
+                # Ideally we should instantiate this once or reuse, but for button click it's fine.
+                # We need to pass a dataframe to init, let's use the one from analytics or just an empty one if safe.
+                # The generator needs equipment_df to init.
+                # Let's try to get equipment data from raw_data if available
+                equipment_df = raw_data.get('equipment') if raw_data else pd.DataFrame()
+                generator = QualityDataGenerator(equipment_df)
+                
+                a3_data = generator.generate_a3_report(defect_to_analyze)
+                render_a3_template(a3_data)
         
         with col2:
             fishbone_data = analytics['quality'].get_fishbone_data(defect_to_analyze)

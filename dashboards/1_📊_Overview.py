@@ -211,7 +211,7 @@ with col1:
         
         if risk_data is not None and not risk_data.empty:
             # Filter for high risk
-            high_risk = risk_data[risk_data['risk_score'] > 50].head(10)
+            high_risk = risk_data[risk_data['risk_score'] > 50].head(2)
             
             if not high_risk.empty:
                 # Gauge chart for average risk of top 5

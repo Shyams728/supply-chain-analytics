@@ -392,95 +392,288 @@ def create_sankey_diagram(source, target, value, label_list, title="Material Flo
                       paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     return fig
 
-def create_gantt_chart(tasks_df, title="Maintenance Schedule"):
+def create_gantt_chart(tasks_df, title="Maintenance Schedule", start_limit=None, end_limit=None):
     """
-    Create Gantt chart for scheduling
-    Expects df with: Task, Start, Finish, Resource
+    Create an advanced Gantt chart for scheduling with focused time window
+    Expects df with: task_name, start_date, end_date, assigned_technician, status
     """
-    fig = px.timeline(tasks_df, x_start="start_date", x_end="end_date", y="equipment_name",
-                     color="assigned_technician", hover_data=["task_name", "status"],
-                     title=title, template="plotly_dark")
+    if tasks_df.empty:
+        return go.Figure()
+
+    df = tasks_df.copy()
+    df['start_date'] = pd.to_datetime(df['start_date'])
+    df['end_date'] = pd.to_datetime(df['end_date'])
     
-    fig.update_yaxes(autorange="reversed") # Latest on top
-    fig.update_layout(height=400, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    # Apply filtering if limits provided, otherwise default to a reasonable window
+    today = pd.Timestamp.now().normalize()
+    if start_limit is None:
+        # Show from 7 days ago to 60 days ahead by default if no limit
+        start_view = today - pd.Timedelta(days=7)
+    else:
+        start_view = pd.to_datetime(start_limit)
+        
+    if end_limit is None:
+        end_view = today + pd.Timedelta(days=60)
+    else:
+        end_view = pd.to_datetime(end_limit)
+
+    # Filter data for the chart to improve performance and readability
+    # Keep tasks that overlap with the view window
+    mask = (df['start_date'] <= end_view) & (df['end_date'] >= start_view)
+    plot_df = df[mask].sort_values('start_date')
+
+    if plot_df.empty:
+        # If no tasks in window, show a message or just the window
+        fig = go.Figure()
+        fig.add_annotation(text="No maintenance tasks scheduled for this period", 
+                          showarrow=False, font=dict(size=16, color="#888"))
+        fig.update_layout(template="plotly_dark", paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', height=400)
+        return fig
+
+    # Create timeline
+    fig = px.timeline(
+        plot_df, 
+        x_start="start_date", 
+        x_end="end_date", 
+        y="equipment_name",
+        color="status",
+        hover_data={
+            "equipment_name": True,
+            "task_name": True,
+            "assigned_technician": True,
+            "status": True,
+            "start_date": "|%b %d, %Y",
+            "end_date": "|%b %d, %Y"
+        },
+        category_orders={"status": ["Completed", "In Progress", "Scheduled"]},
+        color_discrete_map={
+            "Completed": COLORS['success'],
+            "In Progress": COLORS['warning'],
+            "Scheduled": COLORS['primary']
+        },
+        title=title,
+        template="plotly_dark"
+    )
+    
+    # Add "Today" vertical line
+    fig.add_vline(x=today.timestamp() * 1000, line_width=2, line_dash="dash", line_color="#ff4b4b")
+    fig.add_annotation(x=today.timestamp() * 1000, y=0, text="TODAY", showarrow=False, 
+                      textangle=-90, yanchor="top", font=dict(color="#ff4b4b", size=10))
+
+    fig.update_yaxes(autorange="reversed", title="Asset")
+    fig.update_xaxes(
+        title="Timeline",
+        range=[start_view, end_view],
+        rangeslider_visible=True
+    )
+    
+    fig.update_layout(
+        height=500, 
+        paper_bgcolor='rgba(0,0,0,0)', 
+        plot_bgcolor='rgba(0,0,0,0)',
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(l=20, r=20, t=60, b=20)
+    )
+    
     return fig
 
 def create_fishbone_diagram(data):
     """
-    Visualize Fishbone (Ishikawa) Diagram using network graph structure
+    Visualize Fishbone (Ishikawa) Diagram as an actual fishbone structure
     Input: Dict with keys as Major Categories (Man, Machine, etc) and values as list of causes
     """
-    # Nodes and Edges
-    labels = ["Problem"] + list(data.keys())
-    parents = [""] + ["Problem"] * 6
-    values = [10] + [5] * 6 # Size
+    fig = go.Figure()
     
-    # Add leaves
-    for cat, items in data.items():
-        for item in items:
-            labels.append(item['name'])
-            parents.append(cat)
-            values.append(item['value'])
-            
-    # Visualize as Sunburst or Treemap (better for web than static fishbone)
-    # Using Sunburst as modern interactive alternative
-    fig = go.Figure(go.Sunburst(
-        labels=labels,
-        parents=parents,
-        values=values,
-        branchvalues="total",
-        marker=dict(colorscale='Blues')
+    # Main spine (horizontal line from left to right)
+    spine_y = 0
+    spine_start_x = 0
+    spine_end_x = 10
+    
+    # Draw main spine
+    fig.add_trace(go.Scatter(
+        x=[spine_start_x, spine_end_x],
+        y=[spine_y, spine_y],
+        mode='lines',
+        line=dict(color='#00d2ff', width=3),
+        showlegend=False,
+        hoverinfo='skip'
     ))
     
-    fig.update_layout(title="Root Cause Analysis (Fishbone Structure)", height=500, template="plotly_dark",
-                      paper_bgcolor='rgba(0,0,0,0)')
+    # Problem head (arrow at the end)
+    fig.add_trace(go.Scatter(
+        x=[spine_end_x],
+        y=[spine_y],
+        mode='markers+text',
+        marker=dict(size=20, color='#ff4b4b', symbol='triangle-right'),
+        text=['PROBLEM'],
+        textposition='middle right',
+        textfont=dict(size=12, color='white', family='Arial Black'),
+        showlegend=False,
+        hoverinfo='skip'
+    ))
+    
+    # Categories and their positions
+    categories = list(data.keys())
+    num_categories = len(categories)
+    
+    # Position categories alternating above and below the spine
+    positions = []
+    for i, category in enumerate(categories):
+        x_pos = 2 + (i * (spine_end_x - 2) / num_categories)
+        # Alternate above (positive y) and below (negative y)
+        y_offset = 2 if i % 2 == 0 else -2
+        positions.append((x_pos, y_offset, category))
+    
+    # Draw bones and causes
+    for x_pos, y_offset, category in positions:
+        # Draw bone (diagonal line from spine to category)
+        fig.add_trace(go.Scatter(
+            x=[x_pos, x_pos + 1.5],
+            y=[spine_y, y_offset],
+            mode='lines',
+            line=dict(color='#3a7bd5', width=2),
+            showlegend=False,
+            hoverinfo='skip'
+        ))
+        
+        # Add category label
+        fig.add_trace(go.Scatter(
+            x=[x_pos + 1.5],
+            y=[y_offset],
+            mode='text',
+            text=[f'<b>{category}</b>'],
+            textposition='top center' if y_offset > 0 else 'bottom center',
+            textfont=dict(size=11, color='#00d2ff'),
+            showlegend=False,
+            hoverinfo='skip'
+        ))
+        
+        # Add causes for this category
+        causes = data.get(category, [])
+        for j, cause_item in enumerate(causes[:3]):  # Limit to top 3 causes
+            cause_name = cause_item.get('name', '')
+            cause_value = cause_item.get('value', 0)
+            
+            # Position causes along the bone
+            cause_x = x_pos + 0.5 + (j * 0.3)
+            cause_y = y_offset * (0.7 - j * 0.15)
+            
+            # Draw small line to cause
+            fig.add_trace(go.Scatter(
+                x=[x_pos + 1.5, cause_x],
+                y=[y_offset, cause_y],
+                mode='lines',
+                line=dict(color='rgba(58,123,213,0.3)', width=1, dash='dot'),
+                showlegend=False,
+                hoverinfo='skip'
+            ))
+            
+            # Add cause text
+            fig.add_trace(go.Scatter(
+                x=[cause_x],
+                y=[cause_y],
+                mode='markers+text',
+                marker=dict(size=8, color='#f0ad4e'),
+                text=[f'{cause_name}<br>({cause_value})'],
+                textposition='top center' if y_offset > 0 else 'bottom center',
+                textfont=dict(size=8, color='#e0e0e0'),
+                showlegend=False,
+                hovertemplate=f'<b>{cause_name}</b><br>Count: {cause_value}<extra></extra>'
+            ))
+    
+    # Update layout
+    fig.update_layout(
+        title="Root Cause Analysis (Fishbone Diagram)",
+        height=500,
+        template="plotly_dark",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        xaxis=dict(
+            showgrid=False,
+            showticklabels=False,
+            zeroline=False,
+            range=[-1, 12]
+        ),
+        yaxis=dict(
+            showgrid=False,
+            showticklabels=False,
+            zeroline=False,
+            range=[-3, 3]
+        ),
+        margin=dict(l=20, r=100, t=50, b=20)
+    )
+    
     return fig
 
-def render_a3_template():
-    """Render an A3 Problem Solving Template in Streamlit"""
-    html_code = """
-    <div style="background-color: white; color: black; padding: 20px; border-radius: 5px;">
-        <h2 style="text-align: center; color: #2c3e50;">A3 Problem Solving Report</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>1. Background</h4>
-                <p><i>Context of the problem...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>5. Countermeasures</h4>
-                <p><i>Proposed solutions...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>2. Current Condition</h4>
-                <p><i>Problem statement & data...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>6. Implementation Plan</h4>
-                <p><i>Who, When, What...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>3. Goal / Target State</h4>
-                <p><i>Specific metric targets...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px;">
-                <h4>7. Follow Up</h4>
-                <p><i>Check results & standard work...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; grid-column: span 2;">
-                <h4>4. Root Cause Analysis</h4>
-                <p><i>5 Whys / Fishbone...</i></p>
-                <div style="height: 100px; background: #f9f9f9;"></div>
-            </div>
-        </div>
-    </div>
-    """
-    st.markdown(html_code, unsafe_allow_html=True)
+def render_a3_template(data=None):
+    """Render an A3 Problem Solving Template in Streamlit using native components"""
+    
+    # Default empty placeholder text if no data provided
+    if data is None:
+        data = {
+            'background': "Context of the problem...",
+            'current_condition': "Problem statement & data...",
+            'goal': "Specific metric targets...",
+            'root_cause': "5 Whys / Fishbone...",
+            'countermeasures': "Proposed solutions...",
+            'implementation': "Who, When, What...",
+            'follow_up': "Check results & standard work..."
+        }
+    
+    # Title
+    st.markdown("### 📋 A3 Problem Solving Report")
+    st.markdown("---")
+    
+    # Create two-column layout
+    col1, col2 = st.columns(2)
+    
+    # Left column - sections 1, 2, 3, 4
+    with col1:
+        # Section 1: Background
+        with st.container():
+            st.markdown("#### 1. Background")
+            st.markdown(data.get('background', ''), unsafe_allow_html=True)
+            st.markdown("")
+        
+        # Section 2: Current Condition
+        with st.container():
+            st.markdown("#### 2. Current Condition")
+            st.markdown(data.get('current_condition', ''), unsafe_allow_html=True)
+            st.markdown("")
+        
+        # Section 3: Goal / Target State
+        with st.container():
+            st.markdown("#### 3. Goal / Target State")
+            st.markdown(data.get('goal', ''), unsafe_allow_html=True)
+            st.markdown("")
+    
+    # Right column - sections 5, 6, 7
+    with col2:
+        # Section 5: Countermeasures
+        with st.container():
+            st.markdown("#### 5. Countermeasures")
+            st.markdown(data.get('countermeasures', ''), unsafe_allow_html=True)
+            st.markdown("")
+        
+        # Section 6: Implementation Plan
+        with st.container():
+            st.markdown("#### 6. Implementation Plan")
+            st.markdown(data.get('implementation', ''), unsafe_allow_html=True)
+            st.markdown("")
+        
+        # Section 7: Follow Up
+        with st.container():
+            st.markdown("#### 7. Follow Up")
+            st.markdown(data.get('follow_up', ''), unsafe_allow_html=True)
+            st.markdown("")
+    
+    # Section 4: Root Cause Analysis (full width at bottom)
+    with st.container():
+        st.markdown("#### 4. Root Cause Analysis")
+        st.markdown(data.get('root_cause', ''), unsafe_allow_html=True)
+        st.markdown("")
+    
+    st.markdown("---")
 
 def export_data_table(df, filename="data_export.csv", label="Export Data"):
     """

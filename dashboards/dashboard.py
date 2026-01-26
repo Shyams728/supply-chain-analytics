@@ -564,7 +564,13 @@ elif "Manufacturing" in module:
         opt_results = analytics['maintenance'].optimize_pm_schedule(schedule_data)
         
         # Gantt Chart
-        fig = create_gantt_chart(opt_results['schedule_df'], "Upcoming Maintenance Schedule")
+        sd, ed = date_range if len(date_range) == 2 else (None, None)
+        fig = create_gantt_chart(
+            opt_results['schedule_df'], 
+            "Upcoming Maintenance Schedule",
+            start_limit=sd,
+            end_limit=ed
+        )
         st.plotly_chart(fig, use_container_width=True)
         
         col1, col2 = st.columns([1, 1])

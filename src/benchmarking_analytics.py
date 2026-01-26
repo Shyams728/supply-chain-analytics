@@ -30,10 +30,17 @@ class BenchmarkingAnalytics:
                 (self.benchmark_data['metric_name'] == internal_metric_name) & 
                 (self.benchmark_data['equipment_class'] == 'All')
             ]
+        
+        if match.empty:
+            # If still no match, try to get ANY equipment class for this metric
+            match = self.benchmark_data[
+                self.benchmark_data['metric_name'] == internal_metric_name
+            ]
             
         if match.empty:
             return None
-            
+        
+        # Use the first match if multiple found
         benchmark = match.iloc[0]
         
         # Determine direction (Higher is better? or Lower is better?)

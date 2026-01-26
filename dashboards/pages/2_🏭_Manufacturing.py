@@ -214,7 +214,13 @@ with tab5:
         opt_results = analytics['maintenance'].optimize_pm_schedule(schedule_data)
         
         # Gantt Chart
-        fig = create_gantt_chart(opt_results['schedule_df'], "Upcoming Maintenance Schedule")
+        start_date, end_date = filters.get('date_range', (None, None))
+        fig = create_gantt_chart(
+            opt_results['schedule_df'], 
+            "Upcoming Maintenance Schedule",
+            start_limit=start_date,
+            end_limit=end_date
+        )
         st.plotly_chart(fig, use_container_width=True)
         
         col1, col2 = st.columns([1, 1])

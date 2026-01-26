@@ -33,6 +33,7 @@ with tab1:
     col1, col2 = st.columns([1, 1])
     with col1:
         maint_metrics = analytics['maintenance'].calculate_reliability_metrics()
+        
         if not maint_metrics.empty:
             avg_avail = maint_metrics['availability_pct'].mean()
             
@@ -40,7 +41,7 @@ with tab1:
             
             if comparison:
                 st.markdown(f"### {comparison['metric']}")
-                metric_delta_card("Your Performance", comparison['internal_value'], comparison['industry_average'], suffix="%", col=st)
+                metric_delta_card("Your Performance", comparison['internal_value'], comparison['industry_average'], suffix="%", col=col1)
                 
                 # Gap chart
                 fig = go.Figure(go.Bar(
@@ -53,6 +54,8 @@ with tab1:
                 
                 status_color = "#5cb85c" if "Above" in comparison['status'] or "World" in comparison['status'] else "#ff4b4b"
                 st.markdown(f"Status: <strong style='color:{status_color}'>{comparison['status']}</strong>", unsafe_allow_html=True)
+            else:
+                st.warning("⚠️ No benchmark data available for Equipment Availability")
         else:
             st.info("No internal data for comparison.")
     
