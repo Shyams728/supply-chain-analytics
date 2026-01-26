@@ -69,65 +69,54 @@ Based on 5+ years of hands-on experience at **Larsen & Toubro** in construction 
 
 ## ✨ **Key Features**
 
-### **1. Manufacturing & Maintenance Analytics**
+### **1. 📊 Executive Overview**  
+- ✅ High-level KPI summary (Availability, OEE, Fill Rate, OTD)
+- ✅ Integrated predictive risk alerts (ML-driven)
+- ✅ Monthly cost and failure trend analysis
+- ✅ Interactive Pareto visualizations
+
+### **2. 🏭 Manufacturing & Engineering**
 - ✅ Equipment reliability metrics (MTBF, MTTR, OEE)
 - ✅ Failure pattern analysis and root cause identification
-- ✅ Downtime cost tracking and optimization
-- ✅ Criticality matrix for maintenance prioritization
-- ✅ Predictive maintenance recommendations
+- ✅ **Weibull Analysis**: Advanced reliability profiling
+- ✅ **RCM Analysis**: Failure mode prioritization (RPN)
+- ✅ **PM Scheduler**: Optimized technician workload balancing
+- ✅ **IO Condition Monitoring**: Real-time sensor-driven alert simulation
 
-### **2. Supply Chain & Inventory Analytics**
-- ✅ ABC classification of spare parts
-- ✅ Inventory health monitoring (stock-out risks, excess inventory)
-- ✅ Demand pattern analysis and forecasting
-- ✅ Supplier performance scorecards
-- ✅ Lead-time variance analysis
+### **3. 📉 Six Sigma & Quality Control**
+- ✅ **SPC Charts**: Statistical Process Control (X-bar & R-charts)
+- ✅ **Defect Pareto**: 80/20 classification of quality issues
+- ✅ **Six Sigma Metrics**: DPMO, Sigma Level (σ), and First Pass Yield
+- ✅ **A3 Problem Solving**: Interactive standardized RCA templates
+- ✅ **Ishikawa Dynamics**: Visual root cause distributions (Fishbone)
 
-### **3. Logistics & Transportation Optimization**
-- ✅ Delivery performance tracking (on-time %, lead time)
-- ✅ Route optimization using linear programming
-- ✅ Transport mode cost analysis
-- ✅ Warehouse performance benchmarking
-- ✅ Consolidation opportunity identification
+### **4. 📦 Supply Chain & Inventory**
+- ✅ **ABC/XYZ Classification**: Multi-dimensional value/variability analysis
+- ✅ **EOQ & ROP Optimization**: Scientific reorder point calculation
+- ✅ **Inventory Health**: Stock-out risk and excess inventory tracking
+- ✅ **Supplier Performance**: Reliability and lead-time scorecards
+- ✅ **Demand Forecasting**: AI-powered time-series projections
 
-### **4. Six Sigma & Quality Control** *(NEW)*
-- ✅ **SPC Charts**: Statistical Process Control (X-bar & R-charts) with out-of-control limit detection
-- ✅ **Pareto Analysis**: 80/20 defect classification for quality prioritization
-- ✅ **Six Sigma Metrics**: DPMO, Sigma Level (σ), and Process Yield calculations
-- ✅ **A3 Problem Solving**: Standardized root cause analysis templates
-- ✅ **Ishikawa Dynamics**: Interactive root cause distributions (Fishbone)
+### **5. 🚚 Logistics & Transportation**
+- ✅ **OTD Analytics**: Service level and lead-time performance
+- ✅ **Route Optimization**: Distance and cost minimization (LP)
+- ✅ **Transport Mode Analysis**: Cost efficiency comparison
+- ✅ **Warehouse Benchmarking**: Multi-site performance tracking
 
-### **5. Financial Performance & ROI** *(NEW)*
-- ✅ **Inventory Valuation**: FIFO, LIFO, and Weighted Average Cost comparisons
-- ✅ **Budget Variance**: Actual vs. Budget tracking with cost category drill-downs
-- ✅ **Investment ROI**: Return on Investment and Payback analysis for maintenance projects
+### **6. 💰 Financial Performance & ROI**
+- ✅ **Inventory Valuation**: FIFO/LIFO/Weighted Average Costing
+- ✅ **Budget Variance**: Actual vs. Budget cost drill-downs
+- ✅ **Investment ROI**: Payback analysis for maintenance Capex
 - ✅ **Working Capital**: Cash-to-Cash cycle optimization
 
-### **6. Strategic Benchmarking** *(NEW)*
-- ✅ **Industry Benchmarking**: KPI comparison vs World-Class standards (CAT, Komatsu avg)
-- ✅ **Peer Equipment Comparison**: Composite performance ranking within internal fleet
-- ✅ **Gap Analysis**: Identified improvement potential to Best-in-Class targets
+### **7. 📈 Strategic Benchmarking**
+- ✅ **Industry Benchmarking**: KPI comparison vs World-Class standards
+- ✅ **Internal Peer Ranking**: Composite performance within the fleet
+- ✅ **Gap Analysis**: Target vs. Actual improvement potential
 
-### **7. Maintenance Optimization (RCM)** *(NEW)*
-- ✅ **RCM Analysis**: Risk Priority Number (RPN) based failure mode prioritization
-- ✅ **Maintenance Scheduler**: Gantt-chart based PM scheduling with technician workload balancing
-- ✅ **IO Condition Monitoring**: Live sensor-driven alert simulation for predictive triggers
-
-### **8. Advanced KPIs & Strategic Analytics**
-- ✅ **Fill Rate**: Order fulfillment from stock with benchmarking
-- ✅ **Perfect Order Rate**: On-time, in-full, error-free deliveries
-- ✅ **Days of Supply**: Inventory coverage analysis with risk classification
-- ✅ **Supplier Risk Score**: Multi-factor supplier risk assessment
-- ✅ **Seasonal Demand Analysis**: Seasonality patterns and trends
-- ✅ **Correlation Analysis**: Metric interdependency heatmaps
-- ✅ **Anomaly Detection**: Statistical outlier identification
-
-### **9. Interactive Dashboards**
-- ✅ Executive-level KPI overview with benchmark cards
-- ✅ Performance radar charts comparing multi-dimensional performance
-- ✅ Drill-down analytics by equipment, supplier, warehouse
-- ✅ Glassmorphism design with premium animations
-- ✅ A3 template geneators for quality reporting
+### **8. 🎯 Intelligent Recommendations**
+- ✅ **AI Root Cause Engine**: Automated insights from operational data
+- ✅ **Actionable Intelligence**: Prioritized maintenance and supply chain tasks
 
 ---
 
@@ -136,40 +125,30 @@ Based on 5+ years of hands-on experience at **Larsen & Toubro** in construction 
 ```
 supply-chain-analytics/
 │
-├── data/
-│   ├── equipment.csv                    # Equipment master data
-│   ├── equipment_downtime.csv           # Failure/repair records
-│   ├── spare_parts.csv                  # Parts catalog
-│   ├── inventory_transactions.csv       # Stock movements
-│   ├── purchase_orders.csv              # Procurement data
-│   ├── suppliers.csv                    # Supplier master
-│   ├── warehouses.csv                   # Warehouse locations
-│   └── delivery_orders.csv              # Logistics data
+├── data/                            # CSV Datasets (Real-world patterns)
+├── sql/                             # Database Schema (SQLite/MySQL)
+├── src/                             # Analytics Core Engines
+│   ├── advanced_analytics.py        # Strategic APIs
+│   ├── maintenance_analytics.py     # Reliability model
+│   ├── quality_analytics.py         # Six Sigma stats
+│   ├── financial_analytics.py       # Cost logic
+│   └── ...                          # (Data gen & Loaders)
 │
-├── src/
-│   ├── data_generator.py                # Synthetic data generation
-│   ├── init_db.py                       # Database initialization
-│   ├── load_data.py                     # Data loading script
-│   ├── maintenance_analytics.py         # Manufacturing module
-│   ├── supply_chain_analytics.py        # Inventory module
-│   ├── logistics_analytics.py           # Logistics module
-│   └── advanced_analytics.py            # Advanced KPIs (NEW)
+├── dashboards/                      # Multi-page UI (Streamlit)
+│   ├── 1_📊_Overview.py              # Main Entry Point
+│   ├── pages/                       # Modular Dashboards
+│   │   ├── 2_🏭_Manufacturing.py
+│   │   ├── 3_💎_Quality.py
+│   │   ├── 4_📦_Supply_Chain.py
+│   │   ├── 5_🚚_Logistics.py
+│   │   ├── 6_💰_Financial.py
+│   │   ├── 7_📈_Benchmarking.py
+│   │   └── 8_🎯_Recommendations.py
+│   ├── app_utils.py                 # Sidebar & Filtering Logic
+│   ├── enhanced_components.py       # Custom Glass UI components
+│   └── style.css                    # Glassmorphism Theme
 │
-├── dashboards/
-│   ├── dashboard.py                     # Main Streamlit dashboard
-│   ├── enhanced_components.py           # Reusable chart components (NEW)
-│   └── style.css                        # Glassmorphism styling
-│
-├── sql/
-│   └── sqlite_schema.sql                # Database schema
-│
-├── outputs/
-│   ├── reliability_dashboard.png
-│   ├── supply_chain_dashboard.png
-│   └── logistics_dashboard.png
-│
-├── requirements.txt
-└── README.md
+└── requirements.txt                 # Project Dependencies
 ```
 
 ### **Technology Stack**
@@ -240,12 +219,12 @@ mysql -u root -p < sql/schema.sql
 
 ## 📊 **Usage Guide**
 
-### **Option 1: Interactive Dashboard**
+### **Launch the Platform**
 ```bash
-streamlit run dashboards/streamlit_app.py
+streamlit run dashboards/1_📊_Overview.py
 ```
 
-Navigate to `http://localhost:8501` in your browser.
+Navigate to `http://localhost:8501`. Use the sidebar to switch between specialized analytics modules.
 
 ### **Option 2: Python Scripts**
 
