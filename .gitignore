@@ -21,3 +21,6 @@ htmlcov/
 
 # Notebooks
 .ipynb_checkpoints/
+
+#files
+dashboard.py
