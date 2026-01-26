@@ -1,0 +1,7 @@
+project_id,project_name,equipment_type,investment_amount,annual_savings,payback_period_years,npv_5year,irr_pct,roi_pct,status,implementation_date
+PROJ001,Predictive Maintenance System - Excavators,Excavator,2500000,800000,3.12,532629.42,22.0,60.0,Approved,2023-12-19
+PROJ002,Automated Lubrication System - All Equipment,All,1500000,450000,3.33,205854.05,20.0,50.0,Proposed,2022-07-03
+PROJ003,Hydraulic System Upgrade - Cranes,Crane,3000000,950000,3.16,601247.43,21.67,58.33,Completed,2023-02-06
+PROJ004,Engine Overhaul Program - Dump Trucks,Dump Truck,1800000,550000,3.27,284932.72,20.56,52.78,In Progress,2023-11-07
+PROJ005,Condition Monitoring Sensors - Bulldozers,Bulldozer,1200000,380000,3.16,240498.97,21.67,58.33,Approved,2022-01-23
+PROJ006,CMMS Software Implementation,All,500000,200000,2.5,258157.35,30.0,100.0,Completed,2022-12-12

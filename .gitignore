@@ -21,7 +21,3 @@ htmlcov/
 
 # Notebooks
 .ipynb_checkpoints/
-
-# Data
-data/*.csv
-!data/README.md

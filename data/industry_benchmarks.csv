@@ -1,0 +1,33 @@
+metric_name,equipment_class,industry_average,best_in_class,acceptable_range,source,last_updated
+Equipment Availability,Excavator,85.0,95.0,80-90,Construction Equipment Industry Standards 2024,2024-01-01
+Equipment Availability,Bulldozer,83.0,93.0,78-88,Construction Equipment Industry Standards 2024,2024-01-01
+Equipment Availability,Dump Truck,88.0,96.0,85-92,Construction Equipment Industry Standards 2024,2024-01-01
+Equipment Availability,Crane,80.0,92.0,75-88,Construction Equipment Industry Standards 2024,2024-01-01
+Equipment Availability,Loader,86.0,94.0,82-90,Construction Equipment Industry Standards 2024,2024-01-01
+Overall Equipment Effectiveness (OEE),Excavator,65.0,85.0,60-75,Construction Equipment Industry Standards 2024,2024-01-01
+Overall Equipment Effectiveness (OEE),Bulldozer,62.0,82.0,58-72,Construction Equipment Industry Standards 2024,2024-01-01
+Overall Equipment Effectiveness (OEE),Dump Truck,70.0,88.0,65-78,Construction Equipment Industry Standards 2024,2024-01-01
+Overall Equipment Effectiveness (OEE),Crane,58.0,80.0,55-70,Construction Equipment Industry Standards 2024,2024-01-01
+Overall Equipment Effectiveness (OEE),Loader,67.0,85.0,62-75,Construction Equipment Industry Standards 2024,2024-01-01
+MTBF (days),Excavator,45.0,75.0,35-60,Construction Equipment Industry Standards 2024,2024-01-01
+MTBF (days),Bulldozer,42.0,70.0,32-55,Construction Equipment Industry Standards 2024,2024-01-01
+MTBF (days),Dump Truck,55.0,85.0,45-70,Construction Equipment Industry Standards 2024,2024-01-01
+MTBF (days),Crane,38.0,65.0,30-50,Construction Equipment Industry Standards 2024,2024-01-01
+MTBF (days),Loader,48.0,72.0,38-60,Construction Equipment Industry Standards 2024,2024-01-01
+MTTR (hours),Excavator,12.0,6.0,6-15,Construction Equipment Industry Standards 2024,2024-01-01
+MTTR (hours),Bulldozer,14.0,7.0,7-18,Construction Equipment Industry Standards 2024,2024-01-01
+MTTR (hours),Dump Truck,8.0,4.0,4-12,Construction Equipment Industry Standards 2024,2024-01-01
+MTTR (hours),Crane,16.0,8.0,8-20,Construction Equipment Industry Standards 2024,2024-01-01
+MTTR (hours),Loader,10.0,5.0,5-14,Construction Equipment Industry Standards 2024,2024-01-01
+On-Time Delivery %,All,85.0,98.0,80-95,Construction Equipment Industry Standards 2024,2024-01-01
+Fill Rate %,All,92.0,99.0,90-97,Construction Equipment Industry Standards 2024,2024-01-01
+Perfect Order Rate %,All,88.0,96.0,85-93,Construction Equipment Industry Standards 2024,2024-01-01
+Inventory Turnover (times/year),All,6.0,12.0,4-8,Construction Equipment Industry Standards 2024,2024-01-01
+Days of Supply,All,60.0,30.0,30-75,Construction Equipment Industry Standards 2024,2024-01-01
+Cash-to-Cash Cycle (days),All,45.0,20.0,20-60,Construction Equipment Industry Standards 2024,2024-01-01
+DPMO,All,15000.0,3400.0,3400-25000,Construction Equipment Industry Standards 2024,2024-01-01
+Sigma Level,All,3.8,6.0,3.0-4.5,Construction Equipment Industry Standards 2024,2024-01-01
+First Pass Yield %,All,92.0,99.5,90-96,Construction Equipment Industry Standards 2024,2024-01-01
+Maintenance Cost as % of Asset Value,All,4.5,2.5,2.5-6.0,Construction Equipment Industry Standards 2024,2024-01-01
+Cost per Operating Hour (₹),Excavator,850.0,600.0,600-1000,Construction Equipment Industry Standards 2024,2024-01-01
+Cost per Operating Hour (₹),Bulldozer,920.0,650.0,650-1100,Construction Equipment Industry Standards 2024,2024-01-01

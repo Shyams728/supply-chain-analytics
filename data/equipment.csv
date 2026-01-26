@@ -1,0 +1,51 @@
+equipment_id,equipment_name,equipment_type,manufacturer,model,location,installation_date,purchase_cost,status
+EQ0001,Grader 1,Grader,Caterpillar,Model-125,Site_C,2023-09-08,1504448.32,Active
+EQ0002,Grader 2,Grader,Caterpillar,Model-792,Site_E,2023-03-31,3157216.31,Under Maintenance
+EQ0003,Excavator 3,Excavator,Caterpillar,Model-195,Site_B,2023-08-27,2774098.8,Active
+EQ0004,Excavator 4,Excavator,JCB,Model-303,Site_E,2024-03-05,1491982.8,Active
+EQ0005,Loader 5,Loader,Volvo,Model-928,Site_A,2023-06-13,3641627.28,Active
+EQ0006,Dump Truck 6,Dump Truck,Volvo,Model-259,Site_B,2023-12-11,959946.24,Active
+EQ0007,Crane 7,Crane,Caterpillar,Model-467,Site_C,2024-09-10,1690343.9,Active
+EQ0008,Excavator 8,Excavator,Hitachi,Model-649,Site_A,2024-01-23,854600.89,Active
+EQ0009,Dump Truck 9,Dump Truck,JCB,Model-982,Site_C,2024-08-14,1365298.66,Active
+EQ0010,Excavator 10,Excavator,Caterpillar,Model-777,Site_B,2023-10-24,4933496.84,Active
+EQ0011,Bulldozer 11,Bulldozer,Caterpillar,Model-489,Site_C,2024-04-09,3360580.0,Active
+EQ0012,Dump Truck 12,Dump Truck,Komatsu,Model-479,Site_C,2023-08-03,3515788.28,Under Maintenance
+EQ0013,Grader 13,Grader,Caterpillar,Model-723,Site_B,2024-06-30,3781070.59,Active
+EQ0014,Bulldozer 14,Bulldozer,Hitachi,Model-488,Site_C,2024-10-17,3596728.81,Active
+EQ0015,Bulldozer 15,Bulldozer,Volvo,Model-963,Site_A,2023-08-23,4198111.67,Active
+EQ0016,Dump Truck 16,Dump Truck,Hitachi,Model-374,Site_A,2023-08-05,4609112.56,Active
+EQ0017,Loader 17,Loader,Volvo,Model-317,Site_D,2024-02-10,4481074.19,Active
+EQ0018,Grader 18,Grader,Hitachi,Model-246,Site_C,2023-05-23,1609823.78,Active
+EQ0019,Loader 19,Loader,JCB,Model-369,Site_E,2024-03-14,4540202.98,Active
+EQ0020,Crane 20,Crane,Volvo,Model-324,Site_B,2024-06-05,2720821.26,Active
+EQ0021,Excavator 21,Excavator,Caterpillar,Model-256,Site_B,2024-11-27,2399719.85,Active
+EQ0022,Excavator 22,Excavator,Hitachi,Model-490,Site_E,2024-04-24,2881014.55,Active
+EQ0023,Loader 23,Loader,Caterpillar,Model-796,Site_A,2024-11-29,4481548.03,Active
+EQ0024,Dump Truck 24,Dump Truck,Volvo,Model-214,Site_C,2024-03-21,1211709.89,Active
+EQ0025,Excavator 25,Excavator,Volvo,Model-612,Site_B,2024-06-03,4606825.28,Active
+EQ0026,Grader 26,Grader,Volvo,Model-961,Site_E,2024-09-15,1395099.96,Active
+EQ0027,Dump Truck 27,Dump Truck,Komatsu,Model-652,Site_E,2023-01-01,3195250.63,Active
+EQ0028,Crane 28,Crane,Caterpillar,Model-214,Site_C,2023-11-11,1577535.4,Active
+EQ0029,Bulldozer 29,Bulldozer,JCB,Model-180,Site_A,2024-05-12,4172104.64,Active
+EQ0030,Loader 30,Loader,Komatsu,Model-231,Site_D,2024-07-16,1243071.32,Active
+EQ0031,Loader 31,Loader,JCB,Model-533,Site_B,2024-07-06,3898693.38,Active
+EQ0032,Grader 32,Grader,Komatsu,Model-830,Site_C,2024-02-13,4978172.1,Active
+EQ0033,Grader 33,Grader,Volvo,Model-548,Site_E,2024-04-07,1044518.88,Active
+EQ0034,Bulldozer 34,Bulldozer,Caterpillar,Model-446,Site_A,2024-08-25,2992646.85,Under Maintenance
+EQ0035,Loader 35,Loader,Komatsu,Model-107,Site_A,2024-12-25,3339963.31,Under Maintenance
+EQ0036,Bulldozer 36,Bulldozer,Caterpillar,Model-132,Site_C,2023-03-14,2813702.54,Active
+EQ0037,Dump Truck 37,Dump Truck,Hitachi,Model-319,Site_E,2023-05-16,3755086.55,Active
+EQ0038,Loader 38,Loader,JCB,Model-584,Site_B,2024-04-29,4133736.49,Active
+EQ0039,Bulldozer 39,Bulldozer,Caterpillar,Model-199,Site_D,2023-12-29,2406103.8,Active
+EQ0040,Crane 40,Crane,Caterpillar,Model-789,Site_A,2023-03-04,2311795.77,Active
+EQ0041,Dump Truck 41,Dump Truck,Caterpillar,Model-354,Site_B,2023-07-14,2913285.89,Active
+EQ0042,Bulldozer 42,Bulldozer,Hitachi,Model-287,Site_C,2024-04-18,1624129.02,Active
+EQ0043,Excavator 43,Excavator,Hitachi,Model-927,Site_E,2023-04-11,727647.48,Active
+EQ0044,Loader 44,Loader,Caterpillar,Model-195,Site_B,2023-06-20,2328863.26,Under Maintenance
+EQ0045,Crane 45,Crane,Komatsu,Model-985,Site_D,2023-03-02,1240867.05,Active
+EQ0046,Excavator 46,Excavator,Hitachi,Model-371,Site_D,2023-10-20,2403533.69,Active
+EQ0047,Grader 47,Grader,JCB,Model-777,Site_D,2023-06-08,1354540.4,Active
+EQ0048,Bulldozer 48,Bulldozer,Caterpillar,Model-693,Site_E,2023-03-04,3865890.02,Active
+EQ0049,Excavator 49,Excavator,Caterpillar,Model-698,Site_D,2024-05-29,4637242.09,Active
+EQ0050,Loader 50,Loader,Komatsu,Model-158,Site_E,2023-03-24,4331041.45,Active

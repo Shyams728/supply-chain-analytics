@@ -1,0 +1,6 @@
+warehouse_id,warehouse_name,location,latitude,longitude,capacity,warehouse_type
+WH01,Central Hub Mumbai,Mumbai,19.076,72.8777,8938,Central
+WH02,North Regional Delhi,Delhi,28.7041,77.1025,13948,Regional
+WH03,South Regional Chennai,Chennai,13.0827,80.2707,10130,Regional
+WH04,East Regional Kolkata,Kolkata,22.5726,88.3639,8663,Regional
+WH05,West Regional Pune,Pune,18.5204,73.8567,8719,Regional
