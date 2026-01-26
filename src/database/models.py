@@ -14,6 +14,9 @@ class Equipment(Base):
     installation_date = Column(DateTime)
     manufacturer = Column(String(100))
     model = Column(String(100))
+    purchase_cost = Column(Float)
+    warranty_expiry = Column(DateTime)
+    status = Column(String(50))
     
     # Relationships
     downtime_events = relationship("Downtime", back_populates="equipment")
@@ -43,6 +46,9 @@ class SparePart(Base):
     unit_cost = Column(Float)
     current_stock = Column(Integer)
     reorder_point = Column(Integer)
+    reorder_quantity = Column(Integer)
+    lead_time_days = Column(Integer)
+    equipment_compatibility = Column(String(100))
     supplier_id = Column(String(50), ForeignKey('suppliers.supplier_id'))
     
     supplier = relationship("Supplier", back_populates="parts")
@@ -54,8 +60,11 @@ class Supplier(Base):
     supplier_id = Column(String(50), primary_key=True)
     supplier_name = Column(String(100))
     location = Column(String(100))
-    contact_email = Column(String(100))
+    email = Column(String(100))
+    contact_person = Column(String(100))
+    phone = Column(String(50))
     rating = Column(Float)
+    average_lead_time = Column(Float)
     
     parts = relationship("SparePart", back_populates="supplier")
     purchase_orders = relationship("PurchaseOrder", back_populates="supplier")
@@ -70,6 +79,7 @@ class InventoryTransaction(Base):
     quantity = Column(Integer)
     warehouse_id = Column(String(50))
     reference_doc = Column(String(50))
+    stock_after_transaction = Column(Integer)
     
     part = relationship("SparePart", back_populates="transactions")
 
@@ -78,11 +88,15 @@ class PurchaseOrder(Base):
     
     po_id = Column(String(50), primary_key=True)
     supplier_id = Column(String(50), ForeignKey('suppliers.supplier_id'))
+    part_id = Column(String(50)) 
+    quantity_ordered = Column(Integer)
+    quantity_received = Column(Integer)
+    unit_price = Column(Float)
     order_date = Column(DateTime)
     expected_delivery_date = Column(DateTime)
     actual_delivery_date = Column(DateTime)
     total_cost = Column(Float)
-    status = Column(String(20))
+    po_status = Column(String(20))
     
     supplier = relationship("Supplier", back_populates="purchase_orders")
 
