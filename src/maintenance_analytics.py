@@ -68,9 +68,12 @@ class MaintenanceAnalytics:
         # Calculate availability
         # Assuming 24/7 operation
         reliability_metrics['total_hours_period'] = reliability_metrics['operating_days'] * 24
-        reliability_metrics['availability_pct'] = (
-            (reliability_metrics['total_hours_period'] - reliability_metrics['total_downtime_hours']) /
-            reliability_metrics['total_hours_period'] * 100
+        
+        # Handle zero operating hours to avoid division by zero
+        reliability_metrics['availability_pct'] = np.where(
+            reliability_metrics['total_hours_period'] > 0,
+            (reliability_metrics['total_hours_period'] - reliability_metrics['total_downtime_hours']) / reliability_metrics['total_hours_period'] * 100,
+            0.0
         ).round(2)
         
         # Add equipment details

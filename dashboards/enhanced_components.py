@@ -1,3 +1,4 @@
+
 """
 Enhanced Dashboard Components
 Reusable visualization and insight components for the Supply Chain Analytics Platform
@@ -25,7 +26,7 @@ COLORS = {
 }
 
 
-def benchmark_card(title, value, benchmark_status, icon="📊", trend=None):
+def benchmark_card(title, value, benchmark_status, icon="📊", trend=None, col=None):
     """Display a KPI card with benchmark comparison"""
     status_color = benchmark_status.get('color', '#888')
     status_icon = benchmark_status.get('icon', '📊')
@@ -50,7 +51,10 @@ def benchmark_card(title, value, benchmark_status, icon="📊", trend=None):
         </div>
     </div>
     """
-    st.markdown(html_content, unsafe_allow_html=True)
+    if col:
+        col.markdown(html_content, unsafe_allow_html=True)
+    else:
+        st.markdown(html_content, unsafe_allow_html=True)
 
 
 def create_gauge_chart(value, title, target=None, max_val=100):
@@ -243,16 +247,16 @@ def insight_box(text, insight_type="info", show_icon=True):
 """, unsafe_allow_html=True)
 
 
-def metric_delta_card(title, current, previous, format_str="{:.1f}", suffix="", icon="📊"):
+def metric_delta_card(title, current, previous, format_str="{:.1f}", suffix="", icon="📊", col=None):
     """Display a metric with delta from previous period"""
-    delta = current - previous
-    delta_pct = (delta / previous * 100) if previous != 0 else 0
+    delta = current - previous if previous else 0
+    delta_pct = (delta / previous * 100) if previous and previous != 0 else 0
     is_positive = delta >= 0
     
     delta_color = COLORS['success'] if is_positive else COLORS['danger']
     delta_symbol = "▲" if is_positive else "▼"
     
-    st.markdown(f"""
+    html = f"""
 <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1rem;
             border: 1px solid rgba(255,255,255,0.1);">
     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
@@ -266,7 +270,11 @@ def metric_delta_card(title, current, previous, format_str="{:.1f}", suffix="", 
         {delta_symbol} {abs(delta_pct):.1f}% vs previous
     </div>
 </div>
-""", unsafe_allow_html=True)
+"""
+    if col:
+        col.markdown(html, unsafe_allow_html=True)
+    else:
+        st.markdown(html, unsafe_allow_html=True)
 
 
 def create_sparkline(data, title="", height=60, color=None):
@@ -415,7 +423,7 @@ def create_fishbone_diagram(data):
             values.append(item['value'])
             
     # Visualize as Sunburst or Treemap (better for web than static fishbone)
-    # Using Suburst as modern interactive alternative
+    # Using Sunburst as modern interactive alternative
     fig = go.Figure(go.Sunburst(
         labels=labels,
         parents=parents,
@@ -473,3 +481,20 @@ def render_a3_template():
     </div>
     """
     st.markdown(html_code, unsafe_allow_html=True)
+
+def export_data_table(df, filename="data_export.csv", label="Export Data"):
+    """
+    Create a download button for a dataframe
+    """
+    try:
+        csv = df.to_csv(index=False).encode('utf-8')
+    except Exception as e:
+        st.error(f"Error encoding export data: {e}")
+        return
+
+    st.download_button(
+        label=f"📥 {label}",
+        data=csv,
+        file_name=filename,
+        mime='text/csv',
+    )

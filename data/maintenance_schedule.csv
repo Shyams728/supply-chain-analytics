@@ -1,501 +1,501 @@
 task_id,equipment_id,equipment_name,equipment_type,task_name,task_type,start_date,end_date,duration_days,assigned_technician,status,dependencies,priority
-TASK00001,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00002,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-A,Completed,,Medium
-TASK00003,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Low
-TASK00004,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00005,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-D,In Progress,,Low
-TASK00006,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,Scheduled,,High
-TASK00007,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,In Progress,,Medium
-TASK00008,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK3,High
-TASK00009,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-A,Completed,TASK4,Medium
-TASK00010,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-C,In Progress,TASK5,Low
-TASK00011,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Scheduled,TASK6,Medium
-TASK00012,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK7,High
-TASK00013,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
-TASK00014,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-B,Scheduled,,High
-TASK00015,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
-TASK00016,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
-TASK00017,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,In Progress,,High
-TASK00018,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Completed,,High
-TASK00019,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,Scheduled,,High
-TASK00020,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Low
-TASK00021,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00022,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,In Progress,,Low
-TASK00023,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00024,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Completed,,Low
-TASK00025,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-E,Completed,,Medium
-TASK00026,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Completed,,High
-TASK00027,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,Scheduled,,Low
-TASK00028,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Low
-TASK00029,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,In Progress,,High
-TASK00030,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-A,Scheduled,,Medium
-TASK00031,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Scheduled,,Low
-TASK00032,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00033,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,High
-TASK00034,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Scheduled,,Low
-TASK00035,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,Low
-TASK00036,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,In Progress,,Medium
-TASK00037,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-C,Completed,,Low
-TASK00038,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK33,Medium
-TASK00039,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK34,Medium
-TASK00040,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Scheduled,TASK35,Low
-TASK00041,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,In Progress,TASK36,Medium
-TASK00042,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK37,Medium
-TASK00043,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,Completed,,Low
+TASK00001,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Scheduled,,Low
+TASK00002,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-A,Scheduled,,High
+TASK00003,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Completed,,Medium
+TASK00004,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,In Progress,,Medium
+TASK00005,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-E,Completed,,Medium
+TASK00006,EQ0001,Grader 1,Grader,PM-Monthly - Grader 1,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,In Progress,,Medium
+TASK00007,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,Scheduled,,Medium
+TASK00008,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK3,Medium
+TASK00009,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Scheduled,TASK4,Medium
+TASK00010,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-C,Scheduled,TASK5,Low
+TASK00011,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-C,In Progress,TASK6,Medium
+TASK00012,EQ0001,Grader 1,Grader,PM-Quarterly - Grader 1,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-B,Scheduled,TASK7,Low
+TASK00013,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00014,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00015,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00016,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,In Progress,,Medium
+TASK00017,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00018,EQ0001,Grader 1,Grader,PM-Annual - Grader 1,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-A,In Progress,,Medium
+TASK00019,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00020,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,In Progress,,High
+TASK00021,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-E,In Progress,,Low
+TASK00022,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Completed,,Medium
+TASK00023,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00024,EQ0001,Grader 1,Grader,Overhaul - Grader 1,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00025,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,High
+TASK00026,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00027,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00028,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00029,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00030,EQ0001,Grader 1,Grader,Inspection - Grader 1,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Scheduled,,High
+TASK00031,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Completed,,Medium
+TASK00032,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Completed,,Medium
+TASK00033,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-A,Scheduled,,Low
+TASK00034,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,High
+TASK00035,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00036,EQ0002,Grader 2,Grader,PM-Monthly - Grader 2,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,In Progress,,Low
+TASK00037,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,High
+TASK00038,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,In Progress,TASK33,Medium
+TASK00039,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-A,Scheduled,TASK34,Low
+TASK00040,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,In Progress,TASK35,High
+TASK00041,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-B,In Progress,TASK36,Medium
+TASK00042,EQ0002,Grader 2,Grader,PM-Quarterly - Grader 2,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,In Progress,TASK37,Medium
+TASK00043,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,In Progress,,Medium
 TASK00044,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Scheduled,,Low
-TASK00045,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Completed,,Low
-TASK00046,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00047,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,Scheduled,,High
-TASK00048,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,In Progress,,Medium
+TASK00045,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00046,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-A,Completed,,High
+TASK00047,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,Completed,,Medium
+TASK00048,EQ0002,Grader 2,Grader,PM-Annual - Grader 2,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,In Progress,,Medium
 TASK00049,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Scheduled,,Low
-TASK00050,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-E,Completed,,Low
-TASK00051,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,High
-TASK00052,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Completed,,Low
-TASK00053,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,Scheduled,,Low
-TASK00054,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Scheduled,,High
-TASK00055,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Low
-TASK00056,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-A,Completed,,Medium
-TASK00057,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00058,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,In Progress,,Low
-TASK00059,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,Scheduled,,Low
-TASK00060,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00061,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-C,Completed,,Low
-TASK00062,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00063,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00064,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,Scheduled,,Low
-TASK00065,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-E,In Progress,,Low
-TASK00066,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00067,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,In Progress,,Low
-TASK00068,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-A,Scheduled,TASK63,Medium
-TASK00069,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,In Progress,TASK64,High
-TASK00070,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Completed,TASK65,Medium
-TASK00071,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,In Progress,TASK66,Low
-TASK00072,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,In Progress,TASK67,Medium
-TASK00073,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00074,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,In Progress,,Low
-TASK00075,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00076,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-E,Scheduled,,High
-TASK00077,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Medium
-TASK00078,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Scheduled,,Low
-TASK00079,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,In Progress,,Low
-TASK00080,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,In Progress,,Low
-TASK00081,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-E,Scheduled,,Medium
-TASK00082,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00083,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,In Progress,,High
-TASK00084,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Scheduled,,Medium
-TASK00085,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,Low
-TASK00086,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Medium
-TASK00087,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Completed,,Medium
-TASK00088,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00089,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,In Progress,,High
-TASK00090,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Scheduled,,Low
-TASK00091,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,In Progress,,Medium
-TASK00092,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00093,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-A,Completed,,Medium
-TASK00094,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,Scheduled,,Medium
-TASK00095,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00096,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Completed,,Low
-TASK00097,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,Scheduled,,High
-TASK00098,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK93,Low
-TASK00099,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK94,Medium
-TASK00100,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,Scheduled,TASK95,Medium
-TASK00101,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-C,In Progress,TASK96,Medium
-TASK00102,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Completed,TASK97,Medium
-TASK00103,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00104,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00105,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-A,Scheduled,,Low
-TASK00106,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-A,Completed,,High
-TASK00107,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Completed,,Medium
-TASK00108,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Scheduled,,High
-TASK00109,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00110,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,High
-TASK00111,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00112,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00113,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-E,In Progress,,Medium
-TASK00114,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,High
-TASK00115,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00116,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Medium
-TASK00117,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,High
-TASK00118,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Completed,,Medium
-TASK00119,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,Scheduled,,Low
-TASK00120,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00121,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,In Progress,,Medium
-TASK00122,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-C,Scheduled,,Medium
-TASK00123,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00124,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00125,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Completed,,Medium
-TASK00126,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,In Progress,,Low
-TASK00127,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,In Progress,,High
-TASK00128,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK123,Medium
-TASK00129,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Scheduled,TASK124,Low
-TASK00130,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,In Progress,TASK125,Medium
-TASK00131,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Scheduled,TASK126,Medium
-TASK00132,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK127,Medium
-TASK00133,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00134,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Scheduled,,High
-TASK00135,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
-TASK00136,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00137,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,Scheduled,,High
-TASK00138,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00139,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Completed,,Medium
-TASK00140,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,In Progress,,High
-TASK00141,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,Scheduled,,Medium
-TASK00142,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,In Progress,,Medium
-TASK00143,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-E,Scheduled,,High
-TASK00144,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00145,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-D,Scheduled,,Medium
-TASK00146,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Scheduled,,High
-TASK00147,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-E,Completed,,Medium
-TASK00148,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Low
-TASK00149,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-A,Scheduled,,Medium
-TASK00150,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,In Progress,,Medium
-TASK00151,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Scheduled,,Low
-TASK00152,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00153,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00154,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00155,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,Low
-TASK00156,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00157,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,Medium
-TASK00158,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,In Progress,TASK153,High
-TASK00159,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Completed,TASK154,Low
-TASK00160,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Completed,TASK155,Low
-TASK00161,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-C,Completed,TASK156,High
-TASK00162,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK157,Medium
-TASK00163,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,Scheduled,,Low
-TASK00164,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,In Progress,,Low
-TASK00165,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
-TASK00166,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,In Progress,,High
-TASK00167,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,Scheduled,,Low
-TASK00168,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,In Progress,,Medium
-TASK00169,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00170,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00171,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,Scheduled,,Medium
-TASK00172,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Completed,,High
+TASK00050,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00051,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,In Progress,,Medium
+TASK00052,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00053,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00054,EQ0002,Grader 2,Grader,Overhaul - Grader 2,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,Low
+TASK00055,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00056,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Completed,,Medium
+TASK00057,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,Low
+TASK00058,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-D,Completed,,High
+TASK00059,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,In Progress,,Medium
+TASK00060,EQ0002,Grader 2,Grader,Inspection - Grader 2,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00061,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,In Progress,,Medium
+TASK00062,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,In Progress,,High
+TASK00063,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,In Progress,,Low
+TASK00064,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Scheduled,,High
+TASK00065,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Scheduled,,Low
+TASK00066,EQ0003,Excavator 3,Excavator,PM-Monthly - Excavator 3,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00067,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,Scheduled,,Medium
+TASK00068,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,In Progress,TASK63,Medium
+TASK00069,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-A,In Progress,TASK64,Low
+TASK00070,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,In Progress,TASK65,Medium
+TASK00071,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Completed,TASK66,High
+TASK00072,EQ0003,Excavator 3,Excavator,PM-Quarterly - Excavator 3,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-A,Scheduled,TASK67,Medium
+TASK00073,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,In Progress,,High
+TASK00074,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Scheduled,,Low
+TASK00075,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00076,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-E,Completed,,Medium
+TASK00077,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Completed,,Low
+TASK00078,EQ0003,Excavator 3,Excavator,PM-Annual - Excavator 3,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Completed,,Low
+TASK00079,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Scheduled,,Low
+TASK00080,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,Scheduled,,Low
+TASK00081,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00082,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00083,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00084,EQ0003,Excavator 3,Excavator,Overhaul - Excavator 3,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00085,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,High
+TASK00086,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Scheduled,,High
+TASK00087,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,Low
+TASK00088,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00089,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,In Progress,,Medium
+TASK00090,EQ0003,Excavator 3,Excavator,Inspection - Excavator 3,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,In Progress,,Low
+TASK00091,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Scheduled,,Medium
+TASK00092,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Low
+TASK00093,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00094,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Completed,,Medium
+TASK00095,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-E,Scheduled,,Low
+TASK00096,EQ0004,Excavator 4,Excavator,PM-Monthly - Excavator 4,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Scheduled,,Low
+TASK00097,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,Scheduled,,High
+TASK00098,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,In Progress,TASK93,Medium
+TASK00099,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-B,In Progress,TASK94,Medium
+TASK00100,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Scheduled,TASK95,Medium
+TASK00101,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,Scheduled,TASK96,Low
+TASK00102,EQ0004,Excavator 4,Excavator,PM-Quarterly - Excavator 4,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Completed,TASK97,Medium
+TASK00103,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
+TASK00104,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00105,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00106,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00107,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00108,EQ0004,Excavator 4,Excavator,PM-Annual - Excavator 4,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00109,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00110,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-B,Scheduled,,Low
+TASK00111,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,In Progress,,Medium
+TASK00112,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-D,Scheduled,,Low
+TASK00113,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,In Progress,,Low
+TASK00114,EQ0004,Excavator 4,Excavator,Overhaul - Excavator 4,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-C,Scheduled,,Low
+TASK00115,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-E,Scheduled,,Medium
+TASK00116,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Completed,,Low
+TASK00117,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,High
+TASK00118,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-A,In Progress,,High
+TASK00119,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-C,In Progress,,High
+TASK00120,EQ0004,Excavator 4,Excavator,Inspection - Excavator 4,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,Completed,,Medium
+TASK00121,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00122,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,Scheduled,,High
+TASK00123,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-E,In Progress,,Low
+TASK00124,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00125,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Completed,,Low
+TASK00126,EQ0005,Loader 5,Loader,PM-Monthly - Loader 5,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Scheduled,,Low
+TASK00127,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,Medium
+TASK00128,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK123,Medium
+TASK00129,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK124,Medium
+TASK00130,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,In Progress,TASK125,Medium
+TASK00131,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-B,Scheduled,TASK126,Medium
+TASK00132,EQ0005,Loader 5,Loader,PM-Quarterly - Loader 5,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-B,In Progress,TASK127,High
+TASK00133,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Completed,,Low
+TASK00134,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-B,In Progress,,Low
+TASK00135,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Completed,,Low
+TASK00136,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00137,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00138,EQ0005,Loader 5,Loader,PM-Annual - Loader 5,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00139,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Scheduled,,Low
+TASK00140,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00141,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-C,Completed,,Low
+TASK00142,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Low
+TASK00143,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Scheduled,,Low
+TASK00144,EQ0005,Loader 5,Loader,Overhaul - Loader 5,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,In Progress,,High
+TASK00145,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,In Progress,,Low
+TASK00146,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Scheduled,,Low
+TASK00147,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,High
+TASK00148,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00149,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00150,EQ0005,Loader 5,Loader,Inspection - Loader 5,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00151,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00152,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00153,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00154,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,Scheduled,,High
+TASK00155,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Completed,,Low
+TASK00156,EQ0006,Dump Truck 6,Dump Truck,PM-Monthly - Dump Truck 6,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,Scheduled,,High
+TASK00157,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,Scheduled,,Medium
+TASK00158,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Completed,TASK153,High
+TASK00159,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-B,Completed,TASK154,High
+TASK00160,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,In Progress,TASK155,High
+TASK00161,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,Scheduled,TASK156,Medium
+TASK00162,EQ0006,Dump Truck 6,Dump Truck,PM-Quarterly - Dump Truck 6,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,Scheduled,TASK157,Medium
+TASK00163,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,In Progress,,Medium
+TASK00164,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00165,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Scheduled,,High
+TASK00166,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
+TASK00167,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Scheduled,,Low
+TASK00168,EQ0006,Dump Truck 6,Dump Truck,PM-Annual - Dump Truck 6,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-A,Scheduled,,High
+TASK00169,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,Completed,,Medium
+TASK00170,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,High
+TASK00171,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00172,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Completed,,Low
 TASK00173,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,Scheduled,,Medium
-TASK00174,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Scheduled,,Low
-TASK00175,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Completed,,Medium
-TASK00176,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Completed,,Medium
-TASK00177,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,High
-TASK00178,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-A,Scheduled,,Low
-TASK00179,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Scheduled,,Medium
-TASK00180,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-A,In Progress,,High
-TASK00181,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Scheduled,,Low
-TASK00182,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,High
-TASK00183,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00184,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00185,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,High
-TASK00186,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,Completed,,Medium
-TASK00187,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-C,In Progress,,Medium
-TASK00188,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,Scheduled,TASK183,Medium
-TASK00189,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Scheduled,TASK184,Low
-TASK00190,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Scheduled,TASK185,High
-TASK00191,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,Scheduled,TASK186,Medium
-TASK00192,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Scheduled,TASK187,Medium
-TASK00193,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Scheduled,,High
-TASK00194,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
-TASK00195,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Completed,,Medium
-TASK00196,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
-TASK00197,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,Scheduled,,Medium
-TASK00198,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Completed,,Medium
-TASK00199,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00200,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,Completed,,Low
-TASK00201,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,Completed,,Medium
-TASK00202,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00203,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,In Progress,,Low
-TASK00204,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,In Progress,,High
-TASK00205,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00206,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Completed,,High
+TASK00174,EQ0006,Dump Truck 6,Dump Truck,Overhaul - Dump Truck 6,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Completed,,Medium
+TASK00175,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,High
+TASK00176,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00177,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00178,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
+TASK00179,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,Scheduled,,Medium
+TASK00180,EQ0006,Dump Truck 6,Dump Truck,Inspection - Dump Truck 6,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00181,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Scheduled,,High
+TASK00182,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00183,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00184,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,In Progress,,Low
+TASK00185,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00186,EQ0007,Crane 7,Crane,PM-Monthly - Crane 7,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,In Progress,,Low
+TASK00187,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,Scheduled,,High
+TASK00188,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK183,Low
+TASK00189,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-B,Completed,TASK184,Low
+TASK00190,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Scheduled,TASK185,Medium
+TASK00191,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,Completed,TASK186,Medium
+TASK00192,EQ0007,Crane 7,Crane,PM-Quarterly - Crane 7,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,Completed,TASK187,Medium
+TASK00193,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,In Progress,,Medium
+TASK00194,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Completed,,Medium
+TASK00195,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
+TASK00196,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Completed,,Low
+TASK00197,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,In Progress,,Low
+TASK00198,EQ0007,Crane 7,Crane,PM-Annual - Crane 7,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-A,Completed,,High
+TASK00199,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,Scheduled,,Low
+TASK00200,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-E,In Progress,,Medium
+TASK00201,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,Scheduled,,High
+TASK00202,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00203,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,Completed,,High
+TASK00204,EQ0007,Crane 7,Crane,Overhaul - Crane 7,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Completed,,High
+TASK00205,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00206,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-C,In Progress,,Medium
 TASK00207,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-A,Scheduled,,Medium
-TASK00208,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00209,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-C,Scheduled,,High
-TASK00210,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,Completed,,Medium
-TASK00211,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,High
-TASK00212,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00213,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00214,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Completed,,Low
-TASK00215,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,Low
-TASK00216,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,In Progress,,Medium
-TASK00217,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,Scheduled,,Medium
-TASK00218,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK213,Medium
-TASK00219,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,In Progress,TASK214,Medium
-TASK00220,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Scheduled,TASK215,Low
-TASK00221,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,In Progress,TASK216,Low
-TASK00222,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,In Progress,TASK217,Medium
-TASK00223,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,Completed,,Low
-TASK00224,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00225,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,High
-TASK00226,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
-TASK00227,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Low
-TASK00228,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00229,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Completed,,High
-TASK00230,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,In Progress,,Medium
-TASK00231,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00232,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,High
-TASK00233,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,Completed,,Low
-TASK00234,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-D,Scheduled,,Medium
-TASK00235,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00236,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-A,Scheduled,,Medium
-TASK00237,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,Completed,,Medium
-TASK00238,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,In Progress,,Low
-TASK00239,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,In Progress,,Low
-TASK00240,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00241,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,In Progress,,Medium
-TASK00242,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Completed,,High
-TASK00243,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00244,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00245,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Scheduled,,High
-TASK00246,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Completed,,Low
-TASK00247,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,Scheduled,,Medium
-TASK00248,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK243,Low
-TASK00249,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Completed,TASK244,Medium
-TASK00250,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Completed,TASK245,Medium
-TASK00251,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Completed,TASK246,High
-TASK00252,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,In Progress,TASK247,Medium
-TASK00253,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,Completed,,Low
-TASK00254,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,In Progress,,Low
-TASK00255,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,High
-TASK00256,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00257,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Low
-TASK00258,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,In Progress,,Medium
-TASK00259,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Completed,,Medium
-TASK00260,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00261,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,Scheduled,,Low
-TASK00262,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Completed,,Low
-TASK00263,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,In Progress,,Medium
-TASK00264,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-C,Scheduled,,Low
-TASK00265,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00266,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00267,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,In Progress,,Low
-TASK00268,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00269,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00270,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Completed,,High
-TASK00271,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Scheduled,,Low
-TASK00272,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00273,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00274,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Scheduled,,High
-TASK00275,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,In Progress,,Low
-TASK00276,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-C,In Progress,,Medium
-TASK00277,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,In Progress,,High
-TASK00278,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK273,Medium
-TASK00279,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-A,Completed,TASK274,High
-TASK00280,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Scheduled,TASK275,High
+TASK00208,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
+TASK00209,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,Scheduled,,Low
+TASK00210,EQ0007,Crane 7,Crane,Inspection - Crane 7,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00211,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Completed,,Medium
+TASK00212,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Completed,,Medium
+TASK00213,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00214,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00215,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Completed,,Medium
+TASK00216,EQ0008,Excavator 8,Excavator,PM-Monthly - Excavator 8,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00217,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,Scheduled,,Medium
+TASK00218,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,In Progress,TASK213,Low
+TASK00219,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Scheduled,TASK214,High
+TASK00220,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Completed,TASK215,Medium
+TASK00221,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-B,Scheduled,TASK216,Low
+TASK00222,EQ0008,Excavator 8,Excavator,PM-Quarterly - Excavator 8,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Scheduled,TASK217,Medium
+TASK00223,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,Scheduled,,Low
+TASK00224,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Completed,,Medium
+TASK00225,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Completed,,Low
+TASK00226,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,In Progress,,Low
+TASK00227,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00228,EQ0008,Excavator 8,Excavator,PM-Annual - Excavator 8,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,In Progress,,Medium
+TASK00229,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,In Progress,,Medium
+TASK00230,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Low
+TASK00231,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00232,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Low
+TASK00233,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-E,Scheduled,,High
+TASK00234,EQ0008,Excavator 8,Excavator,Overhaul - Excavator 8,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00235,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Scheduled,,High
+TASK00236,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00237,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,Low
+TASK00238,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00239,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Scheduled,,High
+TASK00240,EQ0008,Excavator 8,Excavator,Inspection - Excavator 8,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00241,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Completed,,Medium
+TASK00242,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00243,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Completed,,Medium
+TASK00244,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,In Progress,,Low
+TASK00245,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Completed,,Medium
+TASK00246,EQ0009,Dump Truck 9,Dump Truck,PM-Monthly - Dump Truck 9,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00247,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-C,Scheduled,,Medium
+TASK00248,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,Scheduled,TASK243,Medium
+TASK00249,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Scheduled,TASK244,Medium
+TASK00250,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Scheduled,TASK245,Low
+TASK00251,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,In Progress,TASK246,Medium
+TASK00252,EQ0009,Dump Truck 9,Dump Truck,PM-Quarterly - Dump Truck 9,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,In Progress,TASK247,Medium
+TASK00253,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00254,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Completed,,High
+TASK00255,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-E,Completed,,Medium
+TASK00256,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Scheduled,,High
+TASK00257,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,In Progress,,Low
+TASK00258,EQ0009,Dump Truck 9,Dump Truck,PM-Annual - Dump Truck 9,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00259,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00260,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,Completed,,Medium
+TASK00261,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Low
+TASK00262,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00263,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,Scheduled,,High
+TASK00264,EQ0009,Dump Truck 9,Dump Truck,Overhaul - Dump Truck 9,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00265,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-E,Completed,,Medium
+TASK00266,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Scheduled,,Low
+TASK00267,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-E,Completed,,High
+TASK00268,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Completed,,High
+TASK00269,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00270,EQ0009,Dump Truck 9,Dump Truck,Inspection - Dump Truck 9,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,High
+TASK00271,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-B,In Progress,,Medium
+TASK00272,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-A,In Progress,,Medium
+TASK00273,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-E,Completed,,Low
+TASK00274,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00275,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,In Progress,,Medium
+TASK00276,EQ0010,Excavator 10,Excavator,PM-Monthly - Excavator 10,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Completed,,Medium
+TASK00277,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-C,Completed,,High
+TASK00278,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK273,High
+TASK00279,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,In Progress,TASK274,Medium
+TASK00280,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-C,Completed,TASK275,Medium
 TASK00281,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Scheduled,TASK276,Medium
-TASK00282,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-A,Scheduled,TASK277,High
-TASK00283,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-D,Completed,,Medium
-TASK00284,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Completed,,Low
-TASK00285,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-A,In Progress,,Low
-TASK00286,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Completed,,Low
-TASK00287,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,Scheduled,,Medium
-TASK00288,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Completed,,High
-TASK00289,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,In Progress,,Medium
-TASK00290,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,In Progress,,Medium
-TASK00291,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,In Progress,,Low
-TASK00292,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Low
-TASK00293,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,In Progress,,Medium
-TASK00294,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Scheduled,,Medium
-TASK00295,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-D,Scheduled,,Medium
-TASK00296,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-C,Completed,,Low
-TASK00297,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,Medium
-TASK00298,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,In Progress,,High
-TASK00299,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,Scheduled,,Low
-TASK00300,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00301,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,In Progress,,Medium
-TASK00302,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00303,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-E,Scheduled,,Low
-TASK00304,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,High
+TASK00282,EQ0010,Excavator 10,Excavator,PM-Quarterly - Excavator 10,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK277,Medium
+TASK00283,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,In Progress,,High
+TASK00284,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00285,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00286,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00287,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00288,EQ0010,Excavator 10,Excavator,PM-Annual - Excavator 10,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-A,Completed,,Medium
+TASK00289,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,In Progress,,Medium
+TASK00290,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,In Progress,,High
+TASK00291,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00292,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Scheduled,,Medium
+TASK00293,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,Completed,,High
+TASK00294,EQ0010,Excavator 10,Excavator,Overhaul - Excavator 10,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,High
+TASK00295,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Low
+TASK00296,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00297,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-A,In Progress,,Low
+TASK00298,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
+TASK00299,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,Scheduled,,Medium
+TASK00300,EQ0010,Excavator 10,Excavator,Inspection - Excavator 10,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00301,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-B,Scheduled,,Medium
+TASK00302,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00303,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00304,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Completed,,High
 TASK00305,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-E,Scheduled,,Medium
-TASK00306,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,Scheduled,,High
-TASK00307,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-D,Scheduled,,Medium
-TASK00308,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-E,Scheduled,TASK303,Low
-TASK00309,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Completed,TASK304,High
-TASK00310,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Completed,TASK305,Low
-TASK00311,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Scheduled,TASK306,Medium
-TASK00312,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK307,Medium
-TASK00313,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,In Progress,,Medium
-TASK00314,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,In Progress,,Low
-TASK00315,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
-TASK00316,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00306,EQ0011,Bulldozer 11,Bulldozer,PM-Monthly - Bulldozer 11,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,Scheduled,,Medium
+TASK00307,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,Scheduled,,High
+TASK00308,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Completed,TASK303,Medium
+TASK00309,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Scheduled,TASK304,Low
+TASK00310,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Scheduled,TASK305,Medium
+TASK00311,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Completed,TASK306,Medium
+TASK00312,EQ0011,Bulldozer 11,Bulldozer,PM-Quarterly - Bulldozer 11,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-A,In Progress,TASK307,Low
+TASK00313,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,Completed,,Low
+TASK00314,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Completed,,Low
+TASK00315,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00316,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
 TASK00317,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Medium
-TASK00318,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Completed,,Medium
-TASK00319,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,In Progress,,Low
-TASK00320,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00321,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,High
-TASK00322,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00323,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,Completed,,Medium
-TASK00324,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,In Progress,,Medium
-TASK00325,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00326,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Completed,,Low
-TASK00327,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00328,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00329,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Completed,,Medium
-TASK00330,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,In Progress,,Medium
-TASK00331,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Completed,,Medium
-TASK00332,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00333,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Low
-TASK00334,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,Scheduled,,High
-TASK00335,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00336,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00337,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,Completed,,Low
-TASK00338,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,In Progress,TASK333,Low
-TASK00339,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Scheduled,TASK334,Low
-TASK00340,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,In Progress,TASK335,Low
-TASK00341,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,In Progress,TASK336,Medium
-TASK00342,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-A,Scheduled,TASK337,Low
-TASK00343,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
-TASK00344,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,In Progress,,Low
-TASK00345,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Completed,,Medium
-TASK00346,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
-TASK00347,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,In Progress,,Low
-TASK00348,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Scheduled,,Low
-TASK00349,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,Completed,,Medium
-TASK00350,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00351,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00352,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,Low
-TASK00353,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,Completed,,High
-TASK00354,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00355,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,High
-TASK00356,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,In Progress,,Medium
-TASK00357,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-A,Scheduled,,Low
-TASK00358,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00359,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Scheduled,,Low
-TASK00360,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Completed,,Medium
-TASK00361,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00362,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-C,Completed,,Medium
-TASK00363,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,In Progress,,High
-TASK00364,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-D,Scheduled,,High
-TASK00365,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00366,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,In Progress,,High
-TASK00367,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,In Progress,,Medium
-TASK00368,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,In Progress,TASK363,Medium
-TASK00369,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-C,Completed,TASK364,Medium
-TASK00370,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,In Progress,TASK365,Medium
-TASK00371,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-B,In Progress,TASK366,Medium
-TASK00372,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,In Progress,TASK367,Medium
-TASK00373,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Completed,,Low
-TASK00374,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,Scheduled,,Low
-TASK00375,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00318,EQ0011,Bulldozer 11,Bulldozer,PM-Annual - Bulldozer 11,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-C,Scheduled,,Low
+TASK00319,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,Completed,,Medium
+TASK00320,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-B,Scheduled,,Medium
+TASK00321,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,In Progress,,Medium
+TASK00322,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00323,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-D,In Progress,,Low
+TASK00324,EQ0011,Bulldozer 11,Bulldozer,Overhaul - Bulldozer 11,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Scheduled,,Medium
+TASK00325,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-D,In Progress,,High
+TASK00326,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-E,In Progress,,Medium
+TASK00327,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,Scheduled,,High
+TASK00328,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Scheduled,,High
+TASK00329,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,In Progress,,Medium
+TASK00330,EQ0011,Bulldozer 11,Bulldozer,Inspection - Bulldozer 11,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,Scheduled,,High
+TASK00331,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,Low
+TASK00332,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-A,Scheduled,,High
+TASK00333,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00334,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,In Progress,,High
+TASK00335,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Completed,,Medium
+TASK00336,EQ0012,Dump Truck 12,Dump Truck,PM-Monthly - Dump Truck 12,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Completed,,Medium
+TASK00337,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,Medium
+TASK00338,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-E,Scheduled,TASK333,Low
+TASK00339,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Scheduled,TASK334,Medium
+TASK00340,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Scheduled,TASK335,Medium
+TASK00341,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Completed,TASK336,Medium
+TASK00342,EQ0012,Dump Truck 12,Dump Truck,PM-Quarterly - Dump Truck 12,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-B,Completed,TASK337,Medium
+TASK00343,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00344,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,In Progress,,Medium
+TASK00345,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-C,Completed,,Low
+TASK00346,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-A,In Progress,,High
+TASK00347,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,Scheduled,,Low
+TASK00348,EQ0012,Dump Truck 12,Dump Truck,PM-Annual - Dump Truck 12,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00349,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,In Progress,,Low
+TASK00350,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-B,In Progress,,Low
+TASK00351,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,Scheduled,,Low
+TASK00352,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00353,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Scheduled,,Medium
+TASK00354,EQ0012,Dump Truck 12,Dump Truck,Overhaul - Dump Truck 12,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,In Progress,,Medium
+TASK00355,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-D,Scheduled,,Low
+TASK00356,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,In Progress,,High
+TASK00357,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Completed,,Medium
+TASK00358,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Completed,,Low
+TASK00359,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-D,Scheduled,,High
+TASK00360,EQ0012,Dump Truck 12,Dump Truck,Inspection - Dump Truck 12,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,In Progress,,Medium
+TASK00361,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,In Progress,,Medium
+TASK00362,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,In Progress,,High
+TASK00363,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Low
+TASK00364,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,Scheduled,,High
+TASK00365,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00366,EQ0013,Grader 13,Grader,PM-Monthly - Grader 13,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-E,Scheduled,,Low
+TASK00367,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,In Progress,,Medium
+TASK00368,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-E,In Progress,TASK363,Medium
+TASK00369,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK364,Medium
+TASK00370,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Scheduled,TASK365,Medium
+TASK00371,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,Scheduled,TASK366,High
+TASK00372,EQ0013,Grader 13,Grader,PM-Quarterly - Grader 13,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,In Progress,TASK367,Medium
+TASK00373,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00374,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
+TASK00375,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
 TASK00376,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,In Progress,,Medium
-TASK00377,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-B,In Progress,,Medium
-TASK00378,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,In Progress,,Low
-TASK00379,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,In Progress,,Low
-TASK00380,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-C,Completed,,Medium
-TASK00381,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,In Progress,,High
-TASK00382,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00383,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Completed,,Medium
-TASK00384,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00385,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-D,Scheduled,,High
-TASK00386,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00387,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,In Progress,,Medium
+TASK00377,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,In Progress,,Low
+TASK00378,EQ0013,Grader 13,Grader,PM-Annual - Grader 13,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Completed,,Low
+TASK00379,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Completed,,Medium
+TASK00380,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-C,In Progress,,Medium
+TASK00381,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-C,In Progress,,Medium
+TASK00382,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Completed,,High
+TASK00383,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Completed,,Low
+TASK00384,EQ0013,Grader 13,Grader,Overhaul - Grader 13,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Completed,,Medium
+TASK00385,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00386,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-E,Scheduled,,Low
+TASK00387,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-E,Scheduled,,Medium
 TASK00388,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Completed,,Medium
-TASK00389,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,In Progress,,Medium
-TASK00390,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-A,Scheduled,,Medium
-TASK00391,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00392,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,In Progress,,Medium
-TASK00393,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Scheduled,,Medium
-TASK00394,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,Scheduled,,Low
-TASK00395,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00396,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Scheduled,,Medium
-TASK00397,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,Low
-TASK00398,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Completed,TASK393,Medium
-TASK00399,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Completed,TASK394,Medium
-TASK00400,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-C,Scheduled,TASK395,Medium
-TASK00401,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-C,In Progress,TASK396,Medium
-TASK00402,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Scheduled,TASK397,Low
-TASK00403,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,In Progress,,High
-TASK00404,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Scheduled,,Low
-TASK00405,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-A,Scheduled,,Low
-TASK00406,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,In Progress,,Low
-TASK00407,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,In Progress,,High
-TASK00408,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Completed,,Medium
-TASK00409,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Scheduled,,Low
+TASK00389,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,Scheduled,,High
+TASK00390,EQ0013,Grader 13,Grader,Inspection - Grader 13,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-E,In Progress,,Medium
+TASK00391,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00392,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-C,Completed,,Medium
+TASK00393,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Medium
+TASK00394,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00395,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-D,Completed,,High
+TASK00396,EQ0014,Bulldozer 14,Bulldozer,PM-Monthly - Bulldozer 14,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-B,Scheduled,,High
+TASK00397,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-A,Scheduled,,Low
+TASK00398,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-E,Scheduled,TASK393,Medium
+TASK00399,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-A,Scheduled,TASK394,Low
+TASK00400,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Scheduled,TASK395,Medium
+TASK00401,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-D,Scheduled,TASK396,Low
+TASK00402,EQ0014,Bulldozer 14,Bulldozer,PM-Quarterly - Bulldozer 14,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,Completed,TASK397,Low
+TASK00403,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00404,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00405,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,High
+TASK00406,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00407,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,Completed,,Medium
+TASK00408,EQ0014,Bulldozer 14,Bulldozer,PM-Annual - Bulldozer 14,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,Completed,,Medium
+TASK00409,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-D,In Progress,,Low
 TASK00410,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00411,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-E,In Progress,,Low
-TASK00412,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00413,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00414,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-D,Scheduled,,Medium
-TASK00415,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-C,In Progress,,Medium
-TASK00416,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-E,Completed,,Low
-TASK00417,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,In Progress,,Medium
-TASK00418,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,In Progress,,Medium
-TASK00419,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00420,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00421,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Scheduled,,Low
-TASK00422,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Scheduled,,High
-TASK00423,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00424,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-B,Completed,,Low
-TASK00425,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Scheduled,,Medium
-TASK00426,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-C,In Progress,,High
+TASK00411,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-D,In Progress,,Low
+TASK00412,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,High
+TASK00413,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,Completed,,High
+TASK00414,EQ0014,Bulldozer 14,Bulldozer,Overhaul - Bulldozer 14,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-B,Completed,,Medium
+TASK00415,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,High
+TASK00416,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-C,Completed,,Medium
+TASK00417,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00418,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-A,Completed,,Low
+TASK00419,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-E,In Progress,,Low
+TASK00420,EQ0014,Bulldozer 14,Bulldozer,Inspection - Bulldozer 14,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-A,Scheduled,,Medium
+TASK00421,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-D,In Progress,,Medium
+TASK00422,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,In Progress,,Medium
+TASK00423,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-E,Scheduled,,Medium
+TASK00424,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,In Progress,,Medium
+TASK00425,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
+TASK00426,EQ0015,Bulldozer 15,Bulldozer,PM-Monthly - Bulldozer 15,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Completed,,High
 TASK00427,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,Medium
-TASK00428,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-A,Scheduled,TASK423,Low
-TASK00429,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Completed,TASK424,Low
-TASK00430,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-E,Scheduled,TASK425,Low
-TASK00431,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,Scheduled,TASK426,Medium
-TASK00432,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,Scheduled,TASK427,Medium
-TASK00433,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,In Progress,,Medium
-TASK00434,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
-TASK00435,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
-TASK00436,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,Scheduled,,High
-TASK00437,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,Scheduled,,Medium
-TASK00438,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Scheduled,,Medium
-TASK00439,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-E,In Progress,,Medium
-TASK00440,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00441,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-A,In Progress,,High
-TASK00442,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-E,Scheduled,,Low
-TASK00443,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,In Progress,,Medium
-TASK00444,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-E,Completed,,Medium
-TASK00445,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00446,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-C,Scheduled,,Low
-TASK00447,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,Medium
-TASK00448,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00449,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-B,Scheduled,,High
-TASK00450,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Completed,,Low
-TASK00451,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-B,In Progress,,Low
-TASK00452,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-B,In Progress,,Medium
-TASK00453,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-C,Completed,,Medium
-TASK00454,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-E,Scheduled,,High
-TASK00455,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-B,In Progress,,Medium
-TASK00456,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-A,Scheduled,,High
-TASK00457,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,In Progress,,Low
-TASK00458,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-B,Scheduled,TASK453,Medium
-TASK00459,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-B,In Progress,TASK454,Medium
-TASK00460,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-D,Scheduled,TASK455,Low
-TASK00461,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,Completed,TASK456,Medium
-TASK00462,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,In Progress,TASK457,Low
-TASK00463,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-E,In Progress,,Low
-TASK00464,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Completed,,High
-TASK00465,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,Scheduled,,Medium
-TASK00466,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-B,Completed,,Medium
-TASK00467,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-D,Scheduled,,Low
-TASK00468,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,In Progress,,Low
-TASK00469,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,Scheduled,,Medium
-TASK00470,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,In Progress,,Low
+TASK00428,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK423,Medium
+TASK00429,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,In Progress,TASK424,Low
+TASK00430,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,Scheduled,TASK425,Medium
+TASK00431,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,Completed,TASK426,Medium
+TASK00432,EQ0015,Bulldozer 15,Bulldozer,PM-Quarterly - Bulldozer 15,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Scheduled,TASK427,Medium
+TASK00433,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00434,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-E,Completed,,Medium
+TASK00435,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-D,In Progress,,Low
+TASK00436,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-B,Completed,,Medium
+TASK00437,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00438,EQ0015,Bulldozer 15,Bulldozer,PM-Annual - Bulldozer 15,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00439,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-C,Completed,,High
+TASK00440,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-D,Completed,,Medium
+TASK00441,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-B,In Progress,,Medium
+TASK00442,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-A,Scheduled,,High
+TASK00443,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-A,Scheduled,,Low
+TASK00444,EQ0015,Bulldozer 15,Bulldozer,Overhaul - Bulldozer 15,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Scheduled,,Medium
+TASK00445,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Completed,,Medium
+TASK00446,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-E,Scheduled,,Medium
+TASK00447,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-A,In Progress,,Low
+TASK00448,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Completed,,High
+TASK00449,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-C,Scheduled,,Low
+TASK00450,EQ0015,Bulldozer 15,Bulldozer,Inspection - Bulldozer 15,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-A,Scheduled,,Low
+TASK00451,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-A,Completed,,High
+TASK00452,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-D,Scheduled,,High
+TASK00453,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-A,Completed,,Medium
+TASK00454,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,In Progress,,Medium
+TASK00455,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-A,Completed,,High
+TASK00456,EQ0016,Dump Truck 16,Dump Truck,PM-Monthly - Dump Truck 16,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-D,Scheduled,,Low
+TASK00457,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,In Progress,,Medium
+TASK00458,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-D,Completed,TASK453,Medium
+TASK00459,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-D,Completed,TASK454,Low
+TASK00460,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-A,Scheduled,TASK455,Medium
+TASK00461,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,Completed,TASK456,Low
+TASK00462,EQ0016,Dump Truck 16,Dump Truck,PM-Quarterly - Dump Truck 16,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-E,Completed,TASK457,Medium
+TASK00463,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00464,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-A,Scheduled,,High
+TASK00465,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-B,In Progress,,Medium
+TASK00466,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,In Progress,,Medium
+TASK00467,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-A,Scheduled,,Medium
+TASK00468,EQ0016,Dump Truck 16,Dump Truck,PM-Annual - Dump Truck 16,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-D,Scheduled,,Medium
+TASK00469,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Scheduled,,High
+TASK00470,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-B,In Progress,,Medium
 TASK00471,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2028-12-31,2029-01-10 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00472,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-C,Scheduled,,Medium
-TASK00473,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-C,Completed,,Medium
-TASK00474,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-A,Completed,,High
-TASK00475,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-E,Scheduled,,Medium
-TASK00476,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Scheduled,,Low
-TASK00477,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-B,Scheduled,,High
-TASK00478,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-B,Scheduled,,Medium
+TASK00472,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2030-12-31,2031-01-10 00:00:00,10.0,Tech-D,In Progress,,Low
+TASK00473,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2032-12-30,2033-01-09 00:00:00,10.0,Tech-B,In Progress,,Low
+TASK00474,EQ0016,Dump Truck 16,Dump Truck,Overhaul - Dump Truck 16,Overhaul,2034-12-30,2035-01-09 00:00:00,10.0,Tech-D,Scheduled,,Medium
+TASK00475,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-01,2025-01-01 12:00:00,0.5,Tech-A,Completed,,Medium
+TASK00476,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-15,2025-01-15 12:00:00,0.5,Tech-D,Completed,,High
+TASK00477,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-01-29,2025-01-29 12:00:00,0.5,Tech-D,Scheduled,,Medium
+TASK00478,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-02-12,2025-02-12 12:00:00,0.5,Tech-C,In Progress,,High
 TASK00479,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-02-26,2025-02-26 12:00:00,0.5,Tech-A,In Progress,,Medium
-TASK00480,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,High
-TASK00481,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-E,Scheduled,,High
-TASK00482,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-C,In Progress,,Low
-TASK00483,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-A,In Progress,,Low
-TASK00484,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-A,Scheduled,,Medium
-TASK00485,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-D,Scheduled,,Medium
-TASK00486,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-C,Scheduled,,High
-TASK00487,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-E,Scheduled,,High
-TASK00488,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-C,Scheduled,TASK483,Medium
-TASK00489,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK484,Medium
-TASK00490,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,In Progress,TASK485,High
-TASK00491,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-E,In Progress,TASK486,Medium
-TASK00492,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-C,Scheduled,TASK487,Medium
-TASK00493,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-C,Completed,,Medium
-TASK00494,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-D,Scheduled,,High
-TASK00495,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-E,Scheduled,,Low
-TASK00496,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-D,Completed,,Medium
-TASK00497,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-C,Completed,,Medium
-TASK00498,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-B,Completed,,Medium
-TASK00499,EQ0017,Loader 17,Loader,Overhaul - Loader 17,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-B,Scheduled,,Medium
-TASK00500,EQ0017,Loader 17,Loader,Overhaul - Loader 17,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-C,Scheduled,,Medium
+TASK00480,EQ0016,Dump Truck 16,Dump Truck,Inspection - Dump Truck 16,Inspection,2025-03-12,2025-03-12 12:00:00,0.5,Tech-C,Scheduled,,Medium
+TASK00481,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-01-01,2025-01-02 00:00:00,1.0,Tech-B,In Progress,,High
+TASK00482,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-01-31,2025-02-01 00:00:00,1.0,Tech-E,Scheduled,,Medium
+TASK00483,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-03-02,2025-03-03 00:00:00,1.0,Tech-B,Scheduled,,Low
+TASK00484,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-04-01,2025-04-02 00:00:00,1.0,Tech-C,In Progress,,Medium
+TASK00485,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-05-01,2025-05-02 00:00:00,1.0,Tech-C,Scheduled,,Low
+TASK00486,EQ0017,Loader 17,Loader,PM-Monthly - Loader 17,PM-Monthly,2025-05-31,2025-06-01 00:00:00,1.0,Tech-C,Scheduled,,Medium
+TASK00487,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-01-01,2025-01-03 00:00:00,2.0,Tech-B,Scheduled,,Medium
+TASK00488,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-04-01,2025-04-03 00:00:00,2.0,Tech-E,Scheduled,TASK483,Medium
+TASK00489,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-06-30,2025-07-02 00:00:00,2.0,Tech-E,Scheduled,TASK484,High
+TASK00490,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-09-28,2025-09-30 00:00:00,2.0,Tech-B,Completed,TASK485,High
+TASK00491,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2025-12-27,2025-12-29 00:00:00,2.0,Tech-A,Completed,TASK486,Medium
+TASK00492,EQ0017,Loader 17,Loader,PM-Quarterly - Loader 17,PM-Quarterly,2026-03-27,2026-03-29 00:00:00,2.0,Tech-D,Scheduled,TASK487,Medium
+TASK00493,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2025-01-01,2025-01-06 00:00:00,5.0,Tech-B,Scheduled,,Medium
+TASK00494,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2026-01-01,2026-01-06 00:00:00,5.0,Tech-C,Scheduled,,Medium
+TASK00495,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2027-01-01,2027-01-06 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00496,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2028-01-01,2028-01-06 00:00:00,5.0,Tech-C,In Progress,,Medium
+TASK00497,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2028-12-31,2029-01-05 00:00:00,5.0,Tech-E,In Progress,,Medium
+TASK00498,EQ0017,Loader 17,Loader,PM-Annual - Loader 17,PM-Annual,2029-12-31,2030-01-05 00:00:00,5.0,Tech-E,Scheduled,,Medium
+TASK00499,EQ0017,Loader 17,Loader,Overhaul - Loader 17,Overhaul,2025-01-01,2025-01-11 00:00:00,10.0,Tech-A,In Progress,,Medium
+TASK00500,EQ0017,Loader 17,Loader,Overhaul - Loader 17,Overhaul,2027-01-01,2027-01-11 00:00:00,10.0,Tech-A,Scheduled,,Low
